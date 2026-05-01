@@ -25,7 +25,9 @@ function initNavbarScroll() {
   const navbar = document.querySelector('.navbar');
   if (!navbar) return;
   const sentinel = document.createElement('div');
-  sentinel.style.cssText = 'position:absolute;top:64px;left:0;height:1px;width:1px;';
+  // 64px matches .navbar height — keep in sync with CSS
+  sentinel.style.cssText = 'position:absolute;top:64px;left:0;height:1px;width:1px;pointer-events:none;';
+  sentinel.setAttribute('aria-hidden', 'true');
   document.body.prepend(sentinel);
   const obs = new IntersectionObserver(
     ([entry]) => navbar.classList.toggle('scrolled', !entry.isIntersecting),
@@ -38,8 +40,10 @@ function initFAQ() {
   document.querySelectorAll('.faq__question').forEach((q) => {
     q.addEventListener('click', () => {
       const item = q.closest('.faq__item');
+      const faqContainer = q.closest('.faq');
+      if (!item || !faqContainer) return;
       const isOpen = item.classList.contains('open');
-      q.closest('.faq').querySelectorAll('.faq__item.open').forEach((i) => i.classList.remove('open'));
+      faqContainer.querySelectorAll('.faq__item.open').forEach((i) => i.classList.remove('open'));
       if (!isOpen) item.classList.add('open');
     });
   });
