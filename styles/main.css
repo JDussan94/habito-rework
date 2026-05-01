@@ -31,6 +31,8 @@ button { cursor: pointer; }
 
   --radius-card: 6px;
   --radius-btn:  3px;
+  --red-hover:  #b82424;   /* darkened --red for hover states */
+  --navy-hover: #2d3244;   /* darkened --navy for hover states */
 
   --section-pad-v: 52px;
   --section-pad-h: 40px;
@@ -98,7 +100,7 @@ body {
   text-transform: uppercase;
   transition: background 0.2s !important;
 }
-.navbar__cta:hover { background: #b82424 !important; }
+.navbar__cta:hover { background: var(--red-hover) !important; }
 
 .navbar__icons {
   display: flex;
@@ -195,7 +197,7 @@ body {
   padding: 13px 28px;
   font-size: 12px;
 }
-.btn--primary:hover { background: #b82424; }
+.btn--primary:hover { background: var(--red-hover); }
 
 .btn--white {
   background: var(--white);
@@ -214,7 +216,7 @@ body {
   text-align: center;
   display: block;
 }
-.btn--dark:hover { background: #2d3244; }
+.btn--dark:hover { background: var(--navy-hover); }
 
 .btn--ghost {
   color: rgba(255,255,255,0.8);
@@ -222,7 +224,7 @@ body {
   border-bottom: 1px solid rgba(255,255,255,0.4);
   padding-bottom: 2px;
   border-radius: 0;
-  transition: color 0.2s, border-color 0.2s;
+  transition: color 0.2s, border-color 0.2s, transform 0.15s;
 }
 .btn--ghost:hover { color: var(--white); border-color: var(--white); }
 
@@ -464,6 +466,6 @@ body {
   line-height: 1.7;
 }
 .faq__item.open .faq__answer {
-  max-height: 200px;
+  max-height: 600px;
   padding-bottom: 18px;
 }
