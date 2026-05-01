@@ -353,3 +353,117 @@ body {
 .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap-grid); }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-grid); }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+
+/* =============================================
+   KEYFRAMES
+   ============================================= */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* =============================================
+   SCROLL REVEAL
+   ============================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-stagger > *:nth-child(1) { transition-delay: 0s; }
+.reveal-stagger > *:nth-child(2) { transition-delay: 0.08s; }
+.reveal-stagger > *:nth-child(3) { transition-delay: 0.16s; }
+.reveal-stagger > *:nth-child(4) { transition-delay: 0.24s; }
+.reveal-stagger > *:nth-child(5) { transition-delay: 0.32s; }
+.reveal-stagger > *:nth-child(6) { transition-delay: 0.40s; }
+
+/* =============================================
+   MARQUEE
+   ============================================= */
+.marquee {
+  overflow: hidden;
+  background: var(--navy);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 14px 0;
+}
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+.marquee__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 32px;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.marquee__item::after {
+  content: '·';
+  color: var(--red);
+  font-size: 16px;
+}
+
+/* =============================================
+   FAQ ACCORDION
+   ============================================= */
+.faq__item {
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.faq__question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text);
+  user-select: none;
+}
+.faq__question::after {
+  content: '+';
+  color: var(--red);
+  font-size: 20px;
+  font-weight: 400;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+.faq__item.open .faq__question::after {
+  transform: rotate(45deg);
+}
+.faq__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.7;
+}
+.faq__item.open .faq__answer {
+  max-height: 200px;
+  padding-bottom: 18px;
+}
