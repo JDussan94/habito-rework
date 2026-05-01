@@ -9,17 +9,22 @@
 img { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
+button, input, select, textarea { font: inherit; background: none; border: none; }
+button { cursor: pointer; }
 
 /* --- CSS Variables --- */
 :root {
+  /* Structural */
   --navy:   #1C1F29;
   --red:    #D42F2F;
   --white:  #FFFFFF;
   --gray:   #F7F7F7;
   --border: #EBEBEB;
-  --text:   #1C1F29;
-  --text-2: #666666;
-  --text-3: #888888;
+
+  /* Semantic aliases — intentionally match --navy at launch */
+  --text:   #1C1F29;   /* body text */
+  --text-2: #666666;   /* secondary text */
+  --text-3: #888888;   /* tertiary / muted */
 
   --font-display: 'Plus Jakarta Sans', sans-serif;
   --font-body:    'Inter', sans-serif;
@@ -27,7 +32,8 @@ ul { list-style: none; }
   --radius-card: 6px;
   --radius-btn:  3px;
 
-  --section-pad: 52px 40px;
+  --section-pad-v: 52px;
+  --section-pad-h: 40px;
   --max-w: 1200px;
   --gap-grid: 16px;
 }
@@ -38,5 +44,6 @@ body {
   font-family: var(--font-body);
   color: var(--text);
   background: var(--white);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
