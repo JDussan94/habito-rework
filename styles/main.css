@@ -47,3 +47,129 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
+
+/* =============================================
+   NAVBAR
+   ============================================= */
+.navbar {
+  background: var(--navy);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  transition: box-shadow 0.3s ease;
+}
+.navbar.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.35); }
+
+.navbar__logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--white);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.navbar__links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+.navbar__links a {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.navbar__links a:hover { color: var(--white); }
+
+.navbar__cta {
+  background: var(--red);
+  color: var(--white) !important;
+  padding: 8px 18px;
+  border-radius: var(--radius-btn);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background 0.2s !important;
+}
+.navbar__cta:hover { background: #b82424 !important; }
+
+.navbar__icons {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+.navbar__icons a {
+  color: rgba(255,255,255,0.65);
+  font-size: 15px;
+  transition: color 0.2s;
+}
+.navbar__icons a:hover { color: var(--white); }
+
+/* =============================================
+   FOOTER
+   ============================================= */
+.footer {
+  background: var(--navy);
+  padding: 48px 40px 24px;
+}
+.footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 32px;
+}
+.footer__brand-logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--white);
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+.footer__brand-tag {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.6;
+  max-width: 200px;
+}
+.footer__col-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.footer__col a {
+  display: block;
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 9px;
+  transition: color 0.2s;
+}
+.footer__col a:hover { color: var(--white); }
+.footer__divider {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 18px;
+}
+.footer__disclaimer {
+  font-size: 10px;
+  color: rgba(255,255,255,0.25);
+  line-height: 1.7;
+  margin-bottom: 14px;
+  max-width: 720px;
+}
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__copy { font-size: 11px; color: rgba(255,255,255,0.3); }
