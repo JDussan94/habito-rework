@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habito — Choose Better. Live Greater.</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <style>
+.hero { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 72px 40px; }
+.hero__headline { font-family: var(--font-display); font-weight: 800; font-size: 48px; color: var(--white); line-height: 1.05; margin-bottom: 16px; }
+.hero__sub { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 32px; line-height: 1.7; }
+.hero__btns { display: flex; gap: 16px; align-items: center; }
+.hero__images { display: flex; gap: 12px; justify-content: center; align-items: flex-end; }
+.hero__img-box { width: 100px; height: 150px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; }
+.hero__img-box--tall { height: 180px; }
+.value-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 24px; }
+.value-card__dot { width: 8px; height: 8px; background: var(--red); border-radius: 50%; margin-bottom: 14px; }
+.value-card__title { font-family: var(--font-display); font-weight: 700; font-size: 15px; color: var(--white); margin-bottom: 8px; }
+.value-card__text { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar__logo">Habito</a>
+    <div class="navbar__links">
+      <a href="all-products.html">Shop ▾</a>
+      <a href="join.html">Join</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="join.html" class="navbar__cta">Join Now</a>
+    </div>
+    <div class="navbar__icons">
+      <a href="#">🔍</a>
+      <a href="#">👤</a>
+      <a href="#">🛒</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="section section--navy hero">
+    <div class="hero__text reveal">
+      <p class="section__eyebrow">Clean Supplements · No Gimmicks</p>
+      <h1 class="hero__headline">Choose Better.<br>Live Greater.</h1>
+      <p class="hero__sub">Clean Ingredients · Pure Performance · Real Results · No Gimmicks</p>
+      <div class="hero__btns">
+        <a href="all-products.html" class="btn btn--primary">Make the Change Today</a>
+        <a href="join.html" class="btn btn--ghost">Join &amp; Save</a>
+      </div>
+    </div>
+    <div class="hero__images reveal" style="transition-delay:0.15s">
+      <div class="hero__img-box"></div>
+      <div class="hero__img-box hero__img-box--tall"></div>
+      <div class="hero__img-box"></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee__track">
+      <!-- duplicated list for seamless loop -->
+      <span class="marquee__item">Steady Endurance</span>
+      <span class="marquee__item">Muscle Support</span>
+      <span class="marquee__item">Lean Strength</span>
+      <span class="marquee__item">Faster Recovery</span>
+      <span class="marquee__item">Core Stability</span>
+      <span class="marquee__item">Deep Nourishment</span>
+      <span class="marquee__item">Sustained Output</span>
+      <span class="marquee__item">Peak Performance</span>
+      <span class="marquee__item">Daily Resilience</span>
+      <span class="marquee__item">Natural Vitality</span>
+      <span class="marquee__item">Increased Muscle Power</span>
+      <span class="marquee__item">Boost Strength Output</span>
+      <span class="marquee__item">Enhance Muscle Density</span>
+      <!-- duplicate -->
+      <span class="marquee__item">Steady Endurance</span>
+      <span class="marquee__item">Muscle Support</span>
+      <span class="marquee__item">Lean Strength</span>
+      <span class="marquee__item">Faster Recovery</span>
+      <span class="marquee__item">Core Stability</span>
+      <span class="marquee__item">Deep Nourishment</span>
+      <span class="marquee__item">Sustained Output</span>
+      <span class="marquee__item">Peak Performance</span>
+      <span class="marquee__item">Daily Resilience</span>
+      <span class="marquee__item">Natural Vitality</span>
+      <span class="marquee__item">Increased Muscle Power</span>
+      <span class="marquee__item">Boost Strength Output</span>
+      <span class="marquee__item">Enhance Muscle Density</span>
+    </div>
+  </div>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="section section--white">
+    <div class="section__header reveal">
+      <h2 class="section__title">Featured Products</h2>
+      <a href="all-products.html" class="section__link">View All →</a>
+    </div>
+    <div class="grid-4 reveal-stagger">
+      <div class="product-card reveal">
+        <div class="product-card__img"><div class="product-card__img-inner"></div><span class="product-card__badge">Best Seller</span></div>
+        <div class="product-card__body">
+          <div class="product-card__cat">Capsules</div>
+          <div class="product-card__name">Blood Sugar Support</div>
+          <div class="product-card__price-row"><span class="product-card__price">$34.99</span><span class="product-card__price-member">$27.99 members</span></div>
+          <a href="product.html" class="btn btn--dark">Add to Cart</a>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-card__img"><div class="product-card__img-inner"></div></div>
+        <div class="product-card__body">
+          <div class="product-card__cat">Powder</div>
+          <div class="product-card__name">Pre-Workout Sour Apple</div>
+          <div class="product-card__price-row"><span class="product-card__price">$44.99</span><span class="product-card__price-member">$35.99 members</span></div>
+          <a href="product.html" class="btn btn--dark">Add to Cart</a>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-card__img"><div class="product-card__img-inner"></div></div>
+        <div class="product-card__body">
+          <div class="product-card__cat">Gummies</div>
+          <div class="product-card__name">Creatine (Tropical Punch)</div>
+          <div class="product-card__price-row"><span class="product-card__price">$29.99</span><span class="product-card__price-member">$23.99 members</span></div>
+          <a href="product.html" class="btn btn--dark">Add to Cart</a>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-card__img"><div class="product-card__img-inner"></div></div>
+        <div class="product-card__body">
+          <div class="product-card__cat">Liquid</div>
+          <div class="product-card__name">Trace Minerals+ Fulvic Acid</div>
+          <div class="product-card__price-row"><span class="product-card__price">$39.99</span><span class="product-card__price-member">$31.99 members</span></div>
+          <a href="product.html" class="btn btn--dark">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE PROP -->
+  <section class="section section--navy">
+    <div style="text-align:center;margin-bottom:36px;" class="reveal">
+      <p class="section__eyebrow">Why Habito</p>
+      <h2 class="section__title section__title--white">More value. No gimmicks.</h2>
+      <p style="font-size:13px;color:rgba(255,255,255,0.45);margin-top:8px;font-style:italic;">"You pay for the product, not the marketing."</p>
+    </div>
+    <div class="grid-3 reveal-stagger">
+      <div class="value-card reveal">
+        <div class="value-card__dot"></div>
+        <h3 class="value-card__title">Premium Clean Ingredients</h3>
+        <p class="value-card__text">No fillers, no proprietary blends. Every label shows exactly what's inside.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-card__dot"></div>
+        <h3 class="value-card__title">Effective, Proven Results</h3>
+        <p class="value-card__text">Clinically-studied ingredients dosed to make a real difference in your daily wellness.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-card__dot"></div>
+        <h3 class="value-card__title">Community Support</h3>
+        <p class="value-card__text">Member pricing, free shipping, and priority access — because loyal customers deserve more.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN CTA -->
+  <section class="section section--red" style="text-align:center;">
+    <div class="reveal">
+      <p class="section__eyebrow section__eyebrow--muted">Limited Offer</p>
+      <h2 class="section__title section__title--white">Sign up today.<br>Receive exclusive early-supporter gear.</h2>
+      <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin:20px 0 8px;">
+        <span style="font-size:18px;color:rgba(255,255,255,0.4);text-decoration:line-through;">$150</span>
+        <span style="font-family:var(--font-display);font-weight:800;font-size:52px;color:var(--white);">$75</span>
+      </div>
+      <p style="font-size:11px;color:rgba(255,255,255,0.55);margin-bottom:28px;">One-time payment · Products + exclusive T-shirt + shaker bottle</p>
+      <a href="join.html" class="btn btn--white">Join Now →</a>
+      <div style="display:flex;gap:28px;justify-content:center;margin-top:28px;flex-wrap:wrap;">
+        <span style="font-size:11px;color:rgba(255,255,255,0.75);">✓ Best Habito products</span>
+        <span style="font-size:11px;color:rgba(255,255,255,0.75);">✓ Exclusive T-shirt</span>
+        <span style="font-size:11px;color:rgba(255,255,255,0.75);">✓ Shaker bottle</span>
+        <span style="font-size:11px;color:rgba(255,255,255,0.75);">✓ Free shipping always</span>
+        <span style="font-size:11px;color:rgba(255,255,255,0.75);">✓ Member pricing forever</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--white">
+    <div style="max-width:680px;margin:0 auto;">
+      <div class="reveal" style="margin-bottom:32px;">
+        <p class="section__eyebrow">FAQ</p>
+        <h2 class="section__title">Got questions? We've got answers.</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq__item open">
+          <div class="faq__question">How is Habito different?</div>
+          <div class="faq__answer">We focus on premium, clean ingredients and effective, proven results — not marketing spend or celebrity endorsements. You pay for the product, not the packaging.</div>
+        </div>
+        <div class="faq__item">
+          <div class="faq__question">Who are your products for?</div>
+          <div class="faq__answer">Anyone seeking daily wellness improvements across varied health goals — from endurance and strength to blood sugar support and recovery.</div>
+        </div>
+        <div class="faq__item">
+          <div class="faq__question">How should I choose the right product for me?</div>
+          <div class="faq__answer">Match your personal wellness goals to specific product benefits. We offer capsules, gummies, liquid, and powder formats to fit any routine.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-logo">Habito</div>
+        <div class="footer__brand-tag">Choose Better. Live Greater.</div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Shop</div>
+        <a href="all-products.html?cat=capsules">Capsules</a>
+        <a href="all-products.html?cat=gummies">Gummies</a>
+        <a href="all-products.html?cat=liquid">Liquid</a>
+        <a href="all-products.html?cat=powder">Powder</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Company</div>
+        <a href="about.html">About</a>
+        <a href="join.html">Join</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Legal</div>
+        <a href="#">Terms of Use</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Return Policy</a>
+      </div>
+    </div>
+    <hr class="footer__divider">
+    <p class="footer__disclaimer">These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease.</p>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2026 Habito, LLC. All rights reserved.</span>
+      <span class="footer__copy">1996 E 2540 S, Saint George, UT 84790</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
