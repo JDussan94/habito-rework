@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Habito — We're Here to Help</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <style>
+.contact-hero { background: var(--navy); padding: 56px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.contact-hero__title { font-family: var(--font-display); font-weight: 800; font-size: 36px; color: var(--white); line-height: 1.15; margin-bottom: 14px; }
+.contact-hero__sub { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+.info-cards { display: flex; flex-direction: column; gap: 12px; }
+.info-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 18px 20px; display: flex; gap: 14px; align-items: flex-start; }
+.info-icon { font-size: 20px; flex-shrink: 0; }
+.info-label { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+.info-value { font-size: 13px; color: var(--white); font-weight: 500; line-height: 1.5; }
+.contact-body { background: var(--white); padding: 56px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; }
+.contact-form__title { font-family: var(--font-display); font-weight: 800; font-size: 22px; color: var(--text); margin-bottom: 6px; }
+.contact-form__sub { font-size: 12px; color: var(--text-3); margin-bottom: 28px; }
+.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+.form-group { margin-bottom: 14px; }
+.form-label { display: block; font-size: 10px; font-weight: 700; color: var(--text); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+.form-input, .form-select, .form-textarea { width: 100%; border: 1.5px solid var(--border); border-radius: 4px; padding: 12px 14px; font-size: 13px; color: var(--text); background: #FAFAFA; font-family: var(--font-body); transition: border-color 0.2s, background 0.2s; }
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--navy); background: var(--white); outline: none; }
+.form-textarea { height: 120px; resize: none; }
+.form-note { font-size: 10px; color: var(--text-3); margin-top: 10px; }
+.faq-sidebar__title { font-family: var(--font-display); font-weight: 800; font-size: 22px; color: var(--text); margin-bottom: 6px; }
+.faq-sidebar__sub { font-size: 12px; color: var(--text-3); margin-bottom: 24px; }
+.map-strip { background: var(--gray); border-top: 1px solid var(--border); height: 180px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; }
+.map-strip__pin { font-size: 28px; }
+.map-strip__address { font-size: 13px; font-weight: 600; color: var(--text); }
+.map-strip__note { font-size: 11px; color: var(--text-3); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar__logo">Habito</a>
+    <div class="navbar__links">
+      <a href="all-products.html">Shop ▾</a>
+      <a href="join.html">Join</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="join.html" class="navbar__cta">Join Now</a>
+    </div>
+    <div class="navbar__icons">
+      <a href="#">🔍</a>
+      <a href="#">👤</a>
+      <a href="#">🛒</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="contact-hero">
+    <div class="reveal">
+      <p class="section__eyebrow">Get in Touch</p>
+      <h1 class="contact-hero__title">We're here to help.</h1>
+      <p class="contact-hero__sub">Have a question about your order, membership, or products? Reach out and we'll get back to you as soon as possible.</p>
+    </div>
+    <div class="info-cards reveal" style="transition-delay:0.12s">
+      <div class="info-card"><div class="info-icon">📍</div><div><div class="info-label">Location</div><div class="info-value">1996 E 2540 S<br>Saint George, UT 84790</div></div></div>
+      <div class="info-card"><div class="info-icon">✉️</div><div><div class="info-label">Email</div><div class="info-value">hello@habitolife.com</div></div></div>
+      <div class="info-card"><div class="info-icon">🕐</div><div><div class="info-label">Response Time</div><div class="info-value">We typically reply within 1–2 business days.</div></div></div>
+    </div>
+  </section>
+
+  <!-- FORM + FAQ -->
+  <div class="contact-body">
+    <!-- FORM -->
+    <div class="reveal">
+      <div class="contact-form__title">Send us a message</div>
+      <div class="contact-form__sub">Fill out the form and we'll get back to you shortly.</div>
+      <div class="form-row-2">
+        <div><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="First name"></div>
+        <div><label class="form-label">Last Name</label><input class="form-input" type="text" placeholder="Last name"></div>
+      </div>
+      <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="your@email.com"></div>
+      <div class="form-group"><label class="form-label">Topic</label><select class="form-select"><option value="">Select a topic</option><option>Order Issue</option><option>Membership</option><option>Product Question</option><option>Shipping</option><option>Returns</option><option>Other</option></select></div>
+      <div class="form-group"><label class="form-label">Order Number (optional)</label><input class="form-input" type="text" placeholder="#HAB-00000"></div>
+      <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" placeholder="Write your message here..."></textarea></div>
+      <a href="#" class="btn btn--primary" style="width:100%;text-align:center;display:block;padding:14px;">Send Message</a>
+      <p class="form-note">We'll never share your information with third parties.</p>
+    </div>
+
+    <!-- FAQ -->
+    <div class="reveal" style="transition-delay:0.1s">
+      <div class="faq-sidebar__title">Got questions?</div>
+      <div class="faq-sidebar__sub">We've got answers.</div>
+      <div class="faq">
+        <div class="faq__item open"><div class="faq__question">How is Habito different?</div><div class="faq__answer">We focus on premium, clean ingredients and effective, proven results — not marketing spend or celebrity endorsements. You pay for the product, not the packaging.</div></div>
+        <div class="faq__item"><div class="faq__question">Who are your products for?</div><div class="faq__answer">Anyone seeking daily wellness improvements across varied health goals — from endurance and strength to blood sugar support and recovery.</div></div>
+        <div class="faq__item"><div class="faq__question">How should I choose the right product for me?</div><div class="faq__answer">Match your personal wellness goals to specific product benefits. We offer capsules, gummies, liquid, and powder formats to fit any routine.</div></div>
+        <div class="faq__item"><div class="faq__question">What's included in the membership offer?</div><div class="faq__answer">A collection of our best products, an exclusive early-supporter T-shirt and shaker bottle — over $150 in value for just $75. One-time payment, no recurring fees.</div></div>
+        <div class="faq__item"><div class="faq__question">Where do you ship?</div><div class="faq__answer">We ship to Colombia and the United States. Members always receive free shipping on every order.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAP -->
+  <div class="map-strip">
+    <div class="map-strip__pin">📍</div>
+    <div class="map-strip__address">1996 E 2540 S, Saint George, UT 84790</div>
+    <div class="map-strip__note">Embed Google Maps in Webflow via the Map element</div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-logo">Habito</div>
+        <div class="footer__brand-tag">Choose Better. Live Greater.</div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Shop</div>
+        <a href="all-products.html?cat=capsules">Capsules</a>
+        <a href="all-products.html?cat=gummies">Gummies</a>
+        <a href="all-products.html?cat=liquid">Liquid</a>
+        <a href="all-products.html?cat=powder">Powder</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Company</div>
+        <a href="about.html">About</a>
+        <a href="join.html">Join</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Legal</div>
+        <a href="#">Terms of Use</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Return Policy</a>
+      </div>
+    </div>
+    <hr class="footer__divider">
+    <p class="footer__disclaimer">These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease.</p>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2026 Habito, LLC. All rights reserved.</span>
+      <span class="footer__copy">1996 E 2540 S, Saint George, UT 84790</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
