@@ -5,182 +5,253 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blood Sugar Support — Habito</title>
   <link rel="stylesheet" href="styles/main.css">
-  <style>
-.breadcrumb { background: var(--gray); border-bottom: 1px solid var(--border); padding: 10px max(var(--section-pad-h), calc((100% - var(--max-w)) / 2)); display: flex; gap: 8px; font-size: 11px; color: var(--text-3); }
-.breadcrumb a { color: var(--text-3); transition: color 0.2s; }
-.breadcrumb a:hover { color: var(--text); }
-.breadcrumb__sep { color: #CCC; }
-.breadcrumb__current { color: var(--text); font-weight: 600; }
-.product-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; padding: 48px max(var(--section-pad-h), calc((100% - var(--max-w)) / 2)); background: var(--white); }
-.gallery__main { background: #F2F2F2; border-radius: 8px; height: 340px; overflow: hidden; margin-bottom: 12px; }
-.gallery__main img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.gallery__main-inner { width: 100px; height: 160px; background: linear-gradient(90deg,#ddd 25%,#e8e8e8 50%,#ddd 75%); background-size:200% 100%; border-radius: 6px; animation: shimmer 1.5s infinite; }
-.gallery__thumbs { display: flex; gap: 8px; }
-.gallery__thumb { width: 68px; height: 68px; background: #EBEBEB; border-radius: 6px; border: 2px solid transparent; cursor: pointer; transition: border-color 0.2s; overflow: hidden; }
-.gallery__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.gallery__thumb.active { border-color: var(--navy); }
-.gallery__thumb:hover { border-color: var(--text-3); }
-.prod-cat { font-size: 10px; font-weight: 700; color: var(--red); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
-.prod-name { font-family: var(--font-display); font-weight: 800; font-size: 30px; color: var(--text); line-height: 1.15; margin-bottom: 14px; }
-.prod-rating { display: flex; align-items: center; gap: 8px; margin-bottom: 18px; }
-.prod-stars { color: var(--red); font-size: 14px; }
-.prod-rating-count { font-size: 12px; color: var(--text-3); }
-.prod-price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; }
-.prod-price { font-family: var(--font-display); font-weight: 800; font-size: 30px; }
-.prod-price-member { font-size: 12px; color: var(--text-3); }
-.prod-member-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--navy); color: var(--white); font-size: 10px; font-weight: 600; letter-spacing: 1px; padding: 5px 12px; border-radius: var(--radius-btn); margin-bottom: 22px; }
-.prod-member-badge span { color: var(--red); }
-.prod-divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
-.prod-option-label { font-size: 10px; font-weight: 700; color: var(--text); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
-.format-btns { display: flex; gap: 10px; margin-bottom: 22px; }
-.format-btn { padding: 9px 18px; border: 1.5px solid var(--border); border-radius: 4px; font-size: 12px; font-weight: 600; color: var(--text); cursor: pointer; transition: all 0.2s; }
-.format-btn:hover { border-color: var(--navy); }
-.format-btn.active { border-color: var(--navy); background: var(--navy); color: var(--white); }
-.qty-row { display: flex; gap: 12px; align-items: center; margin-bottom: 18px; }
-.qty-control { display: flex; align-items: center; border: 1.5px solid var(--border); border-radius: 4px; }
-.qty-btn { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--text); cursor: pointer; user-select: none; }
-.qty-val { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; border-left: 1.5px solid var(--border); border-right: 1.5px solid var(--border); }
-.add-btn { flex: 1; background: var(--red); color: var(--white); height: 38px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; }
-.add-btn:hover { background: var(--red-hover); }
-.trust-row { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 20px; }
-.trust-item { display: flex; align-items: center; gap: 7px; font-size: 11px; color: var(--text-2); }
-.prod-desc-label { font-size: 10px; font-weight: 700; color: var(--text); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
-.prod-desc-text { font-size: 13px; color: var(--text-2); line-height: 1.75; }
-.ingredients-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
-.ing-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 18px; }
-.ing-name { font-family: var(--font-display); font-weight: 700; font-size: 13px; margin-bottom: 4px; }
-.ing-amount { font-size: 11px; color: var(--red); font-weight: 600; margin-bottom: 7px; }
-.ing-desc { font-size: 11px; color: var(--text-3); line-height: 1.6; }
-  </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <a href="index.html" class="navbar__logo">Habito</a>
-    <div class="navbar__links">
-      <a href="all-products.html">Shop ▾</a>
-      <a href="join.html">Join</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="join.html" class="navbar__cta">Join Now</a>
-    </div>
-    <div class="navbar__icons">
-      <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></a>
-      <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
-      <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></a>
-    </div>
-  </nav>
-
-  <!-- BREADCRUMB -->
-  <div class="breadcrumb">
-    <a href="index.html">Home</a><span class="breadcrumb__sep">/</span>
-    <a href="all-products.html">Shop</a><span class="breadcrumb__sep">/</span>
-    <a href="all-products.html?cat=capsules">Capsules</a><span class="breadcrumb__sep">/</span>
-    <span class="breadcrumb__current">Blood Sugar Support</span>
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="navbar__logo">Habito</a>
+  <div class="navbar__links">
+    <a href="all-products.html">Shop ▾</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="join.html" class="btn btn--primary navbar__cta">Join Now</a>
   </div>
+  <div class="navbar__icons">
+    <a href="#" aria-label="Search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </a>
+    <a href="#" aria-label="Account">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </a>
+    <a href="#" aria-label="Cart">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+    </a>
+  </div>
+</nav>
 
-  <!-- PRODUCT DETAIL -->
-  <div class="product-detail">
-    <!-- Gallery -->
-    <div class="reveal">
-      <div class="gallery__main"><img src="https://picsum.photos/seed/habito-gal0/340/340" alt="Blood Sugar Support"></div>
-      <div class="gallery__thumbs">
-        <div class="gallery__thumb active"><img src="https://picsum.photos/seed/habito-gal0/68/68" alt=""></div>
-        <div class="gallery__thumb"><img src="https://picsum.photos/seed/habito-gal1/68/68" alt=""></div>
-        <div class="gallery__thumb"><img src="https://picsum.photos/seed/habito-gal2/68/68" alt=""></div>
-        <div class="gallery__thumb"><img src="https://picsum.photos/seed/habito-gal3/68/68" alt=""></div>
-      </div>
-    </div>
-    <!-- Info -->
-    <div class="reveal" style="transition-delay:0.1s">
-      <div class="prod-cat">Capsules</div>
-      <div class="prod-name">Blood Sugar Support</div>
-      <div class="prod-rating"><span class="prod-stars">★★★★★</span><span class="prod-rating-count">4.9 · 124 reviews</span></div>
-      <div class="prod-price-row"><span class="prod-price">$34.99</span><span class="prod-price-member">or $27.99 for members</span></div>
-      <div class="prod-member-badge">🔒 Save <span>20%</span> with membership</div>
-      <hr class="prod-divider">
-      <div class="prod-option-label">Format</div>
-      <div class="format-btns">
-        <div class="format-btn active">60 Capsules</div>
-        <div class="format-btn">120 Capsules</div>
-      </div>
-      <div class="qty-row">
-        <div class="qty-control">
-          <div class="qty-btn">−</div><div class="qty-val">1</div><div class="qty-btn">+</div>
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="container">
+    <ol class="breadcrumb__list">
+      <li class="breadcrumb__item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb__sep">›</li>
+      <li class="breadcrumb__item"><a href="all-products.html">Shop</a></li>
+      <li class="breadcrumb__sep">›</li>
+      <li class="breadcrumb__item"><a href="all-products.html">Capsules</a></li>
+      <li class="breadcrumb__sep">›</li>
+      <li class="breadcrumb__item breadcrumb__item--active">Blood Sugar Support</li>
+    </ol>
+  </div>
+</div>
+
+<!-- PRODUCT DETAIL -->
+<section class="section section--base">
+  <div class="container">
+    <div class="product-detail__grid gsap-reveal">
+      <!-- LEFT: Images -->
+      <div class="product-detail__media">
+        <div class="product-detail__main-image">
+          <img src="https://picsum.photos/seed/habito-detail/160/240" alt="Blood Sugar Support">
         </div>
-        <div class="add-btn">Add to Cart</div>
+        <div class="product-detail__thumbnails">
+          <div class="product-detail__thumb active">
+            <img src="https://picsum.photos/seed/habito-detail/64/64" alt="">
+          </div>
+          <div class="product-detail__thumb">
+            <img src="https://picsum.photos/seed/habito-detail-2/64/64" alt="">
+          </div>
+          <div class="product-detail__thumb">
+            <img src="https://picsum.photos/seed/habito-detail-3/64/64" alt="">
+          </div>
+          <div class="product-detail__thumb">
+            <img src="https://picsum.photos/seed/habito-detail-4/64/64" alt="">
+          </div>
+        </div>
       </div>
-      <div class="trust-row">
-        <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Free shipping for members</div>
-        <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 3rd-party tested</div>
-        <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.5"/></svg> 30-day returns</div>
+
+      <!-- RIGHT: Info -->
+      <div class="product-detail__info">
+        <span class="eyebrow">Capsules</span>
+        <h1 class="product-detail__name">Blood Sugar Support</h1>
+
+        <div class="product-detail__rating">
+          <span class="product-detail__stars">★★★★★</span>
+          <span>4.8 (124 reviews)</span>
+        </div>
+
+        <div class="product-detail__price-row">
+          <span class="product-detail__price-member">$29.99</span>
+          <span class="product-detail__price-retail">$44.99</span>
+          <span class="price-badge">Member Price</span>
+        </div>
+
+        <div>
+          <p class="product-detail__format-label">Format</p>
+          <div class="format-selector">
+            <button class="format-btn active">Capsules (60ct)</button>
+            <button class="format-btn">Capsules (120ct)</button>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:16px;">
+          <div class="qty-control">
+            <button aria-label="Decrease">−</button>
+            <span class="qty-control__value">1</span>
+            <button aria-label="Increase">+</button>
+          </div>
+          <button class="btn btn--outline" style="flex:1;">Add to Cart</button>
+        </div>
+
+        <div class="trust-badges">
+          <div class="trust-badge"><span class="trust-badge__icon">📦</span> Free Shipping</div>
+          <div class="trust-badge"><span class="trust-badge__icon">🔬</span> 3rd-Party Tested</div>
+          <div class="trust-badge"><span class="trust-badge__icon">↩</span> 30-Day Returns</div>
+        </div>
+
+        <p class="product-detail__desc">Support healthy blood sugar levels naturally with our clinically-dosed Blood Sugar Support formula. Featuring berberine, chromium, and Ceylon cinnamon — three of the most researched compounds for glucose metabolism and insulin sensitivity. Clean ingredients. No artificial fillers. No proprietary blends.</p>
       </div>
-      <hr class="prod-divider">
-      <div class="prod-desc-label">About this product</div>
-      <div class="prod-desc-text">Formulated to support healthy glucose metabolism with clinically-studied ingredients. No fillers, no fluff — just what your body needs to maintain balanced blood sugar levels throughout the day.</div>
     </div>
   </div>
+</section>
 
-  <!-- KEY INGREDIENTS -->
-  <section class="section section--gray">
-    <h2 class="section__title reveal" style="margin-bottom:24px;">Key Ingredients</h2>
-    <div class="ingredients-grid reveal-stagger">
-      <div class="ing-card reveal"><div class="ing-name">Berberine HCl</div><div class="ing-amount">500mg per serving</div><div class="ing-desc">Clinically studied to support healthy glucose metabolism and insulin sensitivity.</div></div>
-      <div class="ing-card reveal"><div class="ing-name">Chromium Picolinate</div><div class="ing-amount">200mcg per serving</div><div class="ing-desc">Essential trace mineral that enhances insulin action and supports carbohydrate metabolism.</div></div>
-      <div class="ing-card reveal"><div class="ing-name">Cinnamon Extract</div><div class="ing-amount">300mg per serving</div><div class="ing-desc">Standardized extract shown to help maintain healthy blood sugar levels after meals.</div></div>
+<!-- KEY INGREDIENTS -->
+<section class="section section--lift">
+  <div class="container">
+    <div class="gsap-reveal" style="margin-bottom:40px;">
+      <span class="eyebrow">What's Inside</span>
+      <h2 style="font-size:36px;">Key Ingredients</h2>
     </div>
-  </section>
+    <div class="ingredients-grid gsap-stagger">
+      <div class="ingredient-card">
+        <p class="ingredient-card__name">Berberine HCl</p>
+        <p class="ingredient-card__dosage">500mg per serving</p>
+        <p class="ingredient-card__benefit">Clinically studied for glucose metabolism and insulin sensitivity. Activates AMPK — the same pathway targeted by metformin.</p>
+      </div>
+      <div class="ingredient-card">
+        <p class="ingredient-card__name">Ceylon Cinnamon</p>
+        <p class="ingredient-card__dosage">250mg per serving</p>
+        <p class="ingredient-card__benefit">True cinnamon (not cassia) shown to reduce fasting blood glucose and improve lipid profiles in multiple RCTs.</p>
+      </div>
+      <div class="ingredient-card">
+        <p class="ingredient-card__name">Chromium Picolinate</p>
+        <p class="ingredient-card__dosage">200mcg per serving</p>
+        <p class="ingredient-card__benefit">An essential trace mineral that enhances insulin receptor binding and improves glucose uptake into cells.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- RELATED PRODUCTS -->
-  <section class="section section--white">
-    <div class="section__header reveal">
-      <h2 class="section__title">You Might Also Like</h2>
-      <a href="all-products.html" class="section__link">View All →</a>
+<!-- RELATED PRODUCTS -->
+<section class="section section--base">
+  <div class="container">
+    <div class="section__header--flex gsap-reveal">
+      <div>
+        <span class="eyebrow">More Products</span>
+        <h2 style="font-size:32px;">You May Also Like</h2>
+      </div>
+      <a href="all-products.html" class="btn btn--ghost">View All →</a>
     </div>
-    <div class="grid-4 reveal-stagger">
-      <div class="product-card reveal"><div class="product-card__img"><img src="https://picsum.photos/seed/habito-r1/200/160" alt="Brain Support"></div><div class="product-card__body"><div class="product-card__cat">Capsules</div><div class="product-card__name">Brain Support</div><div class="product-card__price-row"><span class="product-card__price">$32.99</span></div><a href="product.html" class="btn btn--dark">Add to Cart</a></div></div>
-      <div class="product-card reveal"><div class="product-card__img"><img src="https://picsum.photos/seed/habito-r2/200/160" alt="Immune+"></div><div class="product-card__body"><div class="product-card__cat">Capsules</div><div class="product-card__name">Immune+</div><div class="product-card__price-row"><span class="product-card__price">$29.99</span></div><a href="product.html" class="btn btn--dark">Add to Cart</a></div></div>
-      <div class="product-card reveal"><div class="product-card__img"><img src="https://picsum.photos/seed/habito-r3/200/160" alt="Multi Collagen Peptides"></div><div class="product-card__body"><div class="product-card__cat">Powder</div><div class="product-card__name">Multi Collagen Peptides</div><div class="product-card__price-row"><span class="product-card__price">$44.99</span></div><a href="product.html" class="btn btn--dark">Add to Cart</a></div></div>
-      <div class="product-card reveal"><div class="product-card__img"><img src="https://picsum.photos/seed/habito-r4/200/160" alt="Apple Cider Vinegar"></div><div class="product-card__body"><div class="product-card__cat">Gummies</div><div class="product-card__name">Apple Cider Vinegar</div><div class="product-card__price-row"><span class="product-card__price">$27.99</span></div><a href="product.html" class="btn btn--dark">Add to Cart</a></div></div>
+    <div class="products-grid gsap-stagger">
+      <a href="product.html" class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://picsum.photos/seed/habito-r1/90/130" alt="Brain Support">
+        </div>
+        <div class="product-card__body">
+          <p class="product-card__category">Capsules</p>
+          <p class="product-card__name">Brain Support</p>
+          <div class="product-card__footer">
+            <span class="product-card__price">$32.99</span>
+            <span class="product-card__add">Add +</span>
+          </div>
+        </div>
+      </a>
+      <a href="product.html" class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://picsum.photos/seed/habito-r2/90/130" alt="Immune+">
+        </div>
+        <div class="product-card__body">
+          <p class="product-card__category">Capsules</p>
+          <p class="product-card__name">Immune+</p>
+          <div class="product-card__footer">
+            <span class="product-card__price">$27.99</span>
+            <span class="product-card__add">Add +</span>
+          </div>
+        </div>
+      </a>
+      <a href="product.html" class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://picsum.photos/seed/habito-r3/90/130" alt="HMB + D3">
+        </div>
+        <div class="product-card__body">
+          <p class="product-card__category">Capsules</p>
+          <p class="product-card__name">HMB + D3</p>
+          <div class="product-card__footer">
+            <span class="product-card__price">$31.99</span>
+            <span class="product-card__add">Add +</span>
+          </div>
+        </div>
+      </a>
+      <a href="product.html" class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://picsum.photos/seed/habito-r4/90/130" alt="Keto Burn">
+        </div>
+        <div class="product-card__body">
+          <p class="product-card__category">Capsules</p>
+          <p class="product-card__name">Keto Burn</p>
+          <div class="product-card__footer">
+            <span class="product-card__price">$36.99</span>
+            <span class="product-card__add">Add +</span>
+          </div>
+        </div>
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand-logo">Habito</div>
-        <div class="footer__brand-tag">Choose Better. Live Greater.</div>
+        <p class="footer__brand">Habito</p>
+        <p class="footer__tagline">Clean supplements. Real ingredients. No gimmicks.</p>
       </div>
-      <div class="footer__col">
-        <div class="footer__col-title">Shop</div>
-        <a href="all-products.html?cat=capsules">Capsules</a>
-        <a href="all-products.html?cat=gummies">Gummies</a>
-        <a href="all-products.html?cat=liquid">Liquid</a>
-        <a href="all-products.html?cat=powder">Powder</a>
+      <div>
+        <p class="footer__col-label">Shop</p>
+        <ul class="footer__links">
+          <li><a href="all-products.html">Capsules</a></li>
+          <li><a href="all-products.html">Gummies</a></li>
+          <li><a href="all-products.html">Liquid</a></li>
+          <li><a href="all-products.html">Powder</a></li>
+        </ul>
       </div>
-      <div class="footer__col">
-        <div class="footer__col-title">Company</div>
-        <a href="about.html">About</a>
-        <a href="join.html">Join</a>
-        <a href="contact.html">Contact</a>
+      <div>
+        <p class="footer__col-label">Company</p>
+        <ul class="footer__links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="join.html">Join</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </div>
-      <div class="footer__col">
-        <div class="footer__col-title">Legal</div>
-        <a href="#">Terms of Use</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Return Policy</a>
+      <div>
+        <p class="footer__col-label">Legal</p>
+        <ul class="footer__links">
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Return Policy</a></li>
+        </ul>
       </div>
     </div>
-    <hr class="footer__divider">
-    <p class="footer__disclaimer">These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease.</p>
     <div class="footer__bottom">
-      <span class="footer__copy">© 2026 Habito, LLC. All rights reserved.</span>
-      <span class="footer__copy">1996 E 2540 S, Saint George, UT 84790</span>
+      <p class="footer__fda">*These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease.</p>
+      <p class="footer__copy">© 2026 Habito, LLC · 1996 E 2540 S, Saint George, UT 84790</p>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
