@@ -469,3 +469,12 @@ body {
   max-height: 600px;
   padding-bottom: 18px;
 }
+
+/* =============================================
+   REDUCED MOTION
+   ============================================= */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: none; }
+  .reveal { transition: none; }
+  .product-card { transition: none; }
+}
