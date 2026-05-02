@@ -77,8 +77,14 @@ function initFAQ() {
       const parent = q.closest('.faq');
       if (!item || !parent) return;
       const isOpen = item.classList.contains('open');
-      parent.querySelectorAll('.faq__item.open').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
+      parent.querySelectorAll('.faq__item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        q.setAttribute('aria-expanded', 'true');
+      }
     });
   });
 }

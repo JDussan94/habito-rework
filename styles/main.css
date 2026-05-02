@@ -585,3 +585,7 @@ h3 { font-family: var(--font-display); font-weight: 700; color: var(--white); }
   line-height: 1.6;
   margin: 24px 0;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: none; }
+}
