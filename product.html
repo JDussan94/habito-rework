@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blood Sugar Support — Habito</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <style>
+.breadcrumb { background: var(--gray); border-bottom: 1px solid var(--border); padding: 10px 40px; display: flex; gap: 8px; font-size: 11px; color: var(--text-3); }
+.breadcrumb a { color: var(--text-3); transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb__sep { color: #CCC; }
+.breadcrumb__current { color: var(--text); font-weight: 600; }
+.product-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; padding: 48px 40px; background: var(--white); }
+.gallery__main { background: #F2F2F2; border-radius: 8px; height: 340px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+.gallery__main-inner { width: 100px; height: 160px; background: linear-gradient(90deg,#ddd 25%,#e8e8e8 50%,#ddd 75%); background-size:200% 100%; border-radius: 6px; animation: shimmer 1.5s infinite; }
+.gallery__thumbs { display: flex; gap: 8px; }
+.gallery__thumb { width: 68px; height: 68px; background: #EBEBEB; border-radius: 6px; border: 2px solid transparent; cursor: pointer; transition: border-color 0.2s; }
+.gallery__thumb.active { border-color: var(--navy); }
+.gallery__thumb:hover { border-color: var(--text-3); }
+.prod-cat { font-size: 10px; font-weight: 700; color: var(--red); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
+.prod-name { font-family: var(--font-display); font-weight: 800; font-size: 30px; color: var(--text); line-height: 1.15; margin-bottom: 14px; }
+.prod-rating { display: flex; align-items: center; gap: 8px; margin-bottom: 18px; }
+.prod-stars { color: var(--red); font-size: 14px; }
+.prod-rating-count { font-size: 12px; color: var(--text-3); }
+.prod-price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; }
+.prod-price { font-family: var(--font-display); font-weight: 800; font-size: 30px; }
+.prod-price-member { font-size: 12px; color: var(--text-3); }
+.prod-member-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--navy); color: var(--white); font-size: 10px; font-weight: 600; letter-spacing: 1px; padding: 5px 12px; border-radius: var(--radius-btn); margin-bottom: 22px; }
+.prod-member-badge span { color: var(--red); }
+.prod-divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+.prod-option-label { font-size: 10px; font-weight: 700; color: var(--text); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+.format-btns { display: flex; gap: 10px; margin-bottom: 22px; }
+.format-btn { padding: 9px 18px; border: 1.5px solid var(--border); border-radius: 4px; font-size: 12px; font-weight: 600; color: var(--text); cursor: pointer; transition: all 0.2s; }
+.format-btn:hover { border-color: var(--navy); }
+.format-btn.active { border-color: var(--navy); background: var(--navy); color: var(--white); }
+.qty-row { display: flex; gap: 12px; align-items: center; margin-bottom: 18px; }
+.qty-control { display: flex; align-items: center; border: 1.5px solid var(--border); border-radius: 4px; }
+.qty-btn { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--text); cursor: pointer; user-select: none; }
+.qty-val { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; border-left: 1.5px solid var(--border); border-right: 1.5px solid var(--border); }
+.add-btn { flex: 1; background: var(--red); color: var(--white); height: 38px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; }
+.add-btn:hover { background: var(--red-hover); }
+.trust-row { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 20px; }
+.trust-item { display: flex; align-items: center; gap: 7px; font-size: 11px; color: var(--text-2); }
+.prod-desc-label { font-size: 10px; font-weight: 700; color: var(--text); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+.prod-desc-text { font-size: 13px; color: var(--text-2); line-height: 1.75; }
+.ingredients-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+.ing-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 18px; }
+.ing-name { font-family: var(--font-display); font-weight: 700; font-size: 13px; margin-bottom: 4px; }
+.ing-amount { font-size: 11px; color: var(--red); font-weight: 600; margin-bottom: 7px; }
+.ing-desc { font-size: 11px; color: var(--text-3); line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar__logo">Habito</a>
+    <div class="navbar__links">
+      <a href="all-products.html">Shop ▾</a>
+      <a href="join.html">Join</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="join.html" class="navbar__cta">Join Now</a>
+    </div>
+    <div class="navbar__icons">
+      <a href="#">🔍</a>
+      <a href="#">👤</a>
+      <a href="#">🛒</a>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="index.html">Home</a><span class="breadcrumb__sep">/</span>
+    <a href="all-products.html">Shop</a><span class="breadcrumb__sep">/</span>
+    <a href="all-products.html?cat=capsules">Capsules</a><span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">Blood Sugar Support</span>
+  </div>
+
+  <!-- PRODUCT DETAIL -->
+  <div class="product-detail">
+    <!-- Gallery -->
+    <div class="reveal">
+      <div class="gallery__main"><div class="gallery__main-inner"></div></div>
+      <div class="gallery__thumbs">
+        <div class="gallery__thumb active"></div>
+        <div class="gallery__thumb"></div>
+        <div class="gallery__thumb"></div>
+        <div class="gallery__thumb"></div>
+      </div>
+    </div>
+    <!-- Info -->
+    <div class="reveal" style="transition-delay:0.1s">
+      <div class="prod-cat">Capsules</div>
+      <div class="prod-name">Blood Sugar Support</div>
+      <div class="prod-rating"><span class="prod-stars">★★★★★</span><span class="prod-rating-count">4.9 · 124 reviews</span></div>
+      <div class="prod-price-row"><span class="prod-price">$34.99</span><span class="prod-price-member">or $27.99 for members</span></div>
+      <div class="prod-member-badge">🔒 Save <span>20%</span> with membership</div>
+      <hr class="prod-divider">
+      <div class="prod-option-label">Format</div>
+      <div class="format-btns">
+        <div class="format-btn active">60 Capsules</div>
+        <div class="format-btn">120 Capsules</div>
+      </div>
+      <div class="qty-row">
+        <div class="qty-control">
+          <div class="qty-btn">−</div><div class="qty-val">1</div><div class="qty-btn">+</div>
+        </div>
+        <div class="add-btn">Add to Cart</div>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item">🚚 Free shipping for members</div>
+        <div class="trust-item">✅ 3rd-party tested</div>
+        <div class="trust-item">↩️ 30-day returns</div>
+      </div>
+      <hr class="prod-divider">
+      <div class="prod-desc-label">About this product</div>
+      <div class="prod-desc-text">Formulated to support healthy glucose metabolism with clinically-studied ingredients. No fillers, no fluff — just what your body needs to maintain balanced blood sugar levels throughout the day.</div>
+    </div>
+  </div>
+
+  <!-- KEY INGREDIENTS -->
+  <section class="section section--gray">
+    <h2 class="section__title reveal" style="margin-bottom:24px;">Key Ingredients</h2>
+    <div class="ingredients-grid reveal-stagger">
+      <div class="ing-card reveal"><div class="ing-name">Berberine HCl</div><div class="ing-amount">500mg per serving</div><div class="ing-desc">Clinically studied to support healthy glucose metabolism and insulin sensitivity.</div></div>
+      <div class="ing-card reveal"><div class="ing-name">Chromium Picolinate</div><div class="ing-amount">200mcg per serving</div><div class="ing-desc">Essential trace mineral that enhances insulin action and supports carbohydrate metabolism.</div></div>
+      <div class="ing-card reveal"><div class="ing-name">Cinnamon Extract</div><div class="ing-amount">300mg per serving</div><div class="ing-desc">Standardized extract shown to help maintain healthy blood sugar levels after meals.</div></div>
+    </div>
+  </section>
+
+  <!-- RELATED PRODUCTS -->
+  <section class="section section--white">
+    <div class="section__header reveal">
+      <h2 class="section__title">You Might Also Like</h2>
+      <a href="all-products.html" class="section__link">View All →</a>
+    </div>
+    <div class="grid-4 reveal-stagger">
+      <div class="product-card reveal"><div class="product-card__img"><div class="product-card__img-inner"></div></div><div class="product-card__body"><div class="product-card__cat">Capsules</div><div class="product-card__name">Brain Support</div><div class="product-card__price-row"><span class="product-card__price">$32.99</span></div><a href="product.html" class="btn btn--dark">Add to Cart</a></div></div>
+      <div class="product-card reveal"><div class="product-card__img"><div class="product-card__img-inner"></div></div><div class="product-card__body"><div class="product-card__cat">Capsules</div><div class="product-card__name">Immune+</div><div class="product-card__price-row"><span class="product-card__price">$29.99</span></div><a href="product.html" class="btn btn--dark">Add to Cart</a></div></div>
+      <div class="product-card reveal"><div class="product-card__img"><div class="product-card__img-inner"></div></div><div class="product-card__body"><div class="product-card__cat">Powder</div><div class="product-card__name">Multi Collagen Peptides</div><div class="product-card__price-row"><span class="product-card__price">$44.99</span></div><a href="product.html" class="btn btn--dark">Add to Cart</a></div></div>
+      <div class="product-card reveal"><div class="product-card__img"><div class="product-card__img-inner"></div></div><div class="product-card__body"><div class="product-card__cat">Gummies</div><div class="product-card__name">Apple Cider Vinegar</div><div class="product-card__price-row"><span class="product-card__price">$27.99</span></div><a href="product.html" class="btn btn--dark">Add to Cart</a></div></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-logo">Habito</div>
+        <div class="footer__brand-tag">Choose Better. Live Greater.</div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Shop</div>
+        <a href="all-products.html?cat=capsules">Capsules</a>
+        <a href="all-products.html?cat=gummies">Gummies</a>
+        <a href="all-products.html?cat=liquid">Liquid</a>
+        <a href="all-products.html?cat=powder">Powder</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Company</div>
+        <a href="about.html">About</a>
+        <a href="join.html">Join</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Legal</div>
+        <a href="#">Terms of Use</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Return Policy</a>
+      </div>
+    </div>
+    <hr class="footer__divider">
+    <p class="footer__disclaimer">These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease.</p>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2026 Habito, LLC. All rights reserved.</span>
+      <span class="footer__copy">1996 E 2540 S, Saint George, UT 84790</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
