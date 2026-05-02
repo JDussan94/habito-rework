@@ -6,7 +6,7 @@
   <title>Habito — Choose Better. Live Greater.</title>
   <link rel="stylesheet" href="styles/main.css">
   <style>
-.hero { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 72px 40px; }
+.hero { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 72px max(var(--section-pad-h), calc((100% - var(--max-w)) / 2)); }
 .hero__headline { font-family: var(--font-display); font-weight: 800; font-size: 48px; color: var(--white); line-height: 1.05; margin-bottom: 16px; }
 .hero__sub { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 32px; line-height: 1.7; }
 .hero__btns { display: flex; gap: 16px; align-items: center; }

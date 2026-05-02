@@ -6,12 +6,12 @@
   <title>Blood Sugar Support — Habito</title>
   <link rel="stylesheet" href="styles/main.css">
   <style>
-.breadcrumb { background: var(--gray); border-bottom: 1px solid var(--border); padding: 10px 40px; display: flex; gap: 8px; font-size: 11px; color: var(--text-3); }
+.breadcrumb { background: var(--gray); border-bottom: 1px solid var(--border); padding: 10px max(var(--section-pad-h), calc((100% - var(--max-w)) / 2)); display: flex; gap: 8px; font-size: 11px; color: var(--text-3); }
 .breadcrumb a { color: var(--text-3); transition: color 0.2s; }
 .breadcrumb a:hover { color: var(--text); }
 .breadcrumb__sep { color: #CCC; }
 .breadcrumb__current { color: var(--text); font-weight: 600; }
-.product-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; padding: 48px 40px; background: var(--white); }
+.product-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; padding: 48px max(var(--section-pad-h), calc((100% - var(--max-w)) / 2)); background: var(--white); }
 .gallery__main { background: #F2F2F2; border-radius: 8px; height: 340px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
 .gallery__main-inner { width: 100px; height: 160px; background: linear-gradient(90deg,#ddd 25%,#e8e8e8 50%,#ddd 75%); background-size:200% 100%; border-radius: 6px; animation: shimmer 1.5s infinite; }
 .gallery__thumbs { display: flex; gap: 8px; }

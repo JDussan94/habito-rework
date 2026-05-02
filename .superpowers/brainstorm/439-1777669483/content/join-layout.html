@@ -1,0 +1,297 @@
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  .page-label { font-family:'Inter',sans-serif; font-size:11px; font-weight:600; color:#888; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; }
+  .page-mock { border:1px solid #e2e2e2; border-radius:12px; overflow:hidden; font-family:'Inter',sans-serif; max-width:860px; margin:0 auto; box-shadow:0 4px 24px rgba(0,0,0,0.10); }
+
+  /* NAV */
+  .mock-navbar { background:#1C1F29; padding:0 40px; height:56px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.07); }
+  .mock-logo { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:16px; color:#fff; letter-spacing:3px; }
+  .mock-nav-links { display:flex; gap:28px; align-items:center; }
+  .mock-nav-links span { font-size:12px; color:rgba(255,255,255,0.7); font-weight:500; }
+  .mock-nav-links .nav-cta { background:#D42F2F; color:#fff; padding:7px 16px; border-radius:3px; font-size:11px; font-weight:600; letter-spacing:1px; }
+  .mock-nav-icons { display:flex; gap:16px; }
+  .mock-nav-icons span { font-size:14px; color:rgba(255,255,255,0.7); }
+
+  /* JOIN HERO */
+  .join-hero { background:#1C1F29; padding:60px 40px; text-align:center; }
+  .join-eyebrow { font-size:10px; font-weight:700; color:#D42F2F; letter-spacing:4px; text-transform:uppercase; margin-bottom:14px; }
+  .join-title { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:36px; color:#fff; line-height:1.1; margin-bottom:14px; }
+  .join-sub { font-size:13px; color:rgba(255,255,255,0.55); max-width:480px; margin:0 auto 28px; line-height:1.7; }
+  .price-display { display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:8px; }
+  .price-old { font-size:18px; color:rgba(255,255,255,0.35); text-decoration:line-through; font-weight:400; }
+  .price-new { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:52px; color:#fff; line-height:1; }
+  .price-note { font-size:11px; color:rgba(255,255,255,0.45); margin-bottom:28px; }
+
+  /* WHAT YOU GET */
+  .whats-included { background:#FFFFFF; padding:52px 40px; }
+  .section-title { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:22px; color:#1C1F29; margin-bottom:6px; }
+  .section-sub { font-size:12px; color:#888; margin-bottom:32px; }
+  .included-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:36px; }
+  .included-card { border:1.5px solid #EBEBEB; border-radius:8px; padding:24px; display:flex; gap:16px; align-items:flex-start; }
+  .included-icon { width:40px; height:40px; background:#1C1F29; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
+  .included-label { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:14px; color:#1C1F29; margin-bottom:4px; }
+  .included-desc { font-size:12px; color:#777; line-height:1.5; }
+  .included-value { display:inline-block; margin-top:8px; font-size:10px; font-weight:700; color:#D42F2F; letter-spacing:1px; }
+
+  /* PRODUCT SELECTION */
+  .product-selection { background:#F7F7F7; border-top:1px solid #EBEBEB; padding:44px 40px; }
+  .selection-title { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:20px; color:#1C1F29; margin-bottom:6px; }
+  .selection-sub { font-size:12px; color:#888; margin-bottom:24px; }
+  .selection-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:12px; }
+  .sel-card { border:1.5px solid #EBEBEB; border-radius:6px; overflow:hidden; background:#fff; cursor:pointer; }
+  .sel-card.selected { border-color:#1C1F29; }
+  .sel-img { background:#EBEBEB; height:90px; display:flex; align-items:center; justify-content:center; }
+  .sel-img-inner { width:36px; height:56px; background:#DCDCDC; border-radius:3px; }
+  .sel-info { padding:10px; }
+  .sel-name { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:11px; color:#1C1F29; margin-bottom:3px; line-height:1.3; }
+  .sel-type { font-size:9px; color:#D42F2F; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; }
+  .sel-check { width:16px; height:16px; border-radius:50%; border:1.5px solid #DCDCDC; margin:8px auto 0; }
+  .sel-card.selected .sel-check { background:#1C1F29; border-color:#1C1F29; display:flex; align-items:center; justify-content:center; color:#fff; font-size:9px; }
+  .selection-counter { font-size:11px; color:#888; }
+  .selection-counter span { font-weight:700; color:#1C1F29; }
+
+  /* MEMBERSHIP PERKS */
+  .perks-section { background:#1C1F29; padding:44px 40px; }
+  .perks-title { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:20px; color:#fff; margin-bottom:24px; }
+  .perks-list { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .perk-item { display:flex; gap:12px; align-items:flex-start; }
+  .perk-dot { width:8px; height:8px; background:#D42F2F; border-radius:50%; margin-top:4px; flex-shrink:0; }
+  .perk-text { font-size:12px; color:rgba(255,255,255,0.75); line-height:1.5; }
+  .perk-text strong { color:#fff; font-weight:700; display:block; margin-bottom:2px; }
+
+  /* SIGN UP FORM */
+  .signup-section { background:#FFFFFF; padding:52px 40px; }
+  .form-wrap { max-width:480px; margin:0 auto; }
+  .form-title { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:22px; color:#1C1F29; margin-bottom:6px; text-align:center; }
+  .form-sub { font-size:12px; color:#888; margin-bottom:28px; text-align:center; }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; }
+  .form-group { margin-bottom:12px; }
+  .form-label { font-size:10px; font-weight:700; color:#1C1F29; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; display:block; }
+  .form-input { width:100%; border:1.5px solid #EBEBEB; border-radius:4px; padding:11px 14px; font-size:12px; color:#1C1F29; background:#FAFAFA; }
+  .form-input.focus { border-color:#1C1F29; background:#fff; }
+  .form-submit { width:100%; background:#D42F2F; color:#fff; padding:14px; border-radius:4px; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; text-align:center; margin-top:8px; }
+  .form-note { font-size:10px; color:#AAA; text-align:center; margin-top:12px; line-height:1.6; }
+  .form-divider { border:none; border-top:1px solid #EBEBEB; margin:24px 0; }
+  .form-total { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
+  .form-total-label { font-size:13px; color:#1C1F29; font-weight:600; }
+  .form-total-price { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:20px; color:#D42F2F; }
+
+  /* FOOTER */
+  .mock-footer { background:#1C1F29; padding:24px 40px; display:flex; justify-content:space-between; align-items:center; }
+  .footer-logo { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:14px; color:#fff; letter-spacing:3px; }
+  .footer-copy { font-size:11px; color:rgba(255,255,255,0.35); }
+</style>
+
+<div>
+  <p class="page-label">Page 4 of 6 — Join / Membership Enrollment</p>
+
+  <div class="page-mock">
+
+    <!-- NAV -->
+    <div class="mock-navbar">
+      <div class="mock-logo">HABITO</div>
+      <div class="mock-nav-links">
+        <span>Shop ▾</span><span>Join</span><span>About</span><span>Contact</span>
+        <span class="nav-cta">Join Now</span>
+      </div>
+      <div class="mock-nav-icons"><span>🔍</span><span>👤</span><span>🛒</span></div>
+    </div>
+
+    <!-- HERO -->
+    <div class="join-hero">
+      <div class="join-eyebrow">Limited Offer · One-Time Fee</div>
+      <div class="join-title">Get $150 in Supplements<br>for Only $75</div>
+      <div class="join-sub">Join Habito once and unlock member pricing, free shipping, and a curated welcome kit — for life.</div>
+      <div class="price-display">
+        <div class="price-old">$150</div>
+        <div class="price-new">$75</div>
+      </div>
+      <div class="price-note">One-time payment · No recurring fees · No subscriptions</div>
+    </div>
+
+    <!-- WHAT'S INCLUDED -->
+    <div class="whats-included">
+      <div class="section-title">What's included</div>
+      <div class="section-sub">Everything you get the day you join.</div>
+      <div class="included-grid">
+        <div class="included-card">
+          <div class="included-icon">📦</div>
+          <div>
+            <div class="included-label">4 Full-Size Products</div>
+            <div class="included-desc">Choose any 4 products from our full catalog. Yours to keep from day one.</div>
+            <div class="included-value">Value: $100+</div>
+          </div>
+        </div>
+        <div class="included-card">
+          <div class="included-icon">🎁</div>
+          <div>
+            <div class="included-label">2 Bonus Products</div>
+            <div class="included-desc">We'll add 2 hand-picked supplements to your kit at no extra cost.</div>
+            <div class="included-value">Value: $50+</div>
+          </div>
+        </div>
+        <div class="included-card">
+          <div class="included-icon">🚚</div>
+          <div>
+            <div class="included-label">Free Shipping Forever</div>
+            <div class="included-desc">Members never pay for shipping. Every order, every time. No minimums.</div>
+            <div class="included-value">Ongoing benefit</div>
+          </div>
+        </div>
+        <div class="included-card">
+          <div class="included-icon">🏷️</div>
+          <div>
+            <div class="included-label">Member Pricing Forever</div>
+            <div class="included-desc">Access to exclusive member prices — up to 20% off — on every future order.</div>
+            <div class="included-value">Ongoing benefit</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT SELECTION -->
+    <div class="product-selection">
+      <div class="selection-title">Choose Your 4 Products</div>
+      <div class="selection-sub">Select 4 items from our catalog to include in your welcome kit.</div>
+      <div class="selection-grid">
+        <div class="sel-card selected">
+          <div class="sel-img"><div class="sel-img-inner"></div></div>
+          <div class="sel-info">
+            <div class="sel-name">Blood Sugar Support</div>
+            <div class="sel-type">Capsules</div>
+          </div>
+          <div class="sel-check">✓</div>
+        </div>
+        <div class="sel-card selected">
+          <div class="sel-img"><div class="sel-img-inner"></div></div>
+          <div class="sel-info">
+            <div class="sel-name">Performance Blend</div>
+            <div class="sel-type">Powder</div>
+          </div>
+          <div class="sel-check">✓</div>
+        </div>
+        <div class="sel-card">
+          <div class="sel-img"><div class="sel-img-inner"></div></div>
+          <div class="sel-info">
+            <div class="sel-name">Sleep & Recovery</div>
+            <div class="sel-type">Gummies</div>
+          </div>
+          <div class="sel-check"></div>
+        </div>
+        <div class="sel-card">
+          <div class="sel-img"><div class="sel-img-inner"></div></div>
+          <div class="sel-info">
+            <div class="sel-name">Daily Essentials</div>
+            <div class="sel-type">Liquid</div>
+          </div>
+          <div class="sel-check"></div>
+        </div>
+        <div class="sel-card">
+          <div class="sel-img"><div class="sel-img-inner"></div></div>
+          <div class="sel-info">
+            <div class="sel-name">Immune Defense</div>
+            <div class="sel-type">Capsules</div>
+          </div>
+          <div class="sel-check"></div>
+        </div>
+        <div class="sel-card">
+          <div class="sel-img"><div class="sel-img-inner"></div></div>
+          <div class="sel-info">
+            <div class="sel-name">Joint & Mobility</div>
+            <div class="sel-type">Capsules</div>
+          </div>
+          <div class="sel-check"></div>
+        </div>
+        <div class="sel-card">
+          <div class="sel-img"><div class="sel-img-inner"></div></div>
+          <div class="sel-info">
+            <div class="sel-name">Energy & Focus</div>
+            <div class="sel-type">Powder</div>
+          </div>
+          <div class="sel-check"></div>
+        </div>
+        <div class="sel-card">
+          <div class="sel-img"><div class="sel-img-inner"></div></div>
+          <div class="sel-info">
+            <div class="sel-name">Gut Health</div>
+            <div class="sel-type">Capsules</div>
+          </div>
+          <div class="sel-check"></div>
+        </div>
+      </div>
+      <div class="selection-counter"><span>2</span> of 4 selected</div>
+    </div>
+
+    <!-- MEMBERSHIP PERKS -->
+    <div class="perks-section">
+      <div class="perks-title">Why members love Habito</div>
+      <div class="perks-list">
+        <div class="perk-item">
+          <div class="perk-dot"></div>
+          <div class="perk-text"><strong>No recurring fees</strong>Pay once. That's it. No subscriptions, no surprises.</div>
+        </div>
+        <div class="perk-item">
+          <div class="perk-dot"></div>
+          <div class="perk-text"><strong>Up to 20% off every order</strong>Member pricing applies to every product, forever.</div>
+        </div>
+        <div class="perk-item">
+          <div class="perk-dot"></div>
+          <div class="perk-text"><strong>Free shipping on every order</strong>No minimums. No conditions. Always free.</div>
+        </div>
+        <div class="perk-item">
+          <div class="perk-dot"></div>
+          <div class="perk-text"><strong>Priority access to new products</strong>Members hear about new launches first.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIGN UP FORM -->
+    <div class="signup-section">
+      <div class="form-wrap">
+        <div class="form-title">Complete Your Enrollment</div>
+        <div class="form-sub">One-time payment · Secure checkout · Instant confirmation</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <div class="form-input">Julian</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <div class="form-input focus">Dussan</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <div class="form-input">email@example.com</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <div class="form-input">+1 (555) 000-0000</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Shipping Address</label>
+          <div class="form-input">123 Main Street, City, Country</div>
+        </div>
+
+        <hr class="form-divider">
+
+        <div class="form-total">
+          <div class="form-total-label">Total Today</div>
+          <div class="form-total-price">$75.00</div>
+        </div>
+        <div class="form-submit">Join Habito — $75</div>
+        <div class="form-note">By joining you agree to our Terms of Service. No recurring charges. Cancel anytime by contacting us.</div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="mock-footer">
+      <div class="footer-logo">HABITO</div>
+      <div class="footer-copy">© 2025 Habito. All rights reserved.</div>
+    </div>
+
+  </div>
+</div>

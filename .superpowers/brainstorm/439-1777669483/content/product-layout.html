@@ -1,0 +1,251 @@
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .page-label { font-family:'Inter',sans-serif; font-size:11px; font-weight:600; color:#888; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; }
+  .page-mock { border:1px solid #e2e2e2; border-radius:12px; overflow:hidden; font-family:'Inter',sans-serif; max-width:860px; margin:0 auto; box-shadow:0 4px 24px rgba(0,0,0,0.10); }
+
+  /* NAV */
+  .mock-navbar { background:#1C1F29; padding:0 40px; height:56px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.07); }
+  .mock-logo { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:16px; color:#fff; letter-spacing:3px; }
+  .mock-nav-links { display:flex; gap:28px; align-items:center; }
+  .mock-nav-links span { font-size:12px; color:rgba(255,255,255,0.7); font-weight:500; }
+  .mock-nav-links .nav-cta { background:#D42F2F; color:#fff; padding:7px 16px; border-radius:3px; font-size:11px; font-weight:600; letter-spacing:1px; }
+  .mock-nav-icons { display:flex; gap:16px; align-items:center; }
+  .mock-nav-icons span { font-size:14px; color:rgba(255,255,255,0.7); }
+
+  /* BREADCRUMB */
+  .mock-breadcrumb { background:#F7F7F7; border-bottom:1px solid #EBEBEB; padding:10px 40px; display:flex; gap:8px; align-items:center; }
+  .crumb { font-size:11px; color:#999; }
+  .crumb.active { color:#1C1F29; font-weight:600; }
+  .crumb-sep { font-size:11px; color:#CCC; }
+
+  /* PRODUCT SECTION */
+  .mock-product { background:#FFFFFF; padding:44px 40px; display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+
+  /* Image Gallery */
+  .gallery-col {}
+  .gallery-main { background:#F2F2F2; border-radius:8px; height:320px; display:flex; align-items:center; justify-content:center; margin-bottom:12px; }
+  .gallery-main-inner { width:100px; height:160px; background:#DCDCDC; border-radius:6px; }
+  .gallery-thumbs { display:flex; gap:8px; }
+  .gallery-thumb { width:64px; height:64px; background:#EBEBEB; border-radius:6px; border:2px solid transparent; }
+  .gallery-thumb.active { border-color:#1C1F29; }
+
+  /* Product Info */
+  .info-col {}
+  .prod-category { font-size:10px; font-weight:700; color:#D42F2F; letter-spacing:3px; text-transform:uppercase; margin-bottom:10px; }
+  .prod-name { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:26px; color:#1C1F29; line-height:1.2; margin-bottom:12px; }
+  .prod-rating { display:flex; align-items:center; gap:8px; margin-bottom:16px; }
+  .stars { color:#D42F2F; font-size:13px; }
+  .rating-count { font-size:11px; color:#888; }
+  .prod-price-row { display:flex; align-items:baseline; gap:10px; margin-bottom:6px; }
+  .prod-price { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:28px; color:#1C1F29; }
+  .prod-price-member { font-size:12px; color:#888; }
+  .prod-member-badge { display:inline-flex; align-items:center; gap:6px; background:#1C1F29; color:#fff; font-size:10px; font-weight:600; letter-spacing:1px; padding:5px 10px; border-radius:3px; margin-bottom:20px; }
+  .prod-member-badge span { color:#D42F2F; }
+  .prod-divider { border:none; border-top:1px solid #EBEBEB; margin:20px 0; }
+  .prod-option-label { font-size:10px; font-weight:700; color:#1C1F29; letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; }
+  .format-btns { display:flex; gap:8px; margin-bottom:20px; }
+  .format-btn { padding:8px 16px; border:1.5px solid #EBEBEB; border-radius:4px; font-size:11px; font-weight:600; color:#1C1F29; }
+  .format-btn.active { border-color:#1C1F29; background:#1C1F29; color:#fff; }
+  .qty-row { display:flex; gap:12px; align-items:center; margin-bottom:16px; }
+  .qty-control { display:flex; align-items:center; border:1.5px solid #EBEBEB; border-radius:4px; }
+  .qty-btn { width:36px; height:36px; display:flex; align-items:center; justify-content:center; font-size:16px; color:#1C1F29; }
+  .qty-val { width:36px; text-align:center; font-size:13px; font-weight:600; color:#1C1F29; border-left:1.5px solid #EBEBEB; border-right:1.5px solid #EBEBEB; height:36px; display:flex; align-items:center; justify-content:center; }
+  .add-btn { flex:1; background:#D42F2F; color:#fff; height:36px; border-radius:4px; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; display:flex; align-items:center; justify-content:center; }
+  .trust-row { display:flex; gap:16px; margin-top:20px; }
+  .trust-item { display:flex; align-items:center; gap:6px; font-size:10px; color:#666; }
+  .trust-icon { font-size:14px; }
+  .prod-description { margin-top:28px; }
+  .desc-label { font-size:10px; font-weight:700; color:#1C1F29; letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; }
+  .desc-text { font-size:12px; color:#555; line-height:1.7; }
+
+  /* INGREDIENTS */
+  .mock-ingredients { background:#F7F7F7; padding:44px 40px; border-top:1px solid #EBEBEB; }
+  .section-title { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:22px; color:#1C1F29; margin-bottom:24px; }
+  .ingredients-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .ingredient-card { background:#fff; border:1px solid #EBEBEB; border-radius:6px; padding:16px; }
+  .ing-name { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:13px; color:#1C1F29; margin-bottom:4px; }
+  .ing-amount { font-size:11px; color:#D42F2F; font-weight:600; margin-bottom:6px; }
+  .ing-desc { font-size:11px; color:#777; line-height:1.5; }
+
+  /* RELATED */
+  .mock-related { background:#FFFFFF; padding:44px 40px; border-top:1px solid #EBEBEB; }
+  .product-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .product-card { border:1px solid #EBEBEB; border-radius:6px; overflow:hidden; }
+  .product-img { background:#F2F2F2; height:120px; display:flex; align-items:center; justify-content:center; }
+  .product-img-inner { width:48px; height:72px; background:#DCDCDC; border-radius:4px; }
+  .product-info { padding:12px; }
+  .product-category { font-size:9px; font-weight:600; color:#D42F2F; letter-spacing:2px; text-transform:uppercase; margin-bottom:4px; }
+  .product-name { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:12px; color:#1C1F29; margin-bottom:6px; line-height:1.3; }
+  .product-price { font-size:12px; font-weight:700; color:#1C1F29; }
+  .product-btn { margin-top:10px; background:#1C1F29; color:#fff; padding:7px 0; border-radius:3px; font-size:10px; font-weight:600; letter-spacing:1px; text-transform:uppercase; text-align:center; }
+
+  /* FOOTER */
+  .mock-footer { background:#1C1F29; padding:32px 40px 20px; }
+  .footer-bottom { display:flex; justify-content:space-between; align-items:center; }
+  .footer-logo { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:14px; color:#fff; letter-spacing:3px; }
+  .footer-copy { font-size:11px; color:rgba(255,255,255,0.35); }
+</style>
+
+<div>
+  <p class="page-label">Page 2 of 6 — Single Product Page</p>
+
+  <div class="page-mock">
+
+    <!-- NAV -->
+    <div class="mock-navbar">
+      <div class="mock-logo">HABITO</div>
+      <div class="mock-nav-links">
+        <span>Shop ▾</span><span>Join</span><span>About</span><span>Contact</span>
+        <span class="nav-cta">Join Now</span>
+      </div>
+      <div class="mock-nav-icons"><span>🔍</span><span>👤</span><span>🛒</span></div>
+    </div>
+
+    <!-- BREADCRUMB -->
+    <div class="mock-breadcrumb">
+      <span class="crumb">Home</span><span class="crumb-sep">/</span>
+      <span class="crumb">Shop</span><span class="crumb-sep">/</span>
+      <span class="crumb">Capsules</span><span class="crumb-sep">/</span>
+      <span class="crumb active">Blood Sugar Support</span>
+    </div>
+
+    <!-- PRODUCT DETAIL -->
+    <div class="mock-product">
+      <!-- Gallery -->
+      <div class="gallery-col">
+        <div class="gallery-main"><div class="gallery-main-inner"></div></div>
+        <div class="gallery-thumbs">
+          <div class="gallery-thumb active"></div>
+          <div class="gallery-thumb"></div>
+          <div class="gallery-thumb"></div>
+          <div class="gallery-thumb"></div>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="info-col">
+        <div class="prod-category">Capsules</div>
+        <div class="prod-name">Blood Sugar Support</div>
+        <div class="prod-rating">
+          <span class="stars">★★★★★</span>
+          <span class="rating-count">4.9 · 124 reviews</span>
+        </div>
+
+        <div class="prod-price-row">
+          <div class="prod-price">$34.99</div>
+          <div class="prod-price-member">or $27.99 for members</div>
+        </div>
+        <div class="prod-member-badge">🔒 <span>Save 20%</span>&nbsp;with membership</div>
+
+        <hr class="prod-divider">
+
+        <div class="prod-option-label">Format</div>
+        <div class="format-btns">
+          <div class="format-btn active">60 Capsules</div>
+          <div class="format-btn">120 Capsules</div>
+        </div>
+
+        <div class="qty-row">
+          <div class="qty-control">
+            <div class="qty-btn">−</div>
+            <div class="qty-val">1</div>
+            <div class="qty-btn">+</div>
+          </div>
+          <div class="add-btn">Add to Cart</div>
+        </div>
+
+        <div class="trust-row">
+          <div class="trust-item"><span class="trust-icon">🚚</span>Free shipping for members</div>
+          <div class="trust-item"><span class="trust-icon">✅</span>3rd-party tested</div>
+          <div class="trust-item"><span class="trust-icon">↩️</span>30-day returns</div>
+        </div>
+
+        <hr class="prod-divider">
+
+        <div class="prod-description">
+          <div class="desc-label">About this product</div>
+          <div class="desc-text">Formulated to support healthy glucose metabolism with clinically-studied ingredients. No fillers, no fluff — just what your body needs to maintain balanced blood sugar levels throughout the day.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <div class="mock-ingredients">
+      <div class="section-title">Key Ingredients</div>
+      <div class="ingredients-grid">
+        <div class="ingredient-card">
+          <div class="ing-name">Berberine HCl</div>
+          <div class="ing-amount">500mg per serving</div>
+          <div class="ing-desc">Clinically studied to support healthy glucose metabolism and insulin sensitivity.</div>
+        </div>
+        <div class="ingredient-card">
+          <div class="ing-name">Chromium Picolinate</div>
+          <div class="ing-amount">200mcg per serving</div>
+          <div class="ing-desc">Essential trace mineral that enhances insulin action and supports carbohydrate metabolism.</div>
+        </div>
+        <div class="ingredient-card">
+          <div class="ing-name">Cinnamon Extract</div>
+          <div class="ing-amount">300mg per serving</div>
+          <div class="ing-desc">Standardized extract shown to help maintain healthy blood sugar levels after meals.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RELATED PRODUCTS -->
+    <div class="mock-related">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:24px;">
+        <div class="section-title">You Might Also Like</div>
+        <div style="font-size:11px;font-weight:600;color:#D42F2F;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid #D42F2F;padding-bottom:1px;">View All →</div>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-img"><div class="product-img-inner"></div></div>
+          <div class="product-info">
+            <div class="product-category">Capsules</div>
+            <div class="product-name">Immune Defense</div>
+            <div class="product-price">$29.99</div>
+            <div class="product-btn">Add to Cart</div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><div class="product-img-inner"></div></div>
+          <div class="product-info">
+            <div class="product-category">Powder</div>
+            <div class="product-name">Energy & Focus</div>
+            <div class="product-price">$44.99</div>
+            <div class="product-btn">Add to Cart</div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><div class="product-img-inner"></div></div>
+          <div class="product-info">
+            <div class="product-category">Gummies</div>
+            <div class="product-name">Sleep & Recovery</div>
+            <div class="product-price">$32.99</div>
+            <div class="product-btn">Add to Cart</div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><div class="product-img-inner"></div></div>
+          <div class="product-info">
+            <div class="product-category">Liquid</div>
+            <div class="product-name">Daily Essentials</div>
+            <div class="product-price">$39.99</div>
+            <div class="product-btn">Add to Cart</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="mock-footer">
+      <div class="footer-bottom">
+        <div class="footer-logo">HABITO</div>
+        <div class="footer-copy">© 2025 Habito. All rights reserved.</div>
+      </div>
+    </div>
+
+  </div>
+</div>

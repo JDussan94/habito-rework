@@ -1,0 +1,303 @@
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  .page-label { font-family:'Inter',sans-serif; font-size:11px; font-weight:600; color:#888; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; }
+  .page-mock { border:1px solid #e2e2e2; border-radius:12px; overflow:hidden; font-family:'Inter',sans-serif; max-width:860px; margin:0 auto; box-shadow:0 4px 24px rgba(0,0,0,0.10); }
+
+  /* NAV */
+  .mock-navbar { background:#1C1F29; padding:0 40px; height:56px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.07); }
+  .mock-logo { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:16px; color:#fff; letter-spacing:3px; }
+  .mock-nav-links { display:flex; gap:28px; align-items:center; }
+  .mock-nav-links span { font-size:12px; color:rgba(255,255,255,0.7); font-weight:500; }
+  .mock-nav-links .nav-cta { background:#D42F2F; color:#fff; padding:7px 16px; border-radius:3px; font-size:11px; font-weight:600; letter-spacing:1px; }
+  .mock-nav-icons { display:flex; gap:16px; }
+  .mock-nav-icons span { font-size:14px; color:rgba(255,255,255,0.7); }
+
+  /* PAGE HERO */
+  .page-hero { background:#1C1F29; padding:36px 40px; display:flex; justify-content:space-between; align-items:flex-end; }
+  .page-hero-title { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:28px; color:#fff; margin-bottom:6px; }
+  .page-hero-sub { font-size:12px; color:rgba(255,255,255,0.5); }
+  .page-hero-count { font-size:12px; color:rgba(255,255,255,0.4); }
+
+  /* CATALOG BODY */
+  .catalog-body { background:#FFFFFF; display:grid; grid-template-columns:200px 1fr; }
+
+  /* SIDEBAR */
+  .sidebar { border-right:1px solid #EBEBEB; padding:28px 20px; background:#FAFAFA; }
+  .filter-section { margin-bottom:28px; }
+  .filter-title { font-size:10px; font-weight:700; color:#1C1F29; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #EBEBEB; }
+  .filter-option { display:flex; align-items:center; gap:8px; margin-bottom:8px; cursor:pointer; }
+  .filter-checkbox { width:14px; height:14px; border:1.5px solid #DCDCDC; border-radius:2px; flex-shrink:0; }
+  .filter-checkbox.checked { background:#1C1F29; border-color:#1C1F29; }
+  .filter-label { font-size:12px; color:#555; }
+  .filter-count { font-size:10px; color:#BBB; margin-left:auto; }
+  .filter-option.active .filter-label { color:#1C1F29; font-weight:600; }
+  .clear-link { font-size:11px; color:#D42F2F; font-weight:600; letter-spacing:0.5px; margin-top:4px; display:inline-block; }
+
+  /* MAIN CATALOG */
+  .catalog-main { padding:24px 28px; }
+  .catalog-toolbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; padding-bottom:16px; border-bottom:1px solid #EBEBEB; }
+  .active-filters { display:flex; gap:8px; flex-wrap:wrap; }
+  .filter-chip { display:inline-flex; align-items:center; gap:6px; background:#1C1F29; color:#fff; font-size:10px; font-weight:600; letter-spacing:1px; padding:4px 10px; border-radius:20px; }
+  .filter-chip .remove { color:rgba(255,255,255,0.6); font-size:12px; }
+  .sort-select { display:flex; align-items:center; gap:8px; }
+  .sort-label { font-size:11px; color:#888; }
+  .sort-dropdown { border:1.5px solid #EBEBEB; border-radius:4px; padding:6px 12px; font-size:11px; color:#1C1F29; font-weight:600; background:#fff; }
+
+  /* CATEGORY TABS */
+  .category-tabs { display:flex; gap:0; margin-bottom:24px; border:1.5px solid #EBEBEB; border-radius:6px; overflow:hidden; width:fit-content; }
+  .cat-tab { padding:8px 16px; font-size:11px; font-weight:600; color:#888; border-right:1.5px solid #EBEBEB; cursor:pointer; background:#fff; }
+  .cat-tab:last-child { border-right:none; }
+  .cat-tab.active { background:#1C1F29; color:#fff; }
+
+  /* PRODUCT GRID */
+  .product-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .product-card { border:1px solid #EBEBEB; border-radius:6px; overflow:hidden; }
+  .product-img { background:#F2F2F2; height:150px; display:flex; align-items:center; justify-content:center; position:relative; }
+  .product-img-inner { width:56px; height:80px; background:#DCDCDC; border-radius:4px; }
+  .product-badge { position:absolute; top:10px; left:10px; background:#D42F2F; color:#fff; font-size:9px; font-weight:700; letter-spacing:1px; padding:3px 7px; border-radius:2px; text-transform:uppercase; }
+  .product-info { padding:14px; }
+  .product-category { font-size:9px; font-weight:700; color:#D42F2F; letter-spacing:2px; text-transform:uppercase; margin-bottom:4px; }
+  .product-name { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:13px; color:#1C1F29; margin-bottom:6px; line-height:1.3; }
+  .product-price-row { display:flex; align-items:baseline; gap:8px; margin-bottom:10px; }
+  .product-price { font-size:14px; font-weight:700; color:#1C1F29; }
+  .product-price-member { font-size:10px; color:#888; }
+  .product-btn { background:#1C1F29; color:#fff; padding:8px 0; border-radius:3px; font-size:10px; font-weight:600; letter-spacing:1px; text-transform:uppercase; text-align:center; }
+
+  /* PAGINATION */
+  .pagination { display:flex; justify-content:center; align-items:center; gap:8px; padding:28px; border-top:1px solid #EBEBEB; }
+  .page-btn { width:32px; height:32px; border:1.5px solid #EBEBEB; border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:600; color:#1C1F29; }
+  .page-btn.active { background:#1C1F29; color:#fff; border-color:#1C1F29; }
+  .page-btn.arrow { color:#999; }
+
+  /* FOOTER */
+  .mock-footer { background:#1C1F29; padding:24px 40px; display:flex; justify-content:space-between; align-items:center; }
+  .footer-logo { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:14px; color:#fff; letter-spacing:3px; }
+  .footer-copy { font-size:11px; color:rgba(255,255,255,0.35); }
+</style>
+
+<div>
+  <p class="page-label">Page 3 of 6 — All Products / Catalog</p>
+
+  <div class="page-mock">
+
+    <!-- NAV -->
+    <div class="mock-navbar">
+      <div class="mock-logo">HABITO</div>
+      <div class="mock-nav-links">
+        <span>Shop ▾</span><span>Join</span><span>About</span><span>Contact</span>
+        <span class="nav-cta">Join Now</span>
+      </div>
+      <div class="mock-nav-icons"><span>🔍</span><span>👤</span><span>🛒</span></div>
+    </div>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div>
+        <div class="page-hero-title">All Products</div>
+        <div class="page-hero-sub">Clean supplements. Real ingredients. No gimmicks.</div>
+      </div>
+      <div class="page-hero-count">18 products</div>
+    </div>
+
+    <!-- CATALOG BODY -->
+    <div class="catalog-body">
+
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+        <div class="filter-section">
+          <div class="filter-title">Category</div>
+          <div class="filter-option active">
+            <div class="filter-checkbox checked"></div>
+            <span class="filter-label">All Products</span>
+            <span class="filter-count">18</span>
+          </div>
+          <div class="filter-option">
+            <div class="filter-checkbox"></div>
+            <span class="filter-label">Capsules</span>
+            <span class="filter-count">11</span>
+          </div>
+          <div class="filter-option">
+            <div class="filter-checkbox"></div>
+            <span class="filter-label">Gummies</span>
+            <span class="filter-count">2</span>
+          </div>
+          <div class="filter-option">
+            <div class="filter-checkbox"></div>
+            <span class="filter-label">Liquid</span>
+            <span class="filter-count">2</span>
+          </div>
+          <div class="filter-option">
+            <div class="filter-checkbox"></div>
+            <span class="filter-label">Powder</span>
+            <span class="filter-count">3</span>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <div class="filter-title">Health Goal</div>
+          <div class="filter-option">
+            <div class="filter-checkbox"></div>
+            <span class="filter-label">Endurance</span>
+          </div>
+          <div class="filter-option">
+            <div class="filter-checkbox"></div>
+            <span class="filter-label">Strength</span>
+          </div>
+          <div class="filter-option">
+            <div class="filter-checkbox"></div>
+            <span class="filter-label">Recovery</span>
+          </div>
+          <div class="filter-option">
+            <div class="filter-checkbox"></div>
+            <span class="filter-label">Focus</span>
+          </div>
+          <div class="filter-option">
+            <div class="filter-checkbox"></div>
+            <span class="filter-label">Blood Sugar</span>
+          </div>
+          <div class="filter-option">
+            <div class="filter-checkbox"></div>
+            <span class="filter-label">Immunity</span>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <div class="filter-title">Price</div>
+          <div class="filter-option">
+            <div class="filter-checkbox"></div>
+            <span class="filter-label">Under $30</span>
+          </div>
+          <div class="filter-option">
+            <div class="filter-checkbox"></div>
+            <span class="filter-label">$30 – $50</span>
+          </div>
+          <div class="filter-option">
+            <div class="filter-checkbox"></div>
+            <span class="filter-label">$50+</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAIN -->
+      <div class="catalog-main">
+        <div class="catalog-toolbar">
+          <div class="active-filters">
+            <span style="font-size:11px;color:#888;margin-right:4px;">Filters:</span>
+            <div class="filter-chip">All Products <span class="remove">×</span></div>
+          </div>
+          <div class="sort-select">
+            <span class="sort-label">Sort by</span>
+            <div class="sort-dropdown">Featured ▾</div>
+          </div>
+        </div>
+
+        <div class="category-tabs">
+          <div class="cat-tab active">All</div>
+          <div class="cat-tab">Capsules</div>
+          <div class="cat-tab">Gummies</div>
+          <div class="cat-tab">Liquid</div>
+          <div class="cat-tab">Powder</div>
+        </div>
+
+        <div class="product-grid">
+          <div class="product-card">
+            <div class="product-img">
+              <div class="product-badge">Best Seller</div>
+              <div class="product-img-inner"></div>
+            </div>
+            <div class="product-info">
+              <div class="product-category">Capsules</div>
+              <div class="product-name">Blood Sugar Support</div>
+              <div class="product-price-row">
+                <span class="product-price">$34.99</span>
+                <span class="product-price-member">$27.99 members</span>
+              </div>
+              <div class="product-btn">Add to Cart</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img"><div class="product-img-inner"></div></div>
+            <div class="product-info">
+              <div class="product-category">Powder</div>
+              <div class="product-name">Performance Blend</div>
+              <div class="product-price-row">
+                <span class="product-price">$49.99</span>
+                <span class="product-price-member">$39.99 members</span>
+              </div>
+              <div class="product-btn">Add to Cart</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img">
+              <div class="product-badge">New</div>
+              <div class="product-img-inner"></div>
+            </div>
+            <div class="product-info">
+              <div class="product-category">Gummies</div>
+              <div class="product-name">Sleep & Recovery</div>
+              <div class="product-price-row">
+                <span class="product-price">$29.99</span>
+                <span class="product-price-member">$23.99 members</span>
+              </div>
+              <div class="product-btn">Add to Cart</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img"><div class="product-img-inner"></div></div>
+            <div class="product-info">
+              <div class="product-category">Liquid</div>
+              <div class="product-name">Daily Essentials</div>
+              <div class="product-price-row">
+                <span class="product-price">$39.99</span>
+                <span class="product-price-member">$31.99 members</span>
+              </div>
+              <div class="product-btn">Add to Cart</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img"><div class="product-img-inner"></div></div>
+            <div class="product-info">
+              <div class="product-category">Capsules</div>
+              <div class="product-name">Immune Defense</div>
+              <div class="product-price-row">
+                <span class="product-price">$29.99</span>
+                <span class="product-price-member">$23.99 members</span>
+              </div>
+              <div class="product-btn">Add to Cart</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img"><div class="product-img-inner"></div></div>
+            <div class="product-info">
+              <div class="product-category">Capsules</div>
+              <div class="product-name">Joint & Mobility</div>
+              <div class="product-price-row">
+                <span class="product-price">$32.99</span>
+                <span class="product-price-member">$26.39 members</span>
+              </div>
+              <div class="product-btn">Add to Cart</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAGINATION -->
+        <div class="pagination">
+          <div class="page-btn arrow">←</div>
+          <div class="page-btn active">1</div>
+          <div class="page-btn">2</div>
+          <div class="page-btn">3</div>
+          <div class="page-btn arrow">→</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="mock-footer">
+      <div class="footer-logo">HABITO</div>
+      <div class="footer-copy">© 2025 Habito. All rights reserved.</div>
+    </div>
+
+  </div>
+</div>

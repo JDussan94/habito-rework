@@ -1,0 +1,463 @@
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .page-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: #888;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .section-badge {
+    display: inline-block;
+    background: #1C1F29;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+
+  .page-mock {
+    border: 1px solid #e2e2e2;
+    border-radius: 12px;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    max-width: 860px;
+    margin: 0 auto;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  }
+
+  /* NAV */
+  .mock-navbar {
+    background: #1C1F29;
+    padding: 0 40px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .mock-logo {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 3px;
+  }
+  .mock-nav-links { display: flex; gap: 28px; align-items: center; }
+  .mock-nav-links span { font-size: 12px; color: rgba(255,255,255,0.7); font-weight: 500; }
+  .mock-nav-links .nav-cta {
+    background: #D42F2F;
+    color: #fff;
+    padding: 7px 16px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .mock-nav-icons { display: flex; gap: 16px; align-items: center; }
+  .mock-nav-icons span { font-size: 14px; color: rgba(255,255,255,0.7); }
+
+  /* HERO */
+  .mock-hero {
+    background: #1C1F29;
+    padding: 64px 40px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    min-height: 320px;
+  }
+  .hero-text-col {}
+  .hero-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: #D42F2F;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .hero-headline {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 38px;
+    color: #FFFFFF;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .hero-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+    margin-bottom: 28px;
+    max-width: 340px;
+  }
+  .hero-btns { display: flex; gap: 12px; align-items: center; }
+  .btn-primary {
+    background: #D42F2F;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .btn-secondary {
+    color: rgba(255,255,255,0.8);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+    padding-bottom: 2px;
+  }
+  .hero-image-col {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+  }
+  .hero-product-box {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    width: 100px;
+    height: 140px;
+  }
+  .hero-product-box.tall { height: 160px; margin-top: -10px; }
+
+  /* BENEFITS BAR */
+  .mock-benefits {
+    background: #F7F7F7;
+    border-top: 1px solid #E8E8E8;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .benefit-item { text-align: center; }
+  .benefit-icon { font-size: 18px; margin-bottom: 4px; }
+  .benefit-label { font-size: 10px; font-weight: 600; color: #1C1F29; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* FEATURED PRODUCTS */
+  .mock-section {
+    background: #FFFFFF;
+    padding: 52px 40px;
+  }
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 32px;
+  }
+  .section-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    color: #1C1F29;
+  }
+  .section-link {
+    font-size: 11px;
+    font-weight: 600;
+    color: #D42F2F;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #D42F2F;
+    padding-bottom: 1px;
+  }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .product-card {
+    border: 1px solid #EBEBEB;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .product-img {
+    background: #F2F2F2;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .product-img-inner {
+    width: 60px;
+    height: 80px;
+    background: #DCDCDC;
+    border-radius: 4px;
+  }
+  .product-info { padding: 12px; }
+  .product-category { font-size: 9px; font-weight: 600; color: #D42F2F; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+  .product-name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 13px; color: #1C1F29; margin-bottom: 8px; line-height: 1.3; }
+  .product-price { font-size: 13px; font-weight: 700; color: #1C1F29; }
+  .product-btn { margin-top: 10px; background: #1C1F29; color: #fff; padding: 8px 0; border-radius: 3px; font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; text-align: center; width: 100%; }
+
+  /* VALUE PROP */
+  .mock-value {
+    background: #1C1F29;
+    padding: 52px 40px;
+  }
+  .value-header { text-align: center; margin-bottom: 36px; }
+  .value-eyebrow { font-size: 10px; color: #D42F2F; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; }
+  .value-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 26px; color: #fff; }
+  .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .value-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .value-card-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 14px; color: #fff; margin-bottom: 8px; }
+  .value-card-text { font-size: 11px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+  .value-check { color: #D42F2F; font-size: 14px; margin-bottom: 10px; }
+
+  /* JOIN CTA */
+  .mock-join {
+    background: #D42F2F;
+    padding: 52px 40px;
+    text-align: center;
+  }
+  .join-eyebrow { font-size: 10px; color: rgba(255,255,255,0.7); font-weight: 600; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; }
+  .join-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 28px; color: #fff; margin-bottom: 10px; }
+  .join-sub { font-size: 13px; color: rgba(255,255,255,0.8); margin-bottom: 8px; }
+  .join-offer { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 18px; color: #fff; margin-bottom: 24px; }
+  .join-offer span { text-decoration: line-through; opacity: 0.6; font-size: 14px; font-weight: 400; margin-right: 8px; }
+  .join-btn { display: inline-block; background: #fff; color: #D42F2F; padding: 14px 36px; border-radius: 3px; font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+  .join-perks { display: flex; gap: 24px; justify-content: center; margin-top: 28px; }
+  .join-perk { font-size: 11px; color: rgba(255,255,255,0.8); }
+  .join-perk::before { content: "✓ "; }
+
+  /* FAQ */
+  .mock-faq {
+    background: #FFFFFF;
+    padding: 52px 40px;
+  }
+  .faq-list { max-width: 640px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid #EBEBEB; padding: 16px 0; }
+  .faq-q { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 13px; color: #1C1F29; display: flex; justify-content: space-between; }
+  .faq-q::after { content: "+"; color: #D42F2F; font-size: 16px; font-weight: 400; }
+  .faq-a { font-size: 12px; color: #666; line-height: 1.6; margin-top: 10px; display: none; }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-q::after { content: "−"; }
+
+  /* FOOTER */
+  .mock-footer {
+    background: #1C1F29;
+    padding: 40px 40px 24px;
+  }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 32px; }
+  .footer-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 15px; color: #fff; letter-spacing: 3px; margin-bottom: 10px; }
+  .footer-tagline { font-size: 11px; color: rgba(255,255,255,0.45); line-height: 1.6; max-width: 200px; }
+  .footer-col-title { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+  .footer-link { display: block; font-size: 12px; color: rgba(255,255,255,0.65); margin-bottom: 8px; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; display: flex; justify-content: space-between; }
+  .footer-copy { font-size: 11px; color: rgba(255,255,255,0.35); }
+</style>
+
+<div style="padding: 0;">
+  <p class="page-label" style="margin-bottom:12px;">Page 1 of 6 — Home Page Layout</p>
+
+  <div class="page-mock">
+
+    <!-- NAVBAR -->
+    <div class="mock-navbar">
+      <div class="mock-logo">HABITO</div>
+      <div class="mock-nav-links">
+        <span>Shop ▾</span>
+        <span>Join</span>
+        <span>About</span>
+        <span>Contact</span>
+        <span class="nav-cta">Join Now</span>
+      </div>
+      <div class="mock-nav-icons">
+        <span>🔍</span>
+        <span>👤</span>
+        <span>🛒</span>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="mock-hero">
+      <div class="hero-text-col">
+        <div class="hero-eyebrow">Clean Supplements · No Gimmicks</div>
+        <div class="hero-headline">Choose Better.<br>Live Greater.</div>
+        <div class="hero-sub">Performance supplements built on real science. You pay for the product — not the marketing.</div>
+        <div class="hero-btns">
+          <div class="btn-primary">Shop Now</div>
+          <div class="btn-secondary">Join & Save</div>
+        </div>
+      </div>
+      <div class="hero-image-col">
+        <div class="hero-product-box"></div>
+        <div class="hero-product-box tall"></div>
+        <div class="hero-product-box"></div>
+      </div>
+    </div>
+
+    <!-- BENEFITS BAR -->
+    <div class="mock-benefits">
+      <div class="benefit-item"><div class="benefit-icon">⚡</div><div class="benefit-label">Endurance</div></div>
+      <div class="benefit-item"><div class="benefit-icon">💪</div><div class="benefit-label">Strength</div></div>
+      <div class="benefit-item"><div class="benefit-icon">🔄</div><div class="benefit-label">Recovery</div></div>
+      <div class="benefit-item"><div class="benefit-icon">🧠</div><div class="benefit-label">Focus</div></div>
+      <div class="benefit-item"><div class="benefit-icon">🩸</div><div class="benefit-label">Blood Sugar</div></div>
+      <div class="benefit-item"><div class="benefit-icon">🛡️</div><div class="benefit-label">Immunity</div></div>
+    </div>
+
+    <!-- FEATURED PRODUCTS -->
+    <div class="mock-section">
+      <div class="section-header">
+        <div class="section-title">Featured Products</div>
+        <div class="section-link">View All →</div>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-img"><div class="product-img-inner"></div></div>
+          <div class="product-info">
+            <div class="product-category">Capsules</div>
+            <div class="product-name">Blood Sugar Support</div>
+            <div class="product-price">$34.99</div>
+            <div class="product-btn">Add to Cart</div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><div class="product-img-inner"></div></div>
+          <div class="product-info">
+            <div class="product-category">Powder</div>
+            <div class="product-name">Performance Blend</div>
+            <div class="product-price">$49.99</div>
+            <div class="product-btn">Add to Cart</div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><div class="product-img-inner"></div></div>
+          <div class="product-info">
+            <div class="product-category">Gummies</div>
+            <div class="product-name">Recovery Formula</div>
+            <div class="product-price">$29.99</div>
+            <div class="product-btn">Add to Cart</div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><div class="product-img-inner"></div></div>
+          <div class="product-info">
+            <div class="product-category">Liquid</div>
+            <div class="product-name">Daily Essentials</div>
+            <div class="product-price">$39.99</div>
+            <div class="product-btn">Add to Cart</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VALUE PROP -->
+    <div class="mock-value">
+      <div class="value-header">
+        <div class="value-eyebrow">Why Habito</div>
+        <div class="value-title">More value. No gimmicks.</div>
+      </div>
+      <div class="value-grid">
+        <div class="value-card">
+          <div class="value-check">●</div>
+          <div class="value-card-title">Full Ingredient Transparency</div>
+          <div class="value-card-text">Every label shows exactly what's inside — no proprietary blends, no hidden fillers.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-check">●</div>
+          <div class="value-card-title">Member Pricing Forever</div>
+          <div class="value-card-text">Join once, save on every order. No recurring fees — just permanent access to better prices.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-check">●</div>
+          <div class="value-card-title">Free Shipping Always</div>
+          <div class="value-card-text">Members never pay for shipping. Ever. No minimums, no conditions.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JOIN CTA -->
+    <div class="mock-join">
+      <div class="join-eyebrow">Limited Offer</div>
+      <div class="join-title">Join & Get $150 in Products</div>
+      <div class="join-sub">For only</div>
+      <div class="join-offer"><span>$150</span>$75 today</div>
+      <div class="join-btn">Join Now →</div>
+      <div class="join-perks">
+        <div class="join-perk">4 Full-Size Products</div>
+        <div class="join-perk">2 Bonus Products</div>
+        <div class="join-perk">Free Shipping Always</div>
+        <div class="join-perk">Member Pricing Forever</div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="mock-faq">
+      <div class="section-header" style="max-width:640px;margin:0 auto 28px;">
+        <div class="section-title">Frequently Asked</div>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item open">
+          <div class="faq-q">What makes Habito different from other brands?</div>
+          <div class="faq-a">We charge for the product — not the packaging, influencers, or flashy marketing. Every dollar goes into ingredient quality.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How does the membership work?</div>
+          <div class="faq-a">One-time join fee gives you access to member pricing and free shipping on every future order.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Are there recurring fees after joining?</div>
+          <div class="faq-a">No recurring fees. You pay once, you're a member for life.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Where do you ship?</div>
+          <div class="faq-a">We ship to Colombia and the United States. Members always get free shipping.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="mock-footer">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">HABITO</div>
+          <div class="footer-tagline">Choose Better. Live Greater.<br>Clean supplements. Real results.</div>
+        </div>
+        <div>
+          <div class="footer-col-title">Shop</div>
+          <div class="footer-link">Capsules</div>
+          <div class="footer-link">Gummies</div>
+          <div class="footer-link">Liquid</div>
+          <div class="footer-link">Powder</div>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-link">About</div>
+          <div class="footer-link">Join</div>
+          <div class="footer-link">Contact</div>
+        </div>
+        <div>
+          <div class="footer-col-title">Support</div>
+          <div class="footer-link">FAQ</div>
+          <div class="footer-link">Shipping</div>
+          <div class="footer-link">Returns</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2025 Habito. All rights reserved.</div>
+        <div class="footer-copy">Privacy · Terms</div>
+      </div>
+    </div>
+
+  </div>
+</div>

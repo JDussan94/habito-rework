@@ -6,9 +6,9 @@
   <title>About Habito — More Value. No Gimmicks.</title>
   <link rel="stylesheet" href="styles/main.css">
   <style>
-.about-hero { background: var(--navy); padding: 80px 40px; text-align: center; }
+.about-hero { background: var(--navy); padding: 80px max(var(--section-pad-h), calc((100% - var(--max-w)) / 2)); text-align: center; }
 .about-hero__title { font-family: var(--font-display); font-weight: 800; font-size: 44px; color: var(--white); line-height: 1.1; margin-bottom: 16px; }
-.mission-section { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: 64px 40px; background: var(--white); }
+.mission-section { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: 64px max(var(--section-pad-h), calc((100% - var(--max-w)) / 2)); background: var(--white); }
 .mission-text p { font-size: 14px; color: var(--text-2); line-height: 1.8; margin-bottom: 14px; }
 .mission-visual { background: var(--gray); border-radius: 10px; height: 280px; display: flex; align-items: center; justify-content: center; }
 .mission-visual-inner { width: 120px; height: 120px; background: linear-gradient(90deg,#ddd 25%,#e8e8e8 50%,#ddd 75%); background-size:200% 100%; border-radius: 50%; animation: shimmer 1.5s infinite; }
@@ -18,7 +18,7 @@
 .value-accent { display: block; width: 24px; height: 3px; background: var(--red); margin: 0 auto 14px; border-radius: 2px; }
 .value-name { font-family: var(--font-display); font-weight: 700; font-size: 14px; color: var(--text); margin-bottom: 8px; }
 .value-desc { font-size: 12px; color: var(--text-3); line-height: 1.7; }
-.story-section { background: var(--navy); padding: 64px 40px; }
+.story-section { background: var(--navy); padding: 64px max(var(--section-pad-h), calc((100% - var(--max-w)) / 2)); }
 .story-body { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 28px; }
 .story-text { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.8; }
 .story-quote { border-left: 3px solid var(--red); padding-left: 20px; margin-top: 28px; }

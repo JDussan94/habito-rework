@@ -1,0 +1,237 @@
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  .page-label { font-family:'Inter',sans-serif; font-size:11px; font-weight:600; color:#888; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; }
+  .page-mock { border:1px solid #e2e2e2; border-radius:12px; overflow:hidden; font-family:'Inter',sans-serif; max-width:860px; margin:0 auto; box-shadow:0 4px 24px rgba(0,0,0,0.10); }
+
+  /* NAV */
+  .mock-navbar { background:#1C1F29; padding:0 40px; height:56px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.07); }
+  .mock-logo { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:16px; color:#fff; letter-spacing:3px; }
+  .mock-nav-links { display:flex; gap:28px; align-items:center; }
+  .mock-nav-links span { font-size:12px; color:rgba(255,255,255,0.7); font-weight:500; }
+  .mock-nav-links .nav-cta { background:#D42F2F; color:#fff; padding:7px 16px; border-radius:3px; font-size:11px; font-weight:600; letter-spacing:1px; }
+  .mock-nav-icons { display:flex; gap:16px; }
+  .mock-nav-icons span { font-size:14px; color:rgba(255,255,255,0.7); }
+
+  /* HERO */
+  .about-hero { background:#1C1F29; padding:72px 40px; text-align:center; }
+  .about-eyebrow { font-size:10px; font-weight:700; color:#D42F2F; letter-spacing:4px; text-transform:uppercase; margin-bottom:16px; }
+  .about-headline { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:38px; color:#fff; line-height:1.1; margin-bottom:16px; }
+  .about-sub { font-size:13px; color:rgba(255,255,255,0.55); max-width:500px; margin:0 auto; line-height:1.8; }
+
+  /* MISSION */
+  .about-mission { background:#FFFFFF; padding:64px 40px; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+  .mission-label { font-size:10px; font-weight:700; color:#D42F2F; letter-spacing:3px; text-transform:uppercase; margin-bottom:14px; }
+  .mission-title { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:26px; color:#1C1F29; line-height:1.2; margin-bottom:16px; }
+  .mission-text { font-size:13px; color:#666; line-height:1.8; margin-bottom:12px; }
+  .mission-visual { background:#F2F2F2; border-radius:10px; height:260px; display:flex; align-items:center; justify-content:center; }
+  .mission-visual-inner { width:120px; height:120px; background:#DCDCDC; border-radius:50%; }
+
+  /* VALUES */
+  .about-values { background:#F7F7F7; padding:60px 40px; border-top:1px solid #EBEBEB; }
+  .section-title { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:22px; color:#1C1F29; margin-bottom:32px; text-align:center; }
+  .values-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .value-card { background:#fff; border:1px solid #EBEBEB; border-radius:8px; padding:24px 20px; text-align:center; }
+  .value-icon { font-size:24px; margin-bottom:12px; }
+  .value-name { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:14px; color:#1C1F29; margin-bottom:8px; }
+  .value-desc { font-size:11px; color:#888; line-height:1.6; }
+  .value-accent { display:block; width:24px; height:3px; background:#D42F2F; margin:0 auto 12px; border-radius:2px; }
+
+  /* STORY */
+  .about-story { background:#1C1F29; padding:64px 40px; }
+  .story-label { font-size:10px; font-weight:700; color:#D42F2F; letter-spacing:3px; text-transform:uppercase; margin-bottom:14px; }
+  .story-title { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:26px; color:#fff; line-height:1.2; margin-bottom:20px; max-width:540px; }
+  .story-body { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+  .story-text { font-size:13px; color:rgba(255,255,255,0.6); line-height:1.8; }
+  .story-quote { border-left:3px solid #D42F2F; padding-left:20px; margin-top:24px; }
+  .story-quote-text { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:16px; color:#fff; line-height:1.4; font-style:italic; }
+  .story-quote-author { font-size:11px; color:rgba(255,255,255,0.4); margin-top:8px; letter-spacing:1px; }
+
+  /* PILLARS */
+  .about-pillars { background:#FFFFFF; padding:60px 40px; border-top:1px solid #EBEBEB; }
+  .pillars-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; max-width:640px; margin:0 auto; }
+  .pillar-row { display:flex; gap:16px; align-items:flex-start; padding:20px; border:1.5px solid #EBEBEB; border-radius:8px; }
+  .pillar-num { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:24px; color:#D42F2F; line-height:1; flex-shrink:0; width:32px; }
+  .pillar-name { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:14px; color:#1C1F29; margin-bottom:4px; }
+  .pillar-desc { font-size:11px; color:#888; line-height:1.6; }
+
+  /* JOIN CTA */
+  .about-cta { background:#D42F2F; padding:52px 40px; text-align:center; }
+  .cta-title { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:26px; color:#fff; margin-bottom:10px; }
+  .cta-sub { font-size:13px; color:rgba(255,255,255,0.8); margin-bottom:24px; }
+  .cta-btn { display:inline-block; background:#fff; color:#D42F2F; padding:14px 36px; border-radius:3px; font-size:12px; font-weight:800; letter-spacing:2px; text-transform:uppercase; }
+
+  /* FOOTER */
+  .mock-footer { background:#1C1F29; padding:32px 40px 20px; }
+  .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:32px; margin-bottom:24px; }
+  .footer-logo { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:14px; color:#fff; letter-spacing:3px; margin-bottom:8px; }
+  .footer-tagline { font-size:11px; color:rgba(255,255,255,0.4); line-height:1.6; max-width:180px; }
+  .footer-col-title { font-size:10px; font-weight:700; color:rgba(255,255,255,0.4); letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; }
+  .footer-link { display:block; font-size:11px; color:rgba(255,255,255,0.6); margin-bottom:7px; }
+  .footer-divider { border:none; border-top:1px solid rgba(255,255,255,0.08); margin-bottom:16px; }
+  .footer-disclaimer { font-size:10px; color:rgba(255,255,255,0.25); line-height:1.6; margin-bottom:12px; }
+  .footer-bottom { display:flex; justify-content:space-between; }
+  .footer-copy { font-size:10px; color:rgba(255,255,255,0.3); }
+</style>
+
+<div>
+  <p class="page-label">Page 5 of 6 — About Page</p>
+
+  <div class="page-mock">
+
+    <!-- NAV -->
+    <div class="mock-navbar">
+      <div class="mock-logo">HABITO</div>
+      <div class="mock-nav-links">
+        <span>Shop ▾</span><span>Join</span><span>About</span><span>Contact</span>
+        <span class="nav-cta">Join Now</span>
+      </div>
+      <div class="mock-nav-icons"><span>🔍</span><span>👤</span><span>🛒</span></div>
+    </div>
+
+    <!-- HERO -->
+    <div class="about-hero">
+      <div class="about-eyebrow">Our Story</div>
+      <div class="about-headline">More Value.<br>No Gimmicks.</div>
+      <div class="about-sub">We built Habito because we were tired of paying for marketing, celebrity endorsements, and flashy packaging. You deserve a supplement company that puts every dollar into what actually matters — the ingredients.</div>
+    </div>
+
+    <!-- MISSION -->
+    <div class="about-mission">
+      <div>
+        <div class="mission-label">Our Mission</div>
+        <div class="mission-title">You pay for the product, not the marketing.</div>
+        <div class="mission-text">At Habito, we believe premium supplements shouldn't come with a premium marketing budget. We source clean, effective ingredients and pass the savings directly to you.</div>
+        <div class="mission-text">No gimmicks. No inflated prices. Just real products that do what they say.</div>
+      </div>
+      <div class="mission-visual">
+        <div class="mission-visual-inner"></div>
+      </div>
+    </div>
+
+    <!-- VALUES -->
+    <div class="about-values">
+      <div class="section-title">What We Stand For</div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-accent"></div>
+          <div class="value-name">Clean Ingredients</div>
+          <div class="value-desc">No fillers, no proprietary blends. Every ingredient is listed, dosed, and purposeful.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-accent"></div>
+          <div class="value-name">Pure Performance</div>
+          <div class="value-desc">Formulated to support real wellness goals — endurance, strength, recovery, and more.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-accent"></div>
+          <div class="value-name">Real Results</div>
+          <div class="value-desc">Backed by science, not hype. We only use ingredients with proven, meaningful efficacy.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-accent"></div>
+          <div class="value-name">No Gimmicks</div>
+          <div class="value-desc">No influencers, no celebrity deals, no overpriced packaging. Just honest supplements.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STORY -->
+    <div class="about-story">
+      <div class="story-label">The Habito Story</div>
+      <div class="story-title">Built for people who want more from their supplements.</div>
+      <div class="story-body">
+        <div>
+          <div class="story-text">We started Habito in Saint George, Utah with a simple idea: the supplement industry charges too much for too little. Marketing budgets eat into ingredient quality. Flashy labels replace real science.</div>
+          <div class="story-text" style="margin-top:14px;">So we flipped the model. We invest in sourcing, formulation, and third-party testing — and we keep our margins honest so you get real value every time you order.</div>
+        </div>
+        <div>
+          <div class="story-text">Our catalog covers the full range of daily wellness — from blood sugar support and immune defense to pre-workout performance and collagen recovery. Every product is built with the same commitment: clean, effective, and worth every dollar.</div>
+          <div class="story-quote">
+            <div class="story-quote-text">"Choose Better. Live Greater."</div>
+            <div class="story-quote-author">— Habito, LLC · Saint George, UT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PILLARS -->
+    <div class="about-pillars">
+      <div class="section-title" style="margin-bottom:24px;">Our Commitments</div>
+      <div class="pillars-grid">
+        <div class="pillar-row">
+          <div class="pillar-num">01</div>
+          <div>
+            <div class="pillar-name">Ingredient Transparency</div>
+            <div class="pillar-desc">Full label disclosure on every product. No hidden blends, ever.</div>
+          </div>
+        </div>
+        <div class="pillar-row">
+          <div class="pillar-num">02</div>
+          <div>
+            <div class="pillar-name">Community First</div>
+            <div class="pillar-desc">Member pricing and free shipping — because loyal customers deserve better.</div>
+          </div>
+        </div>
+        <div class="pillar-row">
+          <div class="pillar-num">03</div>
+          <div>
+            <div class="pillar-name">Honest Pricing</div>
+            <div class="pillar-desc">You pay for the product. Not the celebrity, not the packaging.</div>
+          </div>
+        </div>
+        <div class="pillar-row">
+          <div class="pillar-num">04</div>
+          <div>
+            <div class="pillar-name">Quality Sourcing</div>
+            <div class="pillar-desc">Premium raw materials, carefully selected and third-party verified.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="about-cta">
+      <div class="cta-title">Ready to Choose Better?</div>
+      <div class="cta-sub">Join Habito today and get over $150 in supplements for just $75.</div>
+      <div class="cta-btn">Join Now →</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="mock-footer">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">HABITO</div>
+          <div class="footer-tagline">Choose Better. Live Greater.</div>
+        </div>
+        <div>
+          <div class="footer-col-title">Shop</div>
+          <div class="footer-link">Capsules</div>
+          <div class="footer-link">Gummies</div>
+          <div class="footer-link">Liquid</div>
+          <div class="footer-link">Powder</div>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-link">About</div>
+          <div class="footer-link">Join</div>
+          <div class="footer-link">Contact</div>
+        </div>
+        <div>
+          <div class="footer-col-title">Legal</div>
+          <div class="footer-link">Terms of Use</div>
+          <div class="footer-link">Privacy Policy</div>
+          <div class="footer-link">Return Policy</div>
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <div class="footer-disclaimer">These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease.</div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 Habito, LLC. All rights reserved.</div>
+        <div class="footer-copy">1996 E 2540 S, Saint George, UT 84790</div>
+      </div>
+    </div>
+
+  </div>
+</div>

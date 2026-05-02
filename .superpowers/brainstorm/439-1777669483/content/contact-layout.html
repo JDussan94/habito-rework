@@ -1,0 +1,235 @@
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  .page-label { font-family:'Inter',sans-serif; font-size:11px; font-weight:600; color:#888; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; }
+  .page-mock { border:1px solid #e2e2e2; border-radius:12px; overflow:hidden; font-family:'Inter',sans-serif; max-width:860px; margin:0 auto; box-shadow:0 4px 24px rgba(0,0,0,0.10); }
+
+  /* NAV */
+  .mock-navbar { background:#1C1F29; padding:0 40px; height:56px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.07); }
+  .mock-logo { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:16px; color:#fff; letter-spacing:3px; }
+  .mock-nav-links { display:flex; gap:28px; align-items:center; }
+  .mock-nav-links span { font-size:12px; color:rgba(255,255,255,0.7); font-weight:500; }
+  .mock-nav-links .nav-cta { background:#D42F2F; color:#fff; padding:7px 16px; border-radius:3px; font-size:11px; font-weight:600; letter-spacing:1px; }
+  .mock-nav-icons { display:flex; gap:16px; }
+  .mock-nav-icons span { font-size:14px; color:rgba(255,255,255,0.7); }
+
+  /* HERO */
+  .contact-hero { background:#1C1F29; padding:56px 40px; display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
+  .hero-left {}
+  .hero-eyebrow { font-size:10px; font-weight:700; color:#D42F2F; letter-spacing:4px; text-transform:uppercase; margin-bottom:14px; }
+  .hero-title { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:32px; color:#fff; line-height:1.15; margin-bottom:14px; }
+  .hero-sub { font-size:13px; color:rgba(255,255,255,0.55); line-height:1.7; }
+  .info-cards { display:flex; flex-direction:column; gap:12px; }
+  .info-card { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:16px 20px; display:flex; gap:14px; align-items:flex-start; }
+  .info-icon { font-size:18px; flex-shrink:0; margin-top:1px; }
+  .info-label { font-size:10px; font-weight:700; color:rgba(255,255,255,0.4); letter-spacing:2px; text-transform:uppercase; margin-bottom:4px; }
+  .info-value { font-size:13px; color:#fff; font-weight:500; line-height:1.5; }
+
+  /* FORM SECTION */
+  .contact-form-section { background:#FFFFFF; padding:56px 40px; display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+
+  /* FORM */
+  .form-col {}
+  .form-section-title { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:20px; color:#1C1F29; margin-bottom:6px; }
+  .form-section-sub { font-size:12px; color:#888; margin-bottom:28px; line-height:1.6; }
+  .form-group { margin-bottom:14px; }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px; }
+  .form-label { display:block; font-size:10px; font-weight:700; color:#1C1F29; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+  .form-input { width:100%; border:1.5px solid #EBEBEB; border-radius:4px; padding:11px 14px; font-size:12px; color:#1C1F29; background:#FAFAFA; font-family:'Inter',sans-serif; }
+  .form-input.focus { border-color:#1C1F29; background:#fff; }
+  .form-select { width:100%; border:1.5px solid #EBEBEB; border-radius:4px; padding:11px 14px; font-size:12px; color:#888; background:#FAFAFA; }
+  .form-textarea { width:100%; border:1.5px solid #EBEBEB; border-radius:4px; padding:11px 14px; font-size:12px; color:#1C1F29; background:#FAFAFA; height:110px; resize:none; font-family:'Inter',sans-serif; }
+  .form-submit { width:100%; background:#D42F2F; color:#fff; padding:13px; border-radius:4px; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; text-align:center; margin-top:4px; }
+  .form-note { font-size:10px; color:#AAA; margin-top:10px; line-height:1.6; }
+
+  /* FAQ SIDEBAR */
+  .faq-col {}
+  .faq-section-title { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:20px; color:#1C1F29; margin-bottom:6px; }
+  .faq-section-sub { font-size:12px; color:#888; margin-bottom:24px; }
+  .faq-item { border-bottom:1px solid #EBEBEB; padding:14px 0; }
+  .faq-q { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:12px; color:#1C1F29; display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+  .faq-q::after { content:"+"; color:#D42F2F; font-size:16px; font-weight:400; flex-shrink:0; }
+  .faq-a { font-size:11px; color:#777; line-height:1.65; margin-top:8px; }
+  .faq-item.open .faq-q::after { content:"−"; }
+
+  /* MAP STRIP */
+  .contact-map { background:#F7F7F7; border-top:1px solid #EBEBEB; padding:0; height:160px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+  .map-placeholder { width:100%; height:100%; background:linear-gradient(135deg,#e8e8e8 0%,#f2f2f2 50%,#e4e4e4 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px; }
+  .map-pin { font-size:24px; }
+  .map-label { font-size:11px; font-weight:600; color:#888; letter-spacing:1px; }
+  .map-address { font-size:12px; color:#1C1F29; font-weight:600; }
+  .map-overlay { position:absolute; inset:0; background:rgba(255,255,255,0.4); display:flex; align-items:center; justify-content:center; }
+
+  /* FOOTER */
+  .mock-footer { background:#1C1F29; padding:32px 40px 20px; }
+  .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:32px; margin-bottom:24px; }
+  .footer-logo { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:14px; color:#fff; letter-spacing:3px; margin-bottom:8px; }
+  .footer-tagline { font-size:11px; color:rgba(255,255,255,0.4); line-height:1.6; }
+  .footer-col-title { font-size:10px; font-weight:700; color:rgba(255,255,255,0.4); letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; }
+  .footer-link { display:block; font-size:11px; color:rgba(255,255,255,0.6); margin-bottom:7px; }
+  .footer-divider { border:none; border-top:1px solid rgba(255,255,255,0.08); margin-bottom:14px; }
+  .footer-disclaimer { font-size:10px; color:rgba(255,255,255,0.25); line-height:1.6; margin-bottom:12px; }
+  .footer-bottom { display:flex; justify-content:space-between; }
+  .footer-copy { font-size:10px; color:rgba(255,255,255,0.3); }
+</style>
+
+<div>
+  <p class="page-label">Page 6 of 6 — Contact Page (New Design)</p>
+
+  <div class="page-mock">
+
+    <!-- NAV -->
+    <div class="mock-navbar">
+      <div class="mock-logo">HABITO</div>
+      <div class="mock-nav-links">
+        <span>Shop ▾</span><span>Join</span><span>About</span><span>Contact</span>
+        <span class="nav-cta">Join Now</span>
+      </div>
+      <div class="mock-nav-icons"><span>🔍</span><span>👤</span><span>🛒</span></div>
+    </div>
+
+    <!-- HERO -->
+    <div class="contact-hero">
+      <div class="hero-left">
+        <div class="hero-eyebrow">Get in Touch</div>
+        <div class="hero-title">We're here to help.</div>
+        <div class="hero-sub">Have a question about your order, membership, or products? Reach out and we'll get back to you as soon as possible.</div>
+      </div>
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="info-icon">📍</div>
+          <div>
+            <div class="info-label">Location</div>
+            <div class="info-value">1996 E 2540 S<br>Saint George, UT 84790</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">✉️</div>
+          <div>
+            <div class="info-label">Email</div>
+            <div class="info-value">hello@habitolife.com</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🕐</div>
+          <div>
+            <div class="info-label">Response Time</div>
+            <div class="info-value">We typically reply within 1–2 business days.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM + FAQ -->
+    <div class="contact-form-section">
+
+      <!-- FORM -->
+      <div class="form-col">
+        <div class="form-section-title">Send us a message</div>
+        <div class="form-section-sub">Fill out the form and we'll get back to you shortly.</div>
+
+        <div class="form-row">
+          <div>
+            <label class="form-label">First Name</label>
+            <div class="form-input">First name</div>
+          </div>
+          <div>
+            <label class="form-label">Last Name</label>
+            <div class="form-input">Last name</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <div class="form-input focus">your@email.com</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Topic</label>
+          <div class="form-select">Select a topic ▾</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Order Number (optional)</label>
+          <div class="form-input">#HAB-00000</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <div class="form-textarea">Write your message here...</div>
+        </div>
+        <div class="form-submit">Send Message</div>
+        <div class="form-note">We'll never share your information with third parties.</div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="faq-col">
+        <div class="faq-section-title">Got questions?</div>
+        <div class="faq-section-sub">We've got answers.</div>
+
+        <div class="faq-item open">
+          <div class="faq-q">How is Habito different?</div>
+          <div class="faq-a">We focus on premium, clean ingredients and effective, proven results — not marketing spend or celebrity endorsements. You pay for the product, not the packaging.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Who are your products for?</div>
+          <div class="faq-a">Anyone seeking daily wellness improvements across varied health goals — from endurance and strength to blood sugar support and recovery.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How should I choose the right product for me?</div>
+          <div class="faq-a">Match your personal wellness goals to specific product benefits. We offer capsules, gummies, liquid, and powder formats to fit any routine.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What's included in the membership offer?</div>
+          <div class="faq-a">A collection of our best products, an exclusive early-supporter T-shirt and shaker bottle — over $150 in value for just $75. One-time payment, no recurring fees.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Where do you ship?</div>
+          <div class="faq-a">We ship to Colombia and the United States. Members always receive free shipping on every order.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAP -->
+    <div class="contact-map">
+      <div class="map-placeholder">
+        <div class="map-pin">📍</div>
+        <div class="map-address">1996 E 2540 S, Saint George, UT 84790</div>
+        <div class="map-label">Map placeholder — embed Google Maps in Webflow</div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="mock-footer">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">HABITO</div>
+          <div class="footer-tagline">Choose Better. Live Greater.</div>
+        </div>
+        <div>
+          <div class="footer-col-title">Shop</div>
+          <div class="footer-link">Capsules</div>
+          <div class="footer-link">Gummies</div>
+          <div class="footer-link">Liquid</div>
+          <div class="footer-link">Powder</div>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-link">About</div>
+          <div class="footer-link">Join</div>
+          <div class="footer-link">Contact</div>
+        </div>
+        <div>
+          <div class="footer-col-title">Legal</div>
+          <div class="footer-link">Terms of Use</div>
+          <div class="footer-link">Privacy Policy</div>
+          <div class="footer-link">Return Policy</div>
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <div class="footer-disclaimer">These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease.</div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 Habito, LLC. All rights reserved.</div>
+        <div class="footer-copy">1996 E 2540 S, Saint George, UT 84790</div>
+      </div>
+    </div>
+
+  </div>
+</div>
