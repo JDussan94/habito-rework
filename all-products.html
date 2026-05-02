@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop All Products — Habito</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <style>
+.page-hero { background: var(--navy); padding: 40px 40px; display: flex; justify-content: space-between; align-items: flex-end; }
+.page-hero__title { font-family: var(--font-display); font-weight: 800; font-size: 32px; color: var(--white); margin-bottom: 6px; }
+.page-hero__sub { font-size: 13px; color: rgba(255,255,255,0.5); }
+.page-hero__count { font-size: 12px; color: rgba(255,255,255,0.4); }
+.catalog-body { display: grid; grid-template-columns: 210px 1fr; min-height: 600px; }
+.sidebar { background: var(--gray); border-right: 1px solid var(--border); padding: 28px 20px; }
+.filter-section { margin-bottom: 28px; }
+.filter-title { font-size: 10px; font-weight: 700; color: var(--text); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.filter-option { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; cursor: pointer; }
+.filter-checkbox { width: 15px; height: 15px; border: 1.5px solid #DCDCDC; border-radius: 2px; flex-shrink: 0; transition: all 0.15s; }
+.filter-checkbox.checked { background: var(--navy); border-color: var(--navy); }
+.filter-label { font-size: 12px; color: var(--text-2); }
+.filter-count { font-size: 10px; color: #BBB; margin-left: auto; }
+.catalog-main { padding: 24px 28px; background: var(--white); }
+.catalog-toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.filter-chip { display: inline-flex; align-items: center; gap: 6px; background: var(--navy); color: var(--white); font-size: 10px; font-weight: 600; letter-spacing: 1px; padding: 4px 10px; border-radius: 20px; }
+.sort-row { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--text-3); }
+.sort-select { border: 1.5px solid var(--border); border-radius: 4px; padding: 6px 12px; font-size: 11px; color: var(--text); font-weight: 600; }
+.cat-tabs { display: flex; gap: 0; margin-bottom: 24px; border: 1.5px solid var(--border); border-radius: 6px; overflow: hidden; width: fit-content; }
+.cat-tab { padding: 8px 18px; font-size: 11px; font-weight: 600; color: var(--text-3); border-right: 1.5px solid var(--border); cursor: pointer; background: var(--white); transition: all 0.15s; }
+.cat-tab:last-child { border-right: none; }
+.cat-tab.active { background: var(--navy); color: var(--white); }
+.cat-tab:hover:not(.active) { background: var(--gray); }
+.catalog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.pagination { display: flex; justify-content: center; gap: 8px; padding: 28px 0; }
+.page-btn { width: 34px; height: 34px; border: 1.5px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+.page-btn.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.page-btn:hover:not(.active) { border-color: var(--navy); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar__logo">Habito</a>
+    <div class="navbar__links">
+      <a href="all-products.html">Shop ▾</a>
+      <a href="join.html">Join</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="join.html" class="navbar__cta">Join Now</a>
+    </div>
+    <div class="navbar__icons">
+      <a href="#">🔍</a>
+      <a href="#">👤</a>
+      <a href="#">🛒</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero reveal">
+    <div>
+      <div class="page-hero__title">All Products</div>
+      <div class="page-hero__sub">Clean supplements. Real ingredients. No gimmicks.</div>
+    </div>
+    <div class="page-hero__count">18 products</div>
+  </div>
+
+  <!-- CATALOG -->
+  <div class="catalog-body">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="filter-section">
+        <div class="filter-title">Category</div>
+        <div class="filter-option"><div class="filter-checkbox checked"></div><span class="filter-label">All Products</span><span class="filter-count">18</span></div>
+        <div class="filter-option"><div class="filter-checkbox"></div><span class="filter-label">Capsules</span><span class="filter-count">11</span></div>
+        <div class="filter-option"><div class="filter-checkbox"></div><span class="filter-label">Gummies</span><span class="filter-count">2</span></div>
+        <div class="filter-option"><div class="filter-checkbox"></div><span class="filter-label">Liquid</span><span class="filter-count">2</span></div>
+        <div class="filter-option"><div class="filter-checkbox"></div><span class="filter-label">Powder</span><span class="filter-count">3</span></div>
+      </div>
+      <div class="filter-section">
+        <div class="filter-title">Health Goal</div>
+        <div class="filter-option"><div class="filter-checkbox"></div><span class="filter-label">Endurance</span></div>
+        <div class="filter-option"><div class="filter-checkbox"></div><span class="filter-label">Strength</span></div>
+        <div class="filter-option"><div class="filter-checkbox"></div><span class="filter-label">Recovery</span></div>
+        <div class="filter-option"><div class="filter-checkbox"></div><span class="filter-label">Focus</span></div>
+        <div class="filter-option"><div class="filter-checkbox"></div><span class="filter-label">Blood Sugar</span></div>
+        <div class="filter-option"><div class="filter-checkbox"></div><span class="filter-label">Immunity</span></div>
+      </div>
+      <div class="filter-section">
+        <div class="filter-title">Price</div>
+        <div class="filter-option"><div class="filter-checkbox"></div><span class="filter-label">Under $30</span></div>
+        <div class="filter-option"><div class="filter-checkbox"></div><span class="filter-label">$30 – $50</span></div>
+        <div class="filter-option"><div class="filter-checkbox"></div><span class="filter-label">$50+</span></div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="catalog-main">
+      <div class="catalog-toolbar">
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+          <span style="font-size:11px;color:var(--text-3);">Filters:</span>
+          <div class="filter-chip">All Products ×</div>
+        </div>
+        <div class="sort-row">Sort by <select class="sort-select"><option>Featured</option><option>Price: Low to High</option><option>Price: High to Low</option></select></div>
+      </div>
+      <div class="cat-tabs">
+        <div class="cat-tab active">All</div>
+        <div class="cat-tab">Capsules</div>
+        <div class="cat-tab">Gummies</div>
+        <div class="cat-tab">Liquid</div>
+        <div class="cat-tab">Powder</div>
+      </div>
+      <div class="catalog-grid reveal-stagger">
+        <div class="product-card reveal"><div class="product-card__img"><div class="product-card__img-inner"></div><span class="product-card__badge">Best Seller</span></div><div class="product-card__body"><div class="product-card__cat">Capsules</div><div class="product-card__name">Blood Sugar Support</div><div class="product-card__price-row"><span class="product-card__price">$34.99</span><span class="product-card__price-member">$27.99 members</span></div><a href="product.html" class="btn btn--dark">Add to Cart</a></div></div>
+        <div class="product-card reveal"><div class="product-card__img"><div class="product-card__img-inner"></div></div><div class="product-card__body"><div class="product-card__cat">Capsules</div><div class="product-card__name">Brain Support</div><div class="product-card__price-row"><span class="product-card__price">$32.99</span><span class="product-card__price-member">$26.39 members</span></div><a href="product.html" class="btn btn--dark">Add to Cart</a></div></div>
+        <div class="product-card reveal"><div class="product-card__img"><div class="product-card__img-inner"></div><span class="product-card__badge">New</span></div><div class="product-card__body"><div class="product-card__cat">Capsules</div><div class="product-card__name">Natural Testo Boost</div><div class="product-card__price-row"><span class="product-card__price">$39.99</span><span class="product-card__price-member">$31.99 members</span></div><a href="product.html" class="btn btn--dark">Add to Cart</a></div></div>
+        <div class="product-card reveal"><div class="product-card__img"><div class="product-card__img-inner"></div></div><div class="product-card__body"><div class="product-card__cat">Gummies</div><div class="product-card__name">Creatine (Tropical Punch)</div><div class="product-card__price-row"><span class="product-card__price">$29.99</span><span class="product-card__price-member">$23.99 members</span></div><a href="product.html" class="btn btn--dark">Add to Cart</a></div></div>
+        <div class="product-card reveal"><div class="product-card__img"><div class="product-card__img-inner"></div></div><div class="product-card__body"><div class="product-card__cat">Powder</div><div class="product-card__name">Pre-Workout Sour Apple</div><div class="product-card__price-row"><span class="product-card__price">$44.99</span><span class="product-card__price-member">$35.99 members</span></div><a href="product.html" class="btn btn--dark">Add to Cart</a></div></div>
+        <div class="product-card reveal"><div class="product-card__img"><div class="product-card__img-inner"></div></div><div class="product-card__body"><div class="product-card__cat">Liquid</div><div class="product-card__name">Trace Minerals+ Fulvic Acid</div><div class="product-card__price-row"><span class="product-card__price">$37.99</span><span class="product-card__price-member">$30.39 members</span></div><a href="product.html" class="btn btn--dark">Add to Cart</a></div></div>
+      </div>
+      <div class="pagination">
+        <div class="page-btn">←</div>
+        <div class="page-btn active">1</div>
+        <div class="page-btn">2</div>
+        <div class="page-btn">3</div>
+        <div class="page-btn">→</div>
+      </div>
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-logo">Habito</div>
+        <div class="footer__brand-tag">Choose Better. Live Greater.</div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Shop</div>
+        <a href="all-products.html?cat=capsules">Capsules</a>
+        <a href="all-products.html?cat=gummies">Gummies</a>
+        <a href="all-products.html?cat=liquid">Liquid</a>
+        <a href="all-products.html?cat=powder">Powder</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Company</div>
+        <a href="about.html">About</a>
+        <a href="join.html">Join</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Legal</div>
+        <a href="#">Terms of Use</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Return Policy</a>
+      </div>
+    </div>
+    <hr class="footer__divider">
+    <p class="footer__disclaimer">These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease.</p>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2026 Habito, LLC. All rights reserved.</span>
+      <span class="footer__copy">1996 E 2540 S, Saint George, UT 84790</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
