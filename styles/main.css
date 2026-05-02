@@ -478,3 +478,89 @@ body {
   .reveal { transition: none; }
   .product-card { transition: none; }
 }
+
+/* =============================================
+   RESPONSIVE — TABLET (≤ 900px)
+   ============================================= */
+@media (max-width: 900px) {
+  :root { --section-pad-v: 40px; --section-pad-h: 24px; }
+
+  .navbar { padding: 0 24px; }
+  .navbar__links { gap: 18px; }
+  .navbar__icons { display: none; }
+
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+
+  /* Home hero */
+  .hero { grid-template-columns: 1fr; padding: 52px 24px; }
+  .hero__images { display: none; }
+  .hero__headline { font-size: 36px; }
+
+  /* Product detail */
+  .product-detail { grid-template-columns: 1fr; padding: 32px 24px; }
+
+  /* Catalog */
+  .catalog-body { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Join */
+  .included-grid { grid-template-columns: 1fr; }
+  .sel-grid { grid-template-columns: repeat(3, 1fr); }
+  .perks-list { grid-template-columns: 1fr; }
+
+  /* About */
+  .mission-section { grid-template-columns: 1fr; }
+  .mission-visual { display: none; }
+  .story-body { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+  .commitments-grid { grid-template-columns: 1fr; max-width: 100%; }
+
+  /* Contact */
+  .contact-hero { grid-template-columns: 1fr; }
+  .contact-body { grid-template-columns: 1fr; }
+
+  /* Footer */
+  .footer__grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+}
+
+/* =============================================
+   RESPONSIVE — MOBILE (≤ 600px)
+   ============================================= */
+@media (max-width: 600px) {
+  :root { --section-pad-v: 32px; --section-pad-h: 16px; }
+
+  .navbar { padding: 0 16px; height: 56px; }
+  .navbar__links { display: none; }
+
+  /* Mobile nav — links hidden, only logo + cta visible */
+  .navbar__cta { display: flex; }
+
+  .hero { padding: 40px 16px; }
+  .hero__headline { font-size: 30px; }
+  .hero__btns { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+  .grid-4,
+  .grid-3,
+  .grid-2 { grid-template-columns: 1fr; }
+
+  .catalog-grid { grid-template-columns: 1fr; }
+  .sel-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .join-hero__title { font-size: 28px; }
+  .price-new { font-size: 40px; }
+
+  .about-hero__title { font-size: 30px; }
+  .contact-hero__title { font-size: 26px; }
+
+  .footer__grid { grid-template-columns: 1fr; }
+  .footer__bottom { flex-direction: column; gap: 6px; text-align: center; }
+
+  .faq__question { font-size: 13px; }
+
+  .form-row-2 { grid-template-columns: 1fr; }
+
+  .section__title { font-size: 22px; }
+  .ingredients-grid { grid-template-columns: 1fr; }
+}
