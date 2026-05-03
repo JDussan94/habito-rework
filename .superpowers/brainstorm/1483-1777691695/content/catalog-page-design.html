@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Products Page</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #13151c; font-family: 'Inter', sans-serif; color: #fff; padding: 24px; }
+  h2 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .subtitle { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 24px; }
+  .ann {
+    background: #13151c; padding: 6px 16px; font-size: 10px;
+    color: rgba(255,255,255,0.35); display: flex; justify-content: space-between; align-items: center;
+  }
+  .ann-tag { color: #D42F2F; font-weight: 700; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
+  .page-wire {
+    width: 100%; max-width: 720px; margin: 0 auto;
+    display: flex; flex-direction: column; gap: 2px;
+    border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden;
+  }
+  .w-nav {
+    height: 52px; background: rgba(28,31,41,0.9); border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: center; justify-content: space-between; padding: 0 20px;
+  }
+  .w-nav .logo { font-size: 12px; font-weight: 800; letter-spacing: 4px; color: #fff; }
+  .w-nav .links { display: flex; gap: 16px; align-items: center; }
+  .w-nav .links span { font-size: 10px; color: rgba(255,255,255,0.45); }
+  .w-nav .cta { padding: 5px 12px; background: #D42F2F; border-radius: 2px; font-size: 9px; font-weight: 700; color: #fff; }
+
+  /* HERO */
+  .w-catalog-hero {
+    background: #1C1F29;
+    padding: 32px 20px 24px;
+    position: relative; overflow: hidden;
+  }
+  .w-catalog-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 36px),
+                      repeating-linear-gradient(90deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 36px);
+  }
+  .ch-eye { font-size: 8px; font-weight: 700; color: #D42F2F; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; }
+  .ch-h { font-size: 24px; font-weight: 800; color: #fff; line-height: 1.05; margin-bottom: 6px; }
+  .ch-sub { font-size: 10px; color: rgba(255,255,255,0.4); }
+  .ch-count { display: inline-block; margin-top: 10px; font-size: 9px; color: rgba(255,255,255,0.25); }
+
+  /* CATEGORY TABS */
+  .w-tabs {
+    background: #1C1F29;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 0 20px;
+    display: flex; gap: 0;
+    overflow-x: auto;
+  }
+  .tab {
+    padding: 10px 14px; font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.4);
+    border-bottom: 2px solid transparent; white-space: nowrap;
+  }
+  .tab.active { color: #fff; border-bottom-color: #D42F2F; }
+
+  /* CATALOG BODY */
+  .w-catalog-body {
+    background: #22252F;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 0;
+    min-height: 360px;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    background: #1C1F29;
+    border-right: 1px solid rgba(255,255,255,0.06);
+    padding: 16px;
+  }
+  .filter-group { margin-bottom: 16px; }
+  .filter-title { font-size: 9px; font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .filter-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+  .filter-label { font-size: 9px; color: rgba(255,255,255,0.4); }
+  .filter-count { font-size: 8px; color: rgba(255,255,255,0.2); }
+  .filter-item.active .filter-label { color: #fff; }
+  .filter-item.active .filter-count { color: #D42F2F; }
+  .filter-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.12); margin-right: 6px; display: inline-block; }
+  .filter-dot.on { background: #D42F2F; }
+  .filter-rule { height: 1px; background: rgba(255,255,255,0.05); margin-bottom: 14px; }
+
+  /* MAIN GRID AREA */
+  .catalog-main { padding: 14px; }
+  .toolbar {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 12px; padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .toolbar-left { display: flex; gap: 6px; }
+  .filter-chip {
+    padding: 3px 8px; background: rgba(212,47,47,0.1);
+    border: 1px solid rgba(212,47,47,0.25); border-radius: 20px;
+    font-size: 8px; color: #D42F2F; font-weight: 600;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .filter-chip .x { color: rgba(212,47,47,0.6); }
+  .sort-dd { font-size: 9px; color: rgba(255,255,255,0.35); border: 1px solid rgba(255,255,255,0.08); border-radius: 3px; padding: 3px 8px; }
+  .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .pc { border: 1px solid rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden; background: rgba(255,255,255,0.01); }
+  .pc-img { height: 72px; background: rgba(255,255,255,0.04); display: flex; align-items: center; justify-content: center; }
+  .pc-img .b { width: 22px; height: 38px; background: rgba(255,255,255,0.1); border-radius: 2px; position: relative; }
+  .pc-img .b::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 30px; height: 15px; background: radial-gradient(ellipse, rgba(212,47,47,0.15) 0%, transparent 70%); }
+  .pc-info { padding: 7px; }
+  .pc-cat { font-size: 7px; color: #D42F2F; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1px; }
+  .pc-name { font-size: 9px; font-weight: 700; color: #fff; margin-bottom: 4px; line-height: 1.2; }
+  .pc-foot { display: flex; justify-content: space-between; align-items: center; }
+  .pc-price { font-size: 9px; color: rgba(255,255,255,0.45); }
+  .pc-add { font-size: 7px; padding: 3px 6px; background: #D42F2F; color: #fff; border-radius: 2px; font-weight: 700; }
+  .pc-rule { height: 1px; background: rgba(255,255,255,0.05); margin-top: 6px; }
+
+  /* PAGINATION */
+  .w-pagination {
+    background: #22252F;
+    padding: 14px 20px;
+    display: flex; justify-content: center; gap: 6px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .pg-btn { width: 24px; height: 24px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 9px; color: rgba(255,255,255,0.4); }
+  .pg-btn.active { background: #D42F2F; border-color: #D42F2F; color: #fff; }
+
+  .w-footer-slim {
+    background: #1C1F29; border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 12px 20px; font-size: 8px; color: rgba(255,255,255,0.2); text-align: center; line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<h2>All Products — Catalog Page</h2>
+<p class="subtitle">18 products · sidebar filters · category tabs · 3-col grid</p>
+
+<div class="page-wire">
+
+  <div class="ann"><span class="ann-tag">1 — Navbar</span><span>Shared · frosted glass · sticky</span></div>
+  <div class="w-nav">
+    <div class="logo">HABITO</div>
+    <div class="links">
+      <span>Shop ▾</span><span>About</span><span>Contact</span>
+      <div class="cta">Join Now</div>
+    </div>
+  </div>
+
+  <div class="ann"><span class="ann-tag">2 — Page Hero</span><span>#1C1F29 · grid texture · product count</span></div>
+  <div class="w-catalog-hero">
+    <div style="position:relative;z-index:1;">
+      <div class="ch-eye">Habito Essentials</div>
+      <div class="ch-h">All Products</div>
+      <div class="ch-sub">Clean supplements. Real ingredients. No gimmicks.</div>
+      <div class="ch-count">18 products across 4 categories</div>
+    </div>
+  </div>
+
+  <div class="ann"><span class="ann-tag">3 — Category Tabs</span><span>All / Capsules (11) / Gummies (2) / Liquid (2) / Powder (3)</span></div>
+  <div class="w-tabs">
+    <div class="tab active">All (18)</div>
+    <div class="tab">Capsules (11)</div>
+    <div class="tab">Gummies (2)</div>
+    <div class="tab">Liquid (2)</div>
+    <div class="tab">Powder (3)</div>
+  </div>
+
+  <div class="ann"><span class="ann-tag">4 — Catalog Body</span><span>#22252F · sidebar left · 3-col grid right · GSAP stagger</span></div>
+  <div class="w-catalog-body">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="filter-group">
+        <div class="filter-title">Category</div>
+        <div class="filter-item active">
+          <span><span class="filter-dot on"></span><span class="filter-label">All</span></span>
+          <span class="filter-count">18</span>
+        </div>
+        <div class="filter-item">
+          <span><span class="filter-dot"></span><span class="filter-label">Capsules</span></span>
+          <span class="filter-count">11</span>
+        </div>
+        <div class="filter-item">
+          <span><span class="filter-dot"></span><span class="filter-label">Gummies</span></span>
+          <span class="filter-count">2</span>
+        </div>
+        <div class="filter-item">
+          <span><span class="filter-dot"></span><span class="filter-label">Liquid</span></span>
+          <span class="filter-count">2</span>
+        </div>
+        <div class="filter-item">
+          <span><span class="filter-dot"></span><span class="filter-label">Powder</span></span>
+          <span class="filter-count">3</span>
+        </div>
+      </div>
+      <div class="filter-rule"></div>
+      <div class="filter-group">
+        <div class="filter-title">Health Goal</div>
+        <div class="filter-item"><span><span class="filter-dot"></span><span class="filter-label">Endurance</span></span></div>
+        <div class="filter-item"><span><span class="filter-dot"></span><span class="filter-label">Strength</span></span></div>
+        <div class="filter-item"><span><span class="filter-dot"></span><span class="filter-label">Recovery</span></span></div>
+        <div class="filter-item"><span><span class="filter-dot"></span><span class="filter-label">Focus</span></span></div>
+        <div class="filter-item"><span><span class="filter-dot"></span><span class="filter-label">Blood Sugar</span></span></div>
+        <div class="filter-item"><span><span class="filter-dot"></span><span class="filter-label">Immunity</span></span></div>
+      </div>
+      <div class="filter-rule"></div>
+      <div class="filter-group">
+        <div class="filter-title">Price Range</div>
+        <div style="height:3px;background:rgba(255,255,255,0.08);border-radius:2px;margin-bottom:6px;position:relative;">
+          <div style="position:absolute;left:20%;right:30%;top:0;bottom:0;background:#D42F2F;border-radius:2px;"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:8px;color:rgba(255,255,255,0.3);">
+          <span>$20</span><span>$45</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="catalog-main">
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <div class="filter-chip">Capsules <span class="x">×</span></div>
+        </div>
+        <div class="sort-dd">Sort: Featured ▾</div>
+      </div>
+      <div class="product-grid">
+        <div class="pc"><div class="pc-img"><div class="b"></div></div><div class="pc-info"><div class="pc-cat">Capsules</div><div class="pc-name">Blood Sugar Support</div><div class="pc-foot"><span class="pc-price">$27.99</span><span class="pc-add">Add +</span></div><div class="pc-rule"></div></div></div>
+        <div class="pc"><div class="pc-img"><div class="b"></div></div><div class="pc-info"><div class="pc-cat">Capsules</div><div class="pc-name">Brain Support</div><div class="pc-foot"><span class="pc-price">$29.99</span><span class="pc-add">Add +</span></div><div class="pc-rule"></div></div></div>
+        <div class="pc"><div class="pc-img"><div class="b"></div></div><div class="pc-info"><div class="pc-cat">Capsules</div><div class="pc-name">Cleanse</div><div class="pc-foot"><span class="pc-price">$24.99</span><span class="pc-add">Add +</span></div><div class="pc-rule"></div></div></div>
+        <div class="pc"><div class="pc-img"><div class="b"></div></div><div class="pc-info"><div class="pc-cat">Capsules</div><div class="pc-name">Hair Skin & Nails</div><div class="pc-foot"><span class="pc-price">$26.99</span><span class="pc-add">Add +</span></div><div class="pc-rule"></div></div></div>
+        <div class="pc"><div class="pc-img"><div class="b"></div></div><div class="pc-info"><div class="pc-cat">Capsules</div><div class="pc-name">HMB + D3</div><div class="pc-foot"><span class="pc-price">$32.99</span><span class="pc-add">Add +</span></div><div class="pc-rule"></div></div></div>
+        <div class="pc"><div class="pc-img"><div class="b"></div></div><div class="pc-info"><div class="pc-cat">Capsules</div><div class="pc-name">Immune+</div><div class="pc-foot"><span class="pc-price">$24.99</span><span class="pc-add">Add +</span></div><div class="pc-rule"></div></div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ann"><span class="ann-tag">5 — Pagination</span><span>Previous · 1 · 2 · 3 · Next</span></div>
+  <div class="w-pagination">
+    <div class="pg-btn">‹</div>
+    <div class="pg-btn active">1</div>
+    <div class="pg-btn">2</div>
+    <div class="pg-btn">3</div>
+    <div class="pg-btn">›</div>
+  </div>
+
+  <div class="ann"><span class="ann-tag">6 — Footer</span><span>Slim footer · shared component</span></div>
+  <div class="w-footer-slim">
+    © 2026 Habito, LLC · These statements have not been evaluated by the Food and Drug Administration.
+  </div>
+
+</div>
+
+</body>
+</html>

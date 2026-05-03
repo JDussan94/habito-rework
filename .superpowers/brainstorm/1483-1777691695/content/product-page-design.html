@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Page Layout</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #13151c; font-family: 'Inter', sans-serif; color: #fff; padding: 24px; }
+  h2 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .subtitle { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 24px; }
+  .ann {
+    background: #13151c;
+    padding: 6px 16px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.35);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .ann-tag { color: #D42F2F; font-weight: 700; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
+  .page-wire {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  /* NAV shared */
+  .w-nav {
+    height: 52px;
+    background: rgba(28,31,41,0.85);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: center; justify-content: space-between; padding: 0 20px;
+  }
+  .w-nav .logo { font-size: 12px; font-weight: 800; letter-spacing: 4px; color: #fff; }
+  .w-nav .links { display: flex; gap: 16px; align-items: center; }
+  .w-nav .links span { font-size: 10px; color: rgba(255,255,255,0.45); }
+  .w-nav .cta { padding: 5px 12px; background: #D42F2F; border-radius: 2px; font-size: 9px; font-weight: 700; color: #fff; }
+
+  /* BREADCRUMB */
+  .w-breadcrumb {
+    background: #1C1F29;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 9px;
+    color: rgba(255,255,255,0.3);
+    display: flex; gap: 6px; align-items: center;
+  }
+  .w-breadcrumb .active { color: rgba(255,255,255,0.7); }
+  .w-breadcrumb .sep { color: rgba(255,255,255,0.15); }
+
+  /* PRODUCT DETAIL */
+  .w-product-detail {
+    background: #1C1F29;
+    padding: 32px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  /* Left: gallery */
+  .gallery { display: flex; flex-direction: column; gap: 8px; }
+  .gallery-main {
+    height: 200px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .gallery-main::after {
+    content: '';
+    position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 100px; height: 50px;
+    background: radial-gradient(ellipse, rgba(212,47,47,0.2) 0%, transparent 70%);
+  }
+  .gallery-bottle { width: 60px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 4px; position: relative; z-index: 1; }
+  .gallery-thumbs { display: grid; grid-template-columns: repeat(4,1fr); gap: 6px; }
+  .gallery-thumb {
+    height: 44px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .gallery-thumb.active { border-color: #D42F2F; }
+  .gallery-thumb .mini { width: 16px; height: 28px; background: rgba(255,255,255,0.12); border-radius: 2px; }
+
+  /* Right: info */
+  .product-info { display: flex; flex-direction: column; gap: 10px; }
+  .pi-cat { font-size: 8px; font-weight: 700; color: #D42F2F; letter-spacing: 3px; text-transform: uppercase; }
+  .pi-name { font-size: 20px; font-weight: 800; color: #fff; line-height: 1.1; }
+  .pi-stars { display: flex; gap: 3px; align-items: center; }
+  .star { color: #D42F2F; font-size: 10px; }
+  .pi-stars .count { font-size: 9px; color: rgba(255,255,255,0.35); margin-left: 4px; }
+  .pi-price-row { display: flex; gap: 10px; align-items: baseline; }
+  .pi-price { font-size: 20px; font-weight: 800; color: #fff; }
+  .pi-retail { font-size: 10px; color: rgba(255,255,255,0.3); text-decoration: line-through; }
+  .pi-badge { font-size: 8px; padding: 3px 8px; background: rgba(212,47,47,0.15); border: 1px solid rgba(212,47,47,0.3); color: #D42F2F; border-radius: 20px; font-weight: 700; }
+  .pi-rule { height: 1px; background: rgba(255,255,255,0.06); }
+  .pi-label { font-size: 9px; color: rgba(255,255,255,0.4); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
+  .format-row { display: flex; gap: 6px; }
+  .format-btn { padding: 5px 10px; border: 1px solid rgba(255,255,255,0.12); border-radius: 3px; font-size: 9px; color: rgba(255,255,255,0.5); }
+  .format-btn.active { border-color: #D42F2F; color: #fff; background: rgba(212,47,47,0.1); }
+  .qty-row { display: flex; gap: 8px; align-items: center; }
+  .qty-ctrl { display: flex; align-items: center; gap: 10px; border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; padding: 5px 10px; }
+  .qty-btn { font-size: 14px; color: rgba(255,255,255,0.4); cursor: pointer; }
+  .qty-num { font-size: 12px; color: #fff; font-weight: 600; }
+  .btn-cart { flex: 1; padding: 10px; background: #1C1F29; border: 1px solid rgba(255,255,255,0.15); border-radius: 3px; font-size: 10px; font-weight: 700; color: #fff; text-align: center; letter-spacing: 1px; text-transform: uppercase; }
+  .trust-row { display: flex; gap: 8px; }
+  .trust-badge { flex: 1; padding: 6px 4px; border: 1px solid rgba(255,255,255,0.06); border-radius: 3px; text-align: center; font-size: 7px; color: rgba(255,255,255,0.35); line-height: 1.4; }
+  .pi-desc { font-size: 10px; color: rgba(255,255,255,0.4); line-height: 1.7; }
+
+  /* INGREDIENTS */
+  .w-ingredients {
+    background: #22252F;
+    padding: 32px 20px;
+  }
+  .sec-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; }
+  .sec-title { font-size: 16px; font-weight: 800; color: #fff; }
+  .ing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+  .ing-card {
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 4px;
+    padding: 12px;
+    background: rgba(255,255,255,0.02);
+  }
+  .ing-name { font-size: 11px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .ing-dose { font-size: 8px; color: #D42F2F; font-weight: 700; margin-bottom: 5px; }
+  .ing-text { font-size: 9px; color: rgba(255,255,255,0.3); line-height: 1.6; }
+  .ing-rule { height: 1px; background: rgba(255,255,255,0.05); margin-top: 8px; }
+
+  /* RELATED */
+  .w-related {
+    background: #1C1F29;
+    padding: 32px 20px;
+  }
+  .related-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
+  .rel-card { border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden; }
+  .rel-img { height: 64px; background: rgba(255,255,255,0.04); display: flex; align-items: center; justify-content: center; }
+  .rel-img .mini { width: 22px; height: 38px; background: rgba(255,255,255,0.1); border-radius: 2px; }
+  .rel-info { padding: 8px; }
+  .rel-cat { font-size: 7px; color: #D42F2F; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2px; }
+  .rel-name { font-size: 9px; font-weight: 700; color: #fff; margin-bottom: 4px; line-height: 1.2; }
+  .rel-price { font-size: 9px; color: rgba(255,255,255,0.4); }
+  .rel-rule { height: 1px; background: rgba(255,255,255,0.05); margin-top: 6px; }
+
+  /* Footer slim */
+  .w-footer-slim {
+    background: #1C1F29;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 14px 20px;
+    font-size: 8px;
+    color: rgba(255,255,255,0.2);
+    text-align: center;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<h2>Product Page — Section Wireframe</h2>
+<p class="subtitle">Single product view · Example: Blood Sugar Support Capsules</p>
+
+<div class="page-wire">
+
+  <div class="ann"><span class="ann-tag">1 — Navbar</span><span>Shared component · frosted glass · sticky</span></div>
+  <div class="w-nav">
+    <div class="logo">HABITO</div>
+    <div class="links">
+      <span>Shop ▾</span><span>About</span><span>Contact</span>
+      <div class="cta">Join Now</div>
+    </div>
+  </div>
+
+  <div class="ann"><span class="ann-tag">2 — Breadcrumb</span><span>#1C1F29 · Home / Shop / Capsules / Blood Sugar Support</span></div>
+  <div class="w-breadcrumb">
+    <span>Home</span><span class="sep">/</span>
+    <span>Shop</span><span class="sep">/</span>
+    <span>Capsules</span><span class="sep">/</span>
+    <span class="active">Blood Sugar Support</span>
+  </div>
+
+  <div class="ann"><span class="ann-tag">3 — Product Detail</span><span>#1C1F29 · 2-col: gallery left · info right · GSAP entrance</span></div>
+  <div class="w-product-detail">
+    <!-- Gallery -->
+    <div class="gallery">
+      <div class="gallery-main">
+        <div class="gallery-bottle"></div>
+      </div>
+      <div class="gallery-thumbs">
+        <div class="gallery-thumb active"><div class="mini"></div></div>
+        <div class="gallery-thumb"><div class="mini"></div></div>
+        <div class="gallery-thumb"><div class="mini"></div></div>
+        <div class="gallery-thumb"><div class="mini"></div></div>
+      </div>
+    </div>
+    <!-- Info -->
+    <div class="product-info">
+      <div class="pi-cat">Capsules</div>
+      <div class="pi-name">Blood Sugar Support</div>
+      <div class="pi-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        <span class="count">(48 reviews)</span>
+      </div>
+      <div class="pi-price-row">
+        <div class="pi-price">$27.99</div>
+        <div class="pi-retail">$39.99</div>
+        <div class="pi-badge">Member Price</div>
+      </div>
+      <div class="pi-rule"></div>
+      <div>
+        <div class="pi-label">Format</div>
+        <div class="format-row">
+          <div class="format-btn active">60 Capsules</div>
+          <div class="format-btn">30 Capsules</div>
+        </div>
+      </div>
+      <div>
+        <div class="pi-label">Quantity</div>
+        <div class="qty-row">
+          <div class="qty-ctrl">
+            <div class="qty-btn">−</div>
+            <div class="qty-num">1</div>
+            <div class="qty-btn">+</div>
+          </div>
+          <div class="btn-cart">Add to Cart</div>
+        </div>
+      </div>
+      <div class="trust-row">
+        <div class="trust-badge">🚚 Free<br>Shipping</div>
+        <div class="trust-badge">✓ 3rd-Party<br>Tested</div>
+        <div class="trust-badge">↩ 30-Day<br>Returns</div>
+      </div>
+      <div class="pi-rule"></div>
+      <div class="pi-desc">Formulated to help you maintain stable blood sugar and a balanced lifestyle every day. Supports glucose metabolism and insulin sensitivity.</div>
+    </div>
+  </div>
+
+  <div class="ann"><span class="ann-tag">4 — Key Ingredients</span><span>#22252F · 3-col cards · client supplies content</span></div>
+  <div class="w-ingredients">
+    <div class="sec-header">
+      <div>
+        <div style="font-size:8px;color:#D42F2F;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">What's Inside</div>
+        <div class="sec-title">Key Ingredients</div>
+      </div>
+    </div>
+    <div class="ing-grid">
+      <div class="ing-card">
+        <div class="ing-name">Berberine HCl</div>
+        <div class="ing-dose">500mg</div>
+        <div class="ing-text">Supports healthy glucose metabolism and insulin sensitivity.</div>
+        <div class="ing-rule"></div>
+      </div>
+      <div class="ing-card">
+        <div class="ing-name">Chromium Picolinate</div>
+        <div class="ing-dose">200mcg</div>
+        <div class="ing-text">Enhances insulin action and reduces sugar cravings naturally.</div>
+        <div class="ing-rule"></div>
+      </div>
+      <div class="ing-card">
+        <div class="ing-name">Alpha Lipoic Acid</div>
+        <div class="ing-dose">300mg</div>
+        <div class="ing-text">Antioxidant support for overall metabolic wellness.</div>
+        <div class="ing-rule"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ann"><span class="ann-tag">5 — Related Products</span><span>#1C1F29 · 4-col grid · GSAP stagger</span></div>
+  <div class="w-related">
+    <div class="sec-header">
+      <div class="sec-title">You May Also Like</div>
+      <div style="font-size:10px;color:#D42F2F;font-weight:700;">View All →</div>
+    </div>
+    <div class="related-grid">
+      <div class="rel-card">
+        <div class="rel-img"><div class="mini"></div></div>
+        <div class="rel-info">
+          <div class="rel-cat">Capsules</div>
+          <div class="rel-name">Brain Support</div>
+          <div class="rel-price">$29.99</div>
+          <div class="rel-rule"></div>
+        </div>
+      </div>
+      <div class="rel-card">
+        <div class="rel-img"><div class="mini"></div></div>
+        <div class="rel-info">
+          <div class="rel-cat">Capsules</div>
+          <div class="rel-name">Immune+</div>
+          <div class="rel-price">$24.99</div>
+          <div class="rel-rule"></div>
+        </div>
+      </div>
+      <div class="rel-card">
+        <div class="rel-img"><div class="mini"></div></div>
+        <div class="rel-info">
+          <div class="rel-cat">Gummies</div>
+          <div class="rel-name">Creatine Gummies</div>
+          <div class="rel-price">$34.99</div>
+          <div class="rel-rule"></div>
+        </div>
+      </div>
+      <div class="rel-card">
+        <div class="rel-img"><div class="mini"></div></div>
+        <div class="rel-info">
+          <div class="rel-cat">Capsules</div>
+          <div class="rel-name">Keto Burn</div>
+          <div class="rel-price">$32.99</div>
+          <div class="rel-rule"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ann"><span class="ann-tag">6 — Footer</span><span>Full footer · shared component</span></div>
+  <div class="w-footer-slim">
+    These statements have not been evaluated by the Food and Drug Administration. · © 2026 Habito, LLC · 1996 E 2540 S, Saint George, UT 84790
+  </div>
+
+</div>
+
+</body>
+</html>

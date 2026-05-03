@@ -1,0 +1,110 @@
+<h2>Hero Layout</h2>
+<p class="subtitle">All dark (#1C1F29 base). How should the homepage hero be structured?</p>
+
+<div class="cards" style="grid-template-columns:1fr 1fr; gap:20px; margin-top:24px;">
+
+  <!-- Option A: Text left, stacked products right -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#1C1F29; padding:16px; min-height:220px; font-family:sans-serif;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; height:100%;">
+        <!-- Left -->
+        <div style="display:flex; flex-direction:column; gap:8px; justify-content:center;">
+          <div style="height:3px; width:32px; background:#D42F2F; border-radius:1px;"></div>
+          <div style="font-size:18px; font-weight:800; color:#fff; line-height:1.1;">Choose<br>Better.<br>Live Greater.</div>
+          <div style="font-size:9px; color:rgba(255,255,255,0.4); line-height:1.6;">Clean Ingredients · Pure Performance · Real Results</div>
+          <div style="display:flex; gap:6px; margin-top:4px;">
+            <div style="padding:6px 10px; background:#D42F2F; border-radius:2px; font-size:9px; font-weight:700; color:#fff;">Shop Now</div>
+            <div style="padding:6px 10px; border:1px solid rgba(255,255,255,0.2); border-radius:2px; font-size:9px; color:rgba(255,255,255,0.6);">Join →</div>
+          </div>
+        </div>
+        <!-- Right: stacked bottles -->
+        <div style="display:flex; gap:6px; align-items:flex-end; justify-content:center;">
+          <div style="width:42px; height:70px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:5px;"></div>
+          <div style="width:42px; height:90px; background:rgba(255,255,255,0.09); border:1px solid rgba(255,255,255,0.15); border-radius:5px;"></div>
+          <div style="width:42px; height:60px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:5px;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Split: Text + Products</h3>
+      <p>Classic 2-column. Copy and CTAs on the left, 3–4 product bottles floating on the right. Clean, expected, works well for e-commerce.</p>
+    </div>
+  </div>
+
+  <!-- Option B: Full-width centered with single product -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#1C1F29; padding:16px; min-height:220px; font-family:sans-serif; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; text-align:center; position:relative; overflow:hidden;">
+      <div style="position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:140px; height:140px; background:radial-gradient(circle, rgba(212,47,47,0.2) 0%, transparent 70%); pointer-events:none;"></div>
+      <div style="width:50px; height:80px; background:rgba(255,255,255,0.09); border:1px solid rgba(255,255,255,0.15); border-radius:5px; margin-bottom:4px;"></div>
+      <div style="font-size:16px; font-weight:800; color:#fff; line-height:1.1;">Science-Backed.<br>Habit-Built.</div>
+      <div style="font-size:9px; color:rgba(255,255,255,0.4);">18 supplements. No gimmicks.</div>
+      <div style="padding:6px 14px; background:#D42F2F; border-radius:2px; font-size:9px; font-weight:700; color:#fff; margin-top:4px;">Explore All Products</div>
+    </div>
+    <div class="card-body">
+      <h3>B — Centered Hero, Featured Product</h3>
+      <p>Full-width center-aligned. One hero product floats above the headline with a red glow underneath. Bold and singular — pushes a single product or message.</p>
+    </div>
+  </div>
+
+  <!-- Option C: Full bleed with product photography bg -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="min-height:220px; font-family:sans-serif; position:relative; overflow:hidden;">
+      <!-- Dark bg with subtle grid texture -->
+      <div style="position:absolute; inset:0; background:#1C1F29;"></div>
+      <div style="position:absolute; inset:0; background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 40px), repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 40px);"></div>
+      <!-- Large ghost product right -->
+      <div style="position:absolute; right:16px; top:50%; transform:translateY(-50%); width:70px; height:110px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:6px;"></div>
+      <!-- Text overlay -->
+      <div style="position:relative; padding:16px; display:flex; flex-direction:column; gap:8px; height:220px; justify-content:center;">
+        <div style="font-size:9px; color:#D42F2F; font-weight:700; letter-spacing:3px; text-transform:uppercase;">Habito Essentials</div>
+        <div style="font-size:22px; font-weight:800; color:#fff; line-height:1.0;">No Gimmicks.<br><span style="color:rgba(255,255,255,0.3);">Just Results.</span></div>
+        <div style="height:1px; width:40px; background:rgba(255,255,255,0.15); margin:4px 0;"></div>
+        <div style="font-size:9px; color:rgba(255,255,255,0.4); line-height:1.6; max-width:60%;">You pay for the product,<br>not the marketing.</div>
+        <div style="display:flex; gap:6px; margin-top:4px;">
+          <div style="padding:6px 10px; background:#D42F2F; border-radius:2px; font-size:9px; font-weight:700; color:#fff;">Make the Change</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Full Bleed Dark with Grid Texture</h3>
+      <p>Hero fills the full viewport. Subtle grid/dot texture on dark background. Large ghost product right. Strong brand manifesto copy left. More editorial, like a-ware.at.</p>
+    </div>
+  </div>
+
+  <!-- Option D: Horizontal scroll / marquee hero -->
+  <div class="card" data-choice="d" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#1C1F29; padding:16px; min-height:220px; font-family:sans-serif; display:flex; flex-direction:column; gap:10px; justify-content:center;">
+      <!-- Top: headline -->
+      <div style="text-align:center;">
+        <div style="font-size:20px; font-weight:800; color:#fff; line-height:1.0;">Choose Better. Live Greater.</div>
+      </div>
+      <!-- Middle: scrolling product row (static preview) -->
+      <div style="display:flex; gap:8px; overflow:hidden; padding:8px 0;">
+        <div style="min-width:55px; height:80px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:5px; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; padding-bottom:6px;">
+          <div style="font-size:7px; color:rgba(255,255,255,0.4); text-align:center;">Brain<br>Support</div>
+        </div>
+        <div style="min-width:55px; height:80px; background:rgba(255,255,255,0.09); border:1px solid rgba(255,255,255,0.18); border-radius:5px; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; padding-bottom:6px;">
+          <div style="font-size:7px; color:rgba(255,255,255,0.5); text-align:center;">Creatine<br>Gummies</div>
+        </div>
+        <div style="min-width:55px; height:80px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:5px; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; padding-bottom:6px;">
+          <div style="font-size:7px; color:rgba(255,255,255,0.4); text-align:center;">Immune+</div>
+        </div>
+        <div style="min-width:55px; height:80px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:5px; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; padding-bottom:6px;">
+          <div style="font-size:7px; color:rgba(255,255,255,0.4); text-align:center;">Keto<br>Burn</div>
+        </div>
+        <div style="min-width:55px; height:80px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:5px;"></div>
+      </div>
+      <!-- Bottom: CTA centered -->
+      <div style="text-align:center;">
+        <div style="display:inline-block; padding:6px 14px; background:#D42F2F; border-radius:2px; font-size:9px; font-weight:700; color:#fff;">Shop All 18 Products</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>D — Headline + Scrolling Product Row</h3>
+      <p>Bold headline centered top, then an animated horizontal scroll row showing all products, CTA below. Immediately shows the product catalog. Similar to bulk.com.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:20px;">Click your pick, then reply in the terminal.</p>

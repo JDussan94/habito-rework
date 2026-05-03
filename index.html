@@ -9,9 +9,9 @@
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar" id="navbar">
+<nav class="navbar" id="navbar" aria-label="Main navigation">
   <div class="container">
-  <a href="index.html" class="navbar__logo">Habito</a>
+  <a href="index.html" class="navbar__logo" aria-current="page">Habito</a>
   <div class="navbar__links">
     <a href="all-products.html">Shop</a>
     <a href="about.html">About</a>
@@ -33,6 +33,7 @@
 </nav>
 
 <!-- HERO -->
+<main>
 <section class="section section--base section--texture" style="padding: 100px 0 80px;">
   <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
     <div class="hero__text">
@@ -60,7 +61,7 @@
 </section>
 
 <!-- BENEFITS MARQUEE -->
-<div class="marquee">
+<div class="marquee" aria-hidden="true">
   <div class="marquee__track">
     <span class="marquee__label">Steady Endurance</span><span class="marquee__sep"></span>
     <span class="marquee__label">Muscle Support</span><span class="marquee__sep"></span>
@@ -235,6 +236,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer class="footer">

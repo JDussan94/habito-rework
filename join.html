@@ -9,7 +9,7 @@
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar" id="navbar">
+<nav class="navbar" id="navbar" aria-label="Main navigation">
   <div class="container">
   <a href="index.html" class="navbar__logo">Habito</a>
   <div class="navbar__links">
@@ -32,6 +32,7 @@
   </div>
 </nav>
 
+<main>
 <!-- JOIN HERO -->
 <section class="section section--base section--texture join-hero">
   <div class="container gsap-reveal">
@@ -55,22 +56,22 @@
     </div>
     <div class="whats-included-grid gsap-stagger">
       <div class="included-card">
-        <div class="included-card__icon">📦</div>
+        <div class="included-card__icon"><span role="img" aria-label="Package">📦</span></div>
         <p class="included-card__title">Collection of Best-Selling Products</p>
         <p class="included-card__text">A hand-picked selection of Habito's top-rated supplements across multiple health goals — worth over $150 at retail pricing.</p>
       </div>
       <div class="included-card">
-        <div class="included-card__icon">👕</div>
+        <div class="included-card__icon"><span role="img" aria-label="T-shirt">👕</span></div>
         <p class="included-card__title">Exclusive Early-Supporter T-Shirt</p>
         <p class="included-card__text">A limited-edition Habito tee available only to founding members. Clean design, premium fit, built to last.</p>
       </div>
       <div class="included-card">
-        <div class="included-card__icon">🥤</div>
+        <div class="included-card__icon"><span role="img" aria-label="Shaker bottle">🥤</span></div>
         <p class="included-card__title">Habito Shaker Bottle</p>
         <p class="included-card__text">A durable, leak-proof 28oz shaker with the Habito mark. Your daily companion for powders and hydration.</p>
       </div>
       <div class="included-card">
-        <div class="included-card__icon">🚚</div>
+        <div class="included-card__icon"><span role="img" aria-label="Delivery truck">🚚</span></div>
         <p class="included-card__title">Free Shipping + Member Pricing Forever</p>
         <p class="included-card__text">One-time fee unlocks free shipping on all future orders and exclusive member pricing on every product — permanently.</p>
       </div>
@@ -170,6 +171,8 @@
     </form>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer class="footer">

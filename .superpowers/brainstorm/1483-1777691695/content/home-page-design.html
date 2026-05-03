@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Page Layout</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #13151c; font-family: 'Inter', sans-serif; color: #fff; padding: 24px; }
+  h2 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .subtitle { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 24px; }
+
+  .section-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #D42F2F;
+    margin-bottom: 6px;
+  }
+  .section-note {
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  .page-wire {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  /* NAV */
+  .w-nav {
+    height: 56px;
+    background: rgba(28,31,41,0.6);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+  }
+  .w-nav .logo { font-size: 13px; font-weight: 800; letter-spacing: 4px; color: #fff; }
+  .w-nav .links { display: flex; gap: 18px; align-items: center; }
+  .w-nav .links span { font-size: 10px; color: rgba(255,255,255,0.5); }
+  .w-nav .cta { padding: 5px 12px; background: #D42F2F; border-radius: 2px; font-size: 9px; font-weight: 700; color: #fff; letter-spacing: 1px; }
+
+  /* HERO */
+  .w-hero {
+    background: #1C1F29;
+    padding: 52px 32px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .w-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 36px),
+                      repeating-linear-gradient(90deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 36px);
+    pointer-events: none;
+  }
+  .hero-text { position: relative; z-index: 1; }
+  .hero-eye { font-size: 9px; font-weight: 700; color: #D42F2F; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
+  .hero-h1 { font-size: 32px; font-weight: 800; color: #fff; line-height: 1.05; margin-bottom: 10px; }
+  .hero-sub { font-size: 11px; color: rgba(255,255,255,0.4); line-height: 1.7; margin-bottom: 18px; }
+  .hero-btns { display: flex; gap: 10px; align-items: center; }
+  .btn-red { padding: 8px 18px; background: #D42F2F; border-radius: 2px; font-size: 10px; font-weight: 700; color: #fff; letter-spacing: 1px; text-transform: uppercase; }
+  .btn-ghost { font-size: 10px; color: rgba(255,255,255,0.45); border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 1px; }
+  .hero-products { display: flex; gap: 10px; align-items: flex-end; justify-content: center; position: relative; z-index: 1; }
+  .hero-bottle { border-radius: 6px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); position: relative; overflow: hidden; }
+  .hero-bottle::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 30%; background: radial-gradient(ellipse at bottom, rgba(212,47,47,0.2) 0%, transparent 70%); }
+
+  /* MARQUEE BAR */
+  .w-marquee {
+    background: #D42F2F;
+    padding: 10px 24px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  /* FEATURED PRODUCTS */
+  .w-products {
+    background: #22252F;
+    padding: 36px 24px;
+  }
+  .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; }
+  .section-title { font-size: 18px; font-weight: 800; color: #fff; }
+  .section-link { font-size: 10px; color: #D42F2F; font-weight: 700; letter-spacing: 1px; }
+  .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .product-card {
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .product-card-img {
+    height: 80px;
+    background: rgba(255,255,255,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .product-card-img .bottle { width: 28px; height: 48px; background: rgba(255,255,255,0.1); border-radius: 3px; }
+  .product-card-info { padding: 8px; }
+  .product-card-cat { font-size: 7px; color: #D42F2F; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2px; }
+  .product-card-name { font-size: 10px; font-weight: 700; color: #fff; margin-bottom: 4px; line-height: 1.2; }
+  .product-card-foot { display: flex; justify-content: space-between; align-items: center; }
+  .product-card-price { font-size: 10px; color: rgba(255,255,255,0.5); }
+  .product-card-add { font-size: 8px; padding: 3px 6px; background: #D42F2F; color: #fff; border-radius: 2px; font-weight: 700; }
+  .product-card-rule { height: 1px; background: rgba(255,255,255,0.06); margin-top: 8px; }
+
+  /* VALUE PROP */
+  .w-value {
+    background: #1C1F29;
+    padding: 40px 24px;
+  }
+  .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  .value-card {
+    padding: 16px;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 4px;
+    background: rgba(255,255,255,0.02);
+  }
+  .value-dot { width: 6px; height: 6px; background: #D42F2F; border-radius: 50%; margin-bottom: 10px; }
+  .value-title { font-size: 11px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .value-text { font-size: 9px; color: rgba(255,255,255,0.35); line-height: 1.6; }
+
+  /* JOIN CTA */
+  .w-join {
+    background: #D42F2F;
+    padding: 36px 24px;
+    text-align: center;
+  }
+  .join-eye { font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 8px; }
+  .join-h { font-size: 20px; font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 6px; }
+  .join-sub { font-size: 10px; color: rgba(255,255,255,0.75); margin-bottom: 14px; }
+  .btn-white { display: inline-block; padding: 8px 20px; background: #fff; color: #D42F2F; border-radius: 2px; font-size: 10px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* FAQ */
+  .w-faq {
+    background: #22252F;
+    padding: 36px 24px;
+  }
+  .faq-item { border-bottom: 1px solid rgba(255,255,255,0.06); padding: 12px 0; display: flex; justify-content: space-between; align-items: center; }
+  .faq-q { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.8); }
+  .faq-icon { font-size: 14px; color: #D42F2F; font-weight: 300; }
+
+  /* FOOTER */
+  .w-footer {
+    background: #1C1F29;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 28px 24px 16px;
+  }
+  .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  .footer-logo { font-size: 12px; font-weight: 800; letter-spacing: 3px; color: #fff; margin-bottom: 6px; }
+  .footer-tag { font-size: 9px; color: rgba(255,255,255,0.3); line-height: 1.6; }
+  .footer-col-title { font-size: 9px; font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .footer-link { font-size: 9px; color: rgba(255,255,255,0.3); margin-bottom: 4px; }
+  .footer-rule { height: 1px; background: rgba(255,255,255,0.06); margin-bottom: 10px; }
+  .footer-copy { font-size: 8px; color: rgba(255,255,255,0.2); line-height: 1.6; }
+
+  /* Annotations */
+  .ann {
+    background: #13151c;
+    padding: 6px 16px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.35);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .ann-tag { color: #D42F2F; font-weight: 700; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<h2>Home Page — Section Wireframe</h2>
+<p class="subtitle">Scroll down to see all 8 sections. This is the full structure at a glance.</p>
+
+<div class="page-wire">
+
+  <!-- NAV -->
+  <div class="ann"><span class="ann-tag">1 — Navbar</span><span>Ghost on load → frosted glass on scroll · sticky</span></div>
+  <div class="w-nav">
+    <div class="logo">HABITO</div>
+    <div class="links">
+      <span>Shop ▾</span><span>Join</span><span>About</span><span>Contact</span>
+      <div class="cta">Join Now</div>
+      <div style="display:flex;gap:10px;margin-left:8px;">
+        <div style="width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,0.12);"></div>
+        <div style="width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,0.12);"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="ann"><span class="ann-tag">2 — Hero</span><span>#1C1F29 · grid texture · full-bleed · GSAP entrance on load</span></div>
+  <div class="w-hero">
+    <div class="hero-text">
+      <div class="hero-eye">Clean Supplements · No Gimmicks</div>
+      <div class="hero-h1">Choose Better.<br>Live Greater.</div>
+      <div class="hero-sub">Clean Ingredients · Pure Performance<br>Real Results · No Gimmicks</div>
+      <div class="hero-btns">
+        <div class="btn-red">Make the Change</div>
+        <div class="btn-ghost">Join & Save →</div>
+      </div>
+    </div>
+    <div class="hero-products">
+      <div class="hero-bottle" style="width:52px;height:80px;"></div>
+      <div class="hero-bottle" style="width:52px;height:104px;"></div>
+      <div class="hero-bottle" style="width:52px;height:68px;"></div>
+    </div>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="ann"><span class="ann-tag">3 — Benefits Marquee</span><span>#D42F2F bg · infinite CSS scroll · 13 benefit labels</span></div>
+  <div class="w-marquee">
+    Steady Endurance &nbsp;·&nbsp; Muscle Support &nbsp;·&nbsp; Lean Strength &nbsp;·&nbsp; Faster Recovery &nbsp;·&nbsp; Core Stability &nbsp;·&nbsp; Deep Nourishment &nbsp;·&nbsp; Sustained Output &nbsp;·&nbsp; Peak Performance &nbsp;→
+  </div>
+
+  <!-- FEATURED PRODUCTS -->
+  <div class="ann"><span class="ann-tag">4 — Featured Products</span><span>#22252F · 4-col grid · GSAP stagger on scroll</span></div>
+  <div class="w-products">
+    <div class="section-header">
+      <div class="section-title">Featured Products</div>
+      <div class="section-link">View All →</div>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-card-img"><div class="bottle"></div></div>
+        <div class="product-card-info">
+          <div class="product-card-cat">Capsules</div>
+          <div class="product-card-name">Brain Support</div>
+          <div class="product-card-foot">
+            <div class="product-card-price">$29.99</div>
+            <div class="product-card-add">Add +</div>
+          </div>
+          <div class="product-card-rule"></div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img"><div class="bottle"></div></div>
+        <div class="product-card-info">
+          <div class="product-card-cat">Gummies</div>
+          <div class="product-card-name">Creatine Gummies</div>
+          <div class="product-card-foot">
+            <div class="product-card-price">$34.99</div>
+            <div class="product-card-add">Add +</div>
+          </div>
+          <div class="product-card-rule"></div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img"><div class="bottle"></div></div>
+        <div class="product-card-info">
+          <div class="product-card-cat">Capsules</div>
+          <div class="product-card-name">Immune+</div>
+          <div class="product-card-foot">
+            <div class="product-card-price">$24.99</div>
+            <div class="product-card-add">Add +</div>
+          </div>
+          <div class="product-card-rule"></div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img"><div class="bottle"></div></div>
+        <div class="product-card-info">
+          <div class="product-card-cat">Liquid</div>
+          <div class="product-card-name">Trace Minerals+</div>
+          <div class="product-card-foot">
+            <div class="product-card-price">$27.99</div>
+            <div class="product-card-add">Add +</div>
+          </div>
+          <div class="product-card-rule"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUE PROP -->
+  <div class="ann"><span class="ann-tag">5 — Value Proposition</span><span>#1C1F29 · 3-col cards · pull quote above</span></div>
+  <div class="w-value">
+    <div style="text-align:center; margin-bottom:4px;">
+      <div class="section-label">Why Habito</div>
+      <div style="font-size:20px;font-weight:800;color:#fff;line-height:1.1;margin-bottom:6px;">More Value. No Gimmicks.</div>
+      <div style="font-size:10px;color:rgba(255,255,255,0.3);font-style:italic;">"You pay for the product, not the marketing."</div>
+    </div>
+    <div class="value-grid">
+      <div class="value-card"><div class="value-dot"></div><div class="value-title">Premium Ingredients</div><div class="value-text">No fillers. No proprietary blends. Every ingredient listed and dosed.</div></div>
+      <div class="value-card"><div class="value-dot"></div><div class="value-title">Proven Results</div><div class="value-text">Formulations backed by research. Not by celebrity endorsements.</div></div>
+      <div class="value-card"><div class="value-dot"></div><div class="value-title">Community Support</div><div class="value-text">Members get pricing, education, and direct access to the team.</div></div>
+    </div>
+  </div>
+
+  <!-- JOIN CTA -->
+  <div class="ann"><span class="ann-tag">6 — Join CTA</span><span>#D42F2F · full-bleed red · GSAP fade on scroll</span></div>
+  <div class="w-join">
+    <div class="join-eye">Limited Offer · One-Time Fee</div>
+    <div class="join-h">Get $150 in Supplements<br>for Only $75</div>
+    <div class="join-sub">Products + T-shirt + Shaker · One-time payment · No subscription</div>
+    <div class="btn-white">Join Habito — $75 →</div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="ann"><span class="ann-tag">7 — FAQ</span><span>#22252F · 3 items · CSS accordion · GSAP on scroll</span></div>
+  <div class="w-faq">
+    <div class="section-label">FAQ</div>
+    <div style="font-size:16px;font-weight:800;color:#fff;margin-bottom:14px;">Got questions? We've got answers.</div>
+    <div class="faq-item"><div class="faq-q">How is Habito different from other supplement brands?</div><div class="faq-icon">+</div></div>
+    <div class="faq-item"><div class="faq-q">Who are Habito products for?</div><div class="faq-icon">+</div></div>
+    <div class="faq-item"><div class="faq-q">How do I choose the right product?</div><div class="faq-icon">+</div></div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="ann"><span class="ann-tag">8 — Footer</span><span>#1C1F29 · 4-col · FDA disclaimer · © 2026</span></div>
+  <div class="w-footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">HABITO</div>
+        <div class="footer-tag">Clean supplements.<br>Real ingredients.<br>No gimmicks.</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Shop</div>
+        <div class="footer-link">Capsules</div>
+        <div class="footer-link">Gummies</div>
+        <div class="footer-link">Liquid</div>
+        <div class="footer-link">Powder</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <div class="footer-link">About</div>
+        <div class="footer-link">Join</div>
+        <div class="footer-link">Contact</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Legal</div>
+        <div class="footer-link">Terms of Use</div>
+        <div class="footer-link">Privacy Policy</div>
+        <div class="footer-link">Return Policy</div>
+      </div>
+    </div>
+    <div class="footer-rule"></div>
+    <div class="footer-copy">These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease.<br>© 2026 Habito, LLC. All rights reserved. · 1996 E 2540 S, Saint George, UT 84790</div>
+  </div>
+
+</div>
+
+<script>
+// Inject into brainstorm frame if needed
+</script>
+</body>
+</html>

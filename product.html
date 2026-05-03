@@ -9,11 +9,11 @@
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar" id="navbar">
+<nav class="navbar" id="navbar" aria-label="Main navigation">
   <div class="container">
   <a href="index.html" class="navbar__logo">Habito</a>
   <div class="navbar__links">
-    <a href="all-products.html">Shop</a>
+    <a href="all-products.html" aria-current="page">Shop</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
     <a href="join.html" class="btn btn--primary navbar__cta">Join Now</a>
@@ -32,16 +32,17 @@
   </div>
 </nav>
 
+<main>
 <!-- BREADCRUMB -->
 <div class="breadcrumb">
   <div class="container">
     <ol class="breadcrumb__list">
       <li class="breadcrumb__item"><a href="index.html">Home</a></li>
-      <li class="breadcrumb__sep">›</li>
+      <li class="breadcrumb__sep" aria-hidden="true">›</li>
       <li class="breadcrumb__item"><a href="all-products.html">Shop</a></li>
-      <li class="breadcrumb__sep">›</li>
+      <li class="breadcrumb__sep" aria-hidden="true">›</li>
       <li class="breadcrumb__item"><a href="all-products.html">Capsules</a></li>
-      <li class="breadcrumb__sep">›</li>
+      <li class="breadcrumb__sep" aria-hidden="true">›</li>
       <li class="breadcrumb__item breadcrumb__item--active">Blood Sugar Support</li>
     </ol>
   </div>
@@ -91,24 +92,24 @@
         <div>
           <p class="product-detail__format-label">Format</p>
           <div class="format-selector">
-            <button class="format-btn active">Capsules (60ct)</button>
-            <button class="format-btn">Capsules (120ct)</button>
+            <button type="button" class="format-btn active">Capsules (60ct)</button>
+            <button type="button" class="format-btn">Capsules (120ct)</button>
           </div>
         </div>
 
         <div style="display:flex;align-items:center;gap:16px;">
           <div class="qty-control">
-            <button aria-label="Decrease">−</button>
+            <button type="button" aria-label="Decrease quantity">−</button>
             <span class="qty-control__value">1</span>
-            <button aria-label="Increase">+</button>
+            <button type="button" aria-label="Increase quantity">+</button>
           </div>
           <button class="btn btn--outline" style="flex:1;">Add to Cart</button>
         </div>
 
         <div class="trust-badges">
-          <div class="trust-badge"><span>📦</span> Free Shipping</div>
-          <div class="trust-badge"><span>🔬</span> 3rd-Party Tested</div>
-          <div class="trust-badge"><span>↩</span> 30-Day Returns</div>
+          <div class="trust-badge"><span role="img" aria-label="Package">📦</span> Free Shipping</div>
+          <div class="trust-badge"><span role="img" aria-label="Lab">🔬</span> 3rd-Party Tested</div>
+          <div class="trust-badge"><span aria-hidden="true">↩</span> 30-Day Returns</div>
         </div>
 
         <p class="product-detail__desc">Support healthy blood sugar levels naturally with our clinically-dosed Blood Sugar Support formula. Featuring berberine, chromium, and Ceylon cinnamon — three of the most researched compounds for glucose metabolism and insulin sensitivity. Clean ingredients. No artificial fillers. No proprietary blends.</p>
@@ -210,6 +211,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <!-- FOOTER -->
 <footer class="footer">

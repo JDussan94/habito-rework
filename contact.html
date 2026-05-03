@@ -9,13 +9,13 @@
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar" id="navbar">
+<nav class="navbar" id="navbar" aria-label="Main navigation">
   <div class="container">
   <a href="index.html" class="navbar__logo">Habito</a>
   <div class="navbar__links">
     <a href="all-products.html">Shop</a>
     <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html" aria-current="page">Contact</a>
     <a href="join.html" class="btn btn--primary navbar__cta">Join Now</a>
   </div>
   <div class="navbar__icons">
@@ -32,6 +32,7 @@
   </div>
 </nav>
 
+<main>
 <!-- CONTACT HERO -->
 <section class="section section--base section--texture">
   <div class="container">
@@ -85,11 +86,11 @@
               <label class="form-label" for="cf-topic">Topic</label>
               <select class="form-select" id="cf-topic">
                 <option value="">Select a topic</option>
-                <option>Order Status</option>
-                <option>Product Question</option>
-                <option>Returns &amp; Refunds</option>
-                <option>Membership</option>
-                <option>Other</option>
+                <option value="order-status">Order Status</option>
+                <option value="product-question">Product Question</option>
+                <option value="returns-refunds">Returns &amp; Refunds</option>
+                <option value="membership">Membership</option>
+                <option value="other">Other</option>
               </select>
             </div>
             <div class="form-field form-field--full">
@@ -161,6 +162,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer class="footer">
