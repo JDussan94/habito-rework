@@ -100,19 +100,11 @@ h3 { font-family: var(--font-display); font-weight: 700; color: var(--white); }
   height: 60px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 max(40px, calc((100% - var(--max-w)) / 2 + 40px));
   background: transparent;
   border-bottom: 1px solid transparent;
   transition: background 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease;
-}
-
-.navbar__inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  width: 100%;
-  padding: 0 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .navbar.scrolled {
