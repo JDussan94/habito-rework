@@ -10,6 +10,7 @@
 
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
+  <div class="navbar__inner">
   <a href="index.html" class="navbar__logo">Habito</a>
   <div class="navbar__links">
     <a href="all-products.html">Shop ▾</a>
@@ -28,6 +29,7 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
     </a>
   </div>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -36,7 +38,7 @@
     <div class="hero__text">
       <span class="eyebrow">Clean Supplements · No Gimmicks</span>
       <h1 style="font-size:62px;margin-bottom:20px;">Choose Better.<br>Live Greater.</h1>
-      <p style="font-size:13px;color:var(--text-muted);margin-bottom:32px;line-height:1.8;">Clean Ingredients · Pure Performance · Real Results · No Gimmicks</p>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:32px;line-height:1.8;">Premium, clean ingredients. Effective, proven results. Community support. You're paying for substance, not hype — just what your body needs, and nothing it doesn't.</p>
       <div style="display:flex;gap:20px;align-items:center;">
         <a href="all-products.html" class="btn btn--primary" style="font-size:11px;padding:14px 28px;">Make the Change Today</a>
         <a href="join.html" class="btn btn--ghost">Join &amp; Save →</a>
@@ -70,9 +72,6 @@
     <span class="marquee__label">Peak Performance</span><span class="marquee__sep"></span>
     <span class="marquee__label">Daily Resilience</span><span class="marquee__sep"></span>
     <span class="marquee__label">Natural Vitality</span><span class="marquee__sep"></span>
-    <span class="marquee__label">Increased Muscle Power</span><span class="marquee__sep"></span>
-    <span class="marquee__label">Boost Strength Output</span><span class="marquee__sep"></span>
-    <span class="marquee__label">Enhance Muscle Density</span><span class="marquee__sep"></span>
     <span class="marquee__label">Steady Endurance</span><span class="marquee__sep"></span>
     <span class="marquee__label">Muscle Support</span><span class="marquee__sep"></span>
     <span class="marquee__label">Lean Strength</span><span class="marquee__sep"></span>
@@ -83,9 +82,6 @@
     <span class="marquee__label">Peak Performance</span><span class="marquee__sep"></span>
     <span class="marquee__label">Daily Resilience</span><span class="marquee__sep"></span>
     <span class="marquee__label">Natural Vitality</span><span class="marquee__sep"></span>
-    <span class="marquee__label">Increased Muscle Power</span><span class="marquee__sep"></span>
-    <span class="marquee__label">Boost Strength Output</span><span class="marquee__sep"></span>
-    <span class="marquee__label">Enhance Muscle Density</span><span class="marquee__sep"></span>
   </div>
 </div>
 
@@ -102,7 +98,7 @@
     <div class="products-grid gsap-stagger">
       <a href="product.html" class="product-card">
         <div class="product-card__image-wrap">
-          <img src="https://picsum.photos/seed/habito-p1/90/130" alt="Blood Sugar Support">
+          <img src="images/products/blood-sugar.jpg" alt="Blood Sugar Support" loading="lazy">
         </div>
         <div class="product-card__body">
           <p class="product-card__category">Capsules</p>
@@ -115,11 +111,11 @@
       </a>
       <a href="product.html" class="product-card">
         <div class="product-card__image-wrap">
-          <img src="https://picsum.photos/seed/habito-p2/90/130" alt="Natural Testo Boost">
+          <img src="images/products/natural-burn.jpg" alt="Natural Burn" loading="lazy">
         </div>
         <div class="product-card__body">
           <p class="product-card__category">Capsules</p>
-          <p class="product-card__name">Natural Testo Boost</p>
+          <p class="product-card__name">Natural Burn</p>
           <div class="product-card__footer">
             <span class="product-card__price">$34.99</span>
             <span class="product-card__add">Add +</span>
@@ -128,11 +124,11 @@
       </a>
       <a href="product.html" class="product-card">
         <div class="product-card__image-wrap">
-          <img src="https://picsum.photos/seed/habito-p3/90/130" alt="Pre-Workout Sour Apple">
+          <img src="images/products/brain-support.jpg" alt="Brain Support" loading="lazy">
         </div>
         <div class="product-card__body">
-          <p class="product-card__category">Powder</p>
-          <p class="product-card__name">Pre-Workout Sour Apple</p>
+          <p class="product-card__category">Capsules</p>
+          <p class="product-card__name">Brain Support</p>
           <div class="product-card__footer">
             <span class="product-card__price">$39.99</span>
             <span class="product-card__add">Add +</span>
@@ -141,11 +137,11 @@
       </a>
       <a href="product.html" class="product-card">
         <div class="product-card__image-wrap">
-          <img src="https://picsum.photos/seed/habito-p4/90/130" alt="Multi Collagen Peptides">
+          <img src="images/products/no2.jpg" alt="NO2" loading="lazy">
         </div>
         <div class="product-card__body">
-          <p class="product-card__category">Powder</p>
-          <p class="product-card__name">Multi Collagen Peptides</p>
+          <p class="product-card__category">Capsules</p>
+          <p class="product-card__name">NO2</p>
           <div class="product-card__footer">
             <span class="product-card__price">$44.99</span>
             <span class="product-card__add">Add +</span>
@@ -215,7 +211,7 @@
           <span class="faq__icon">+</span>
         </button>
         <div class="faq__answer">
-          <p>Habito cuts the marketing overhead that inflates prices at big-box brands. We invest in ingredient quality and transparent labeling instead of celebrity endorsements and flashy ads — so you get more product for your dollar.</p>
+          <p>We focus on what actually matters: the quality of what goes into the bottle. Our supplements are built around thoughtfully sourced ingredients and carefully developed formulations, not celebrity endorsements or inflated marketing budgets.</p>
         </div>
       </div>
       <div class="faq__item">
@@ -224,7 +220,7 @@
           <span class="faq__icon">+</span>
         </button>
         <div class="faq__answer">
-          <p>Anyone serious about their health. Whether you're an athlete, a busy professional, or just someone who wants clean, effective supplements without the gimmicks — Habito is built for you.</p>
+          <p>Our products are designed for people who want to feel better day to day. With a broad range of benefits across our lineup, there's something to support nearly any wellness goal.</p>
         </div>
       </div>
       <div class="faq__item">
@@ -233,7 +229,7 @@
           <span class="faq__icon">+</span>
         </button>
         <div class="faq__answer">
-          <p>Start with your primary health goal — endurance, strength, recovery, focus, or general wellness. Our catalog is organized by goal and category. If you're not sure, the Habito membership bundle is the best way to sample across our range.</p>
+          <p>We've made it easy. Each product is designed around specific benefits, so you can simply match your goals to the product that supports them.</p>
         </div>
       </div>
     </div>
