@@ -61,8 +61,8 @@ body {
 
 .section--texture {
   background-image:
-    repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 36px),
-    repeating-linear-gradient(90deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 36px);
+    repeating-linear-gradient(0deg, rgba(28,31,42,0.06) 0px, rgba(28,31,42,0.06) 1px, transparent 1px, transparent 36px),
+    repeating-linear-gradient(90deg, rgba(28,31,42,0.06) 0px, rgba(28,31,42,0.06) 1px, transparent 1px, transparent 36px);
 }
 
 .section__header--flex {
@@ -112,10 +112,10 @@ h3 { font-family: var(--font-display); font-weight: 700; color: var(--white); }
 }
 
 .navbar.scrolled {
-  background: rgba(28,31,41,0.85);
+  background: rgba(255,255,255,0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom-color: rgba(255,255,255,0.06);
+  border-bottom-color: rgba(28,31,42,0.12);
 }
 
 .navbar__logo {
@@ -136,7 +136,7 @@ h3 { font-family: var(--font-display); font-weight: 700; color: var(--white); }
 .navbar__links a:not(.btn--primary) {
   font-family: var(--font-body);
   font-size: 11px;
-  color: rgba(255,255,255,0.5);
+  color: rgba(28,31,42,0.55);
   transition: color 0.2s ease;
 }
 .navbar__links a:not(.btn--primary):hover { color: var(--white); }
@@ -149,7 +149,7 @@ h3 { font-family: var(--font-display); font-weight: 700; color: var(--white); }
   gap: 20px;
 }
 .navbar__icons a {
-  color: rgba(255,255,255,0.5);
+  color: rgba(28,31,42,0.55);
   display: flex;
   align-items: center;
   transition: color 0.2s ease;
