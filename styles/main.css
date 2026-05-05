@@ -15,16 +15,16 @@ button { cursor: pointer; }
 
 /* --- CSS Variables --- */
 :root {
-  --dark-base: #1C1F29;
-  --dark-lift: #22252F;
-  --dark-card: rgba(255,255,255,0.03);
-  --red: #D42F2F;
-  --red-glow: rgba(212,47,47,0.15);
-  --white: #FFFFFF;
-  --text-muted: rgba(255,255,255,0.45);
-  --text-ghost: rgba(255,255,255,0.2);
-  --border: rgba(255,255,255,0.08);
-  --border-active: #D42F2F;
+  --dark-base: #FFFFFF;
+  --dark-lift: #F5F5F7;
+  --dark-card: rgba(28,31,42,0.04);
+  --red: #D22630;
+  --red-glow: rgba(210,38,48,0.12);
+  --white: #1C1F2A;
+  --text-muted: rgba(28,31,42,0.55);
+  --text-ghost: rgba(28,31,42,0.35);
+  --border: rgba(28,31,42,0.1);
+  --border-active: #D22630;
   --font-display: 'Plus Jakarta Sans', sans-serif;
   --font-body: 'Inter', sans-serif;
   --max-w: 1200px;
