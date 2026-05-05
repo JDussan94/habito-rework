@@ -57,7 +57,7 @@ body {
 .section { padding: 80px 0; }
 .section--base { background: var(--dark-base); }
 .section--lift { background: var(--dark-lift); }
-.section--red { background: var(--red); }
+.section--red { background: var(--red); color: #fff; }
 
 .section--texture {
   background-image:
@@ -174,7 +174,7 @@ h3 { font-family: var(--font-display); font-weight: 700; color: var(--white); }
   cursor: pointer;
 }
 
-.btn--primary { background: var(--red); color: var(--white); padding: 12px 24px; }
+.btn--primary { background: var(--red); color: #fff; padding: 12px 24px; }
 .btn--primary:hover { background: #b82424; }
 
 .btn--ghost { color: var(--white); border-bottom: 1px solid rgba(255,255,255,0.3); border-radius: 0; padding-bottom: 2px; }
