@@ -183,7 +183,7 @@ h3 { font-family: var(--font-display); font-weight: 700; color: var(--white); }
 .btn--outline { border: 1px solid rgba(28,31,42,0.2); color: var(--white); padding: 10px 20px; }
 .btn--outline:hover { border-color: rgba(28,31,42,0.4); }
 
-.btn--white { background: #fff; color: var(--red); padding: 14px 32px; font-size: 11px; }
+.btn--white { background: #fff; color: var(--red); border: 1px solid rgba(28,31,42,0.12); padding: 14px 32px; font-size: 11px; }
 .btn--white:hover { background: rgba(255,255,255,0.9); }
 
 /* ==============================================
