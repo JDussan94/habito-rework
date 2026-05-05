@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Habito Life — Rediseño Web V2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-base:    #1C1F29;
+      --bg-lift:    #22252F;
+      --bg-card:    #2A2E3B;
+      --red:        #D42F2F;
+      --red-dim:    rgba(212,47,47,0.12);
+      --white:      #F8FAFC;
+      --muted:      #94A3B8;
+      --border:     rgba(255,255,255,0.08);
+      --radius:     12px;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-base);
+      color: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── PRINT BUTTON ── */
+    .print-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 100;
+      background: var(--red);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(212,47,47,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .print-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(212,47,47,0.55);
+    }
+
+    /* ── WRAPPER ── */
+    .doc {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 32px 80px;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 0 60px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(212,47,47,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cover-label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 28px;
+    }
+    .cover-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .cover-title span { color: var(--red); }
+    .cover-sub {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.6;
+      margin-bottom: 48px;
+    }
+    .cover-meta {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .cover-meta-item { display: flex; flex-direction: column; gap: 4px; }
+    .cover-meta-item .label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .cover-meta-item .value {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .cover-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 2px;
+      margin: 0 0 40px;
+    }
+
+    /* ── SECTION HEADERS ── */
+    .section {
+      padding: 72px 0 0;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+
+    /* ── INTRO ── */
+    .intro-text {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 700px;
+      border-left: 3px solid var(--red);
+      padding-left: 24px;
+    }
+
+    /* ── PAGES TABLE ── */
+    .pages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .page-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .page-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--red);
+      background: var(--red-dim);
+      border-radius: 6px;
+      padding: 4px 8px;
+      flex-shrink: 0;
+      letter-spacing: 0.05em;
+      margin-top: 2px;
+    }
+    .page-info .page-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    .page-info .page-file {
+      font-size: 11px;
+      color: var(--muted);
+      font-family: monospace;
+    }
+    .page-info .page-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    /* ── DECISIONS ── */
+    .decisions-list { display: flex; flex-direction: column; gap: 28px; }
+    .decision-card {
+      background: var(--bg-lift);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    .decision-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--red);
+      border-radius: 3px 0 0 3px;
+    }
+    .decision-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .decision-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--red);
+      background: var(--red-dim);
+      border-radius: 6px;
+      padding: 4px 10px;
+      flex-shrink: 0;
+    }
+    .decision-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .decision-body { display: flex; flex-direction: column; gap: 14px; }
+    .decision-row { display: grid; grid-template-columns: 90px 1fr; gap: 12px; align-items: baseline; }
+    .decision-row .row-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 2px;
+    }
+    .decision-row .row-content { font-size: 14px; line-height: 1.65; color: var(--muted); }
+    .decision-row .row-content.why { color: #C8D0DC; }
+
+    /* ── SUMMARY TABLE ── */
+    .summary-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 13.5px;
+      margin-top: 8px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .summary-table th {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 14px 18px;
+      background: var(--bg-card);
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .summary-table td {
+      padding: 13px 18px;
+      border-bottom: 1px solid var(--border);
+      color: #C8D0DC;
+      vertical-align: top;
+    }
+    .summary-table tr:last-child td { border-bottom: none; }
+    .summary-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+    .summary-table td:first-child {
+      font-weight: 600;
+      color: var(--white);
+      white-space: nowrap;
+    }
+    .summary-table td:last-child { color: var(--muted); font-size: 13px; }
+
+    /* ── TECH PILLS ── */
+    .tech-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+    .tech-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 7px 16px;
+      font-size: 13px;
+      color: #C8D0DC;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tech-pill .dot {
+      width: 6px; height: 6px;
+      background: var(--red);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── LINK CARD ── */
+    .link-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .link-card .link-info .link-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .link-card .link-info .link-url {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--red);
+      word-break: break-all;
+    }
+    .link-badge {
+      background: var(--red);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 7px 16px;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+
+    /* ── FAQ ── */
+    .faq-list { display: flex; flex-direction: column; gap: 16px; }
+    .faq-card {
+      background: var(--bg-lift);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+    }
+    .faq-q {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+    .faq-a { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+    /* ── NEXT STEPS ── */
+    .steps-list { display: flex; flex-direction: column; gap: 12px; }
+    .step-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 20px;
+      background: var(--bg-lift);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .step-n {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--red);
+      background: var(--red-dim);
+      border-radius: 6px;
+      padding: 4px 10px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .step-text { font-size: 14px; color: #C8D0DC; line-height: 1.55; }
+    .step-text strong { color: var(--white); font-weight: 600; }
+
+    /* ── FOOTER ── */
+    .footer {
+      margin-top: 80px;
+      padding: 40px 0 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: gap;
+      gap: 16px;
+    }
+    .footer-brand {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+    .footer-brand span { color: var(--red); }
+    .footer-note { font-size: 12px; color: var(--muted); }
+
+    /* ── PRINT ── */
+    @media print {
+      .print-btn { display: none; }
+      body { background: #0F1117; color: #F8FAFC; }
+      .cover { min-height: auto; page-break-after: always; }
+      .decision-card, .page-card, .faq-card, .step-row { page-break-inside: avoid; }
+      .section { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">Exportar PDF</button>
+
+<div class="doc">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-label">Documento de entrega &mdash; Rediseño Web</div>
+    <h1 class="cover-title">Habito<span>.</span><br>Redesign</h1>
+    <div class="cover-divider"></div>
+    <p class="cover-sub">Transformación completa de la presencia digital de Habito — nuevo sistema visual, identidad premium y arquitectura orientada a conversión.</p>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <span class="label">Proyecto</span>
+        <span class="value">Habito Redesign</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="label">Páginas</span>
+        <span class="value">6 páginas completas</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="label">Fecha de entrega</span>
+        <span class="value">Mayo 2026</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="label">Estado</span>
+        <span class="value" style="color:var(--red)">Listo para revisión</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="section">
+    <div class="section-label">01 &mdash; Introducción</div>
+    <h2 class="section-title">¿Qué hicimos?</h2>
+    <p class="intro-text">
+      Tomamos todos los contenidos reales del sitio original &mdash; productos, precios, la oferta de membresía y el copy &mdash; y reconstruimos completamente la capa visual y la estructura de navegación. El objetivo fue posicionar a Habito como una marca premium dentro del mercado de suplementos, diferenciándola visualmente de la competencia y mejorando cada paso del proceso de compra.
+    </p>
+  </div>
+
+  <!-- PAGES -->
+  <div class="section">
+    <div class="section-label">02 &mdash; Arquitectura</div>
+    <h2 class="section-title">Seis páginas, un camino de conversión</h2>
+    <div class="pages-grid">
+      <div class="page-card">
+        <span class="page-num">01</span>
+        <div class="page-info">
+          <div class="page-name">Inicio</div>
+          <div class="page-file">index.html</div>
+          <div class="page-desc">Presentación de marca, productos destacados y membresía</div>
+        </div>
+      </div>
+      <div class="page-card">
+        <span class="page-num">02</span>
+        <div class="page-info">
+          <div class="page-name">Todos los productos</div>
+          <div class="page-file">all-products.html</div>
+          <div class="page-desc">Catálogo completo con filtros por categoría</div>
+        </div>
+      </div>
+      <div class="page-card">
+        <span class="page-num">03</span>
+        <div class="page-info">
+          <div class="page-name">Detalle de producto</div>
+          <div class="page-file">product.html</div>
+          <div class="page-desc">Galería, ingredientes, dosificación y productos relacionados</div>
+        </div>
+      </div>
+      <div class="page-card">
+        <span class="page-num">04</span>
+        <div class="page-info">
+          <div class="page-name">Nosotros</div>
+          <div class="page-file">about.html</div>
+          <div class="page-desc">Historia de la marca, valores y propósito</div>
+        </div>
+      </div>
+      <div class="page-card">
+        <span class="page-num">05</span>
+        <div class="page-info">
+          <div class="page-name">Contacto</div>
+          <div class="page-file">contact.html</div>
+          <div class="page-desc">Formulario de contacto y preguntas frecuentes</div>
+        </div>
+      </div>
+      <div class="page-card">
+        <span class="page-num">06</span>
+        <div class="page-info">
+          <div class="page-name">Unirse</div>
+          <div class="page-file">join.html</div>
+          <div class="page-desc">Página de conversión principal — oferta de membresía</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DECISIONS -->
+  <div class="section">
+    <div class="section-label">03 &mdash; Decisiones de diseño</div>
+    <h2 class="section-title">Cada cambio tiene una razón</h2>
+    <div class="decisions-list">
+
+      <div class="decision-card">
+        <div class="decision-header">
+          <span class="decision-num">01</span>
+          <span class="decision-title">Modo oscuro como sistema visual base</span>
+        </div>
+        <div class="decision-body">
+          <div class="decision-row">
+            <span class="row-label">Antes</span>
+            <span class="row-content">Fondo blanco con tipografía oscura — diseño claro que se mezcla con la estética genérica del mercado de suplementos.</span>
+          </div>
+          <div class="decision-row">
+            <span class="row-label">Ahora</span>
+            <span class="row-content">Fondos oscuros (#1C1F29 / #22252F) con rojo (#D42F2F) como color de acento principal.</span>
+          </div>
+          <div class="decision-row">
+            <span class="row-label">Por qué</span>
+            <span class="row-content why">El modo oscuro posiciona la marca como premium y diferencia visualmente a Habito de la competencia. El rojo comunica energía y urgencia, alineado con el perfil del cliente objetivo.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="decision-card">
+        <div class="decision-header">
+          <span class="decision-num">02</span>
+          <span class="decision-title">Sistema tipográfico editorial</span>
+        </div>
+        <div class="decision-body">
+          <div class="decision-row">
+            <span class="row-label">Antes</span>
+            <span class="row-content">Tipografías por defecto del tema de Shopify — funcionales pero sin carácter de marca.</span>
+          </div>
+          <div class="decision-row">
+            <span class="row-label">Ahora</span>
+            <span class="row-content"><strong>Plus Jakarta Sans</strong> para títulos y elementos de marca + <strong>Inter</strong> para cuerpo de texto.</span>
+          </div>
+          <div class="decision-row">
+            <span class="row-label">Por qué</span>
+            <span class="row-content why">La combinación le da a la marca autoridad editorial — moderna y legible a cualquier tamaño, sin sacrificar personalidad.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="decision-card">
+        <div class="decision-header">
+          <span class="decision-num">03</span>
+          <span class="decision-title">Rediseño de la página Join</span>
+        </div>
+        <div class="decision-body">
+          <div class="decision-row">
+            <span class="row-label">Antes</span>
+            <span class="row-content">La página Join existía integrada al sistema visual claro de Shopify — diseño estándar sin jerarquía visual ni flujo personalizado para el bundle.</span>
+          </div>
+          <div class="decision-row">
+            <span class="row-label">Ahora</span>
+            <span class="row-content">Página completamente rediseñada: presentación de la oferta, selector visual de productos del bundle, resumen de pedido y tipografía que guía al usuario paso a paso.</span>
+          </div>
+          <div class="decision-row">
+            <span class="row-label">Por qué</span>
+            <span class="row-content why">La oferta $75 por $150 es el diferenciador más fuerte de Habito. El diseño de la página debe estar a la altura — cada elemento visual dirige la atención hacia el valor y facilita la decisión de compra.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="decision-card">
+        <div class="decision-header">
+          <span class="decision-num">04</span>
+          <span class="decision-title">Nueva página de catálogo de productos</span>
+        </div>
+        <div class="decision-body">
+          <div class="decision-row">
+            <span class="row-label">Antes</span>
+            <span class="row-content">No existía una página de catálogo general — los productos solo eran accesibles individualmente a través del menú de categorías.</span>
+          </div>
+          <div class="decision-row">
+            <span class="row-label">Ahora</span>
+            <span class="row-content">Nueva página de catálogo con grilla de tarjetas oscuras y filtros por categoría (Capsules, Gummies, Liquid, Powder) — vista completa de todos los productos en un solo lugar.</span>
+          </div>
+          <div class="decision-row">
+            <span class="row-label">Por qué</span>
+            <span class="row-content why">Un punto central para explorar el catálogo completo reduce la fricción en la etapa de descubrimiento y comunica la amplitud de la oferta de la marca de un solo vistazo.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="decision-card">
+        <div class="decision-header">
+          <span class="decision-num">05</span>
+          <span class="decision-title">Rediseño visual de la propuesta de valor</span>
+        </div>
+        <div class="decision-body">
+          <div class="decision-row">
+            <span class="row-label">Antes</span>
+            <span class="row-content">La sección "Why Habito" existía con los mismos tres diferenciadores, integrada en el sistema visual claro — sin jerarquía tipográfica fuerte ni identidad visual de marca.</span>
+          </div>
+          <div class="decision-row">
+            <span class="row-label">Ahora</span>
+            <span class="row-content">Rediseñada en el sistema oscuro con mayor contraste tipográfico y la cita central: "You pay for the product, not the marketing."</span>
+          </div>
+          <div class="decision-row">
+            <span class="row-label">Por qué</span>
+            <span class="row-content why">El sistema oscuro amplifica el impacto de cada diferenciador. La cita es memorable, rompe con la retórica del mercado y refuerza la credibilidad de la marca frente al comprador escéptico.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="decision-card">
+        <div class="decision-header">
+          <span class="decision-num">06</span>
+          <span class="decision-title">Arquitectura de seis páginas enfocadas</span>
+        </div>
+        <div class="decision-body">
+          <div class="decision-row">
+            <span class="row-label">Antes</span>
+            <span class="row-content">Tienda Shopify con múltiples páginas generadas por el sistema — estructura dispersa sin un camino de conversión visual definido.</span>
+          </div>
+          <div class="decision-row">
+            <span class="row-label">Ahora</span>
+            <span class="row-content">6 páginas con una función clara cada una: descubrir → explorar → decidir → confiar → consultar → comprar.</span>
+          </div>
+          <div class="decision-row">
+            <span class="row-label">Por qué</span>
+            <span class="row-content why">Una arquitectura enfocada elimina la fatiga de decisión. Cada página tiene un trabajo específico y todas conducen hacia Join como destino principal de conversión.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SUMMARY TABLE -->
+  <div class="section">
+    <div class="section-label">04 &mdash; Resumen</div>
+    <h2 class="section-title">Antes vs. Ahora</h2>
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th>Elemento</th>
+          <th>Antes</th>
+          <th>Ahora</th>
+          <th>Razón</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Sistema de color</td><td>Claro / blanco</td><td>Oscuro / rojo</td><td>Posicionamiento premium</td></tr>
+        <tr><td>Tipografía</td><td>Default Shopify</td><td>Plus Jakarta Sans + Inter</td><td>Identidad y autoridad de marca</td></tr>
+        <tr><td>Página Join</td><td>Diseño Shopify estándar</td><td>Completamente rediseñada</td><td>Experiencia de conversión a la altura de la oferta</td></tr>
+        <tr><td>Catálogo de productos</td><td>No existía</td><td>Nueva página con grilla y filtros</td><td>Descubrimiento del catálogo completo</td></tr>
+        <tr><td>Propuesta de valor</td><td>Sistema visual claro, sin jerarquía</td><td>Rediseñada en sistema oscuro</td><td>Mayor impacto y credibilidad</td></tr>
+        <tr><td>Arquitectura</td><td>Múltiples páginas Shopify</td><td>6 páginas enfocadas</td><td>Camino de conversión claro</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- VIEW LINK -->
+  <div class="section">
+    <div class="section-label">05 &mdash; Ver el diseño</div>
+    <h2 class="section-title">Sitio en vivo</h2>
+    <div class="link-card">
+      <div class="link-info">
+        <div class="link-label">GitHub Pages — disponible ahora</div>
+        <div class="link-url">https://jdussan94.github.io/habito-rework/</div>
+      </div>
+      <div class="link-badge">Ver sitio</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">Habito<span>.</span></div>
+    <div class="footer-note">Habito Redesign &mdash; Mayo 2026</div>
+  </div>
+
+</div>
+</body>
+</html>

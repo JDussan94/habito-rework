@@ -1,0 +1,215 @@
+<style>
+  body { font-family: 'Inter', system-ui, sans-serif; background: #f9f9fb; color: #1C1F2A; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 32px 24px; }
+  h2 { font-size: 22px; font-weight: 800; margin: 0 0 6px; }
+  .sub { font-size: 13px; color: #666; margin-bottom: 32px; }
+
+  /* Side-by-side panels */
+  .panels { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
+  .panel { border-radius: 10px; overflow: hidden; border: 1px solid rgba(0,0,0,0.1); }
+  .panel-header { padding: 14px 18px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+  .panel-body { padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+
+  /* Dark panel */
+  .panel--dark .panel-header { background: #13151c; color: rgba(255,255,255,0.45); }
+  .panel--dark .panel-body { background: #1C1F29; }
+
+  /* Light panel */
+  .panel--light .panel-header { background: #e8e8ec; color: rgba(28,31,42,0.55); }
+  .panel--light .panel-body { background: #FFFFFF; }
+
+  /* Swatches */
+  .swatch { display: flex; align-items: center; gap: 12px; }
+  .swatch-dot { width: 36px; height: 36px; border-radius: 6px; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.08); }
+  .swatch-info { display: flex; flex-direction: column; }
+  .swatch-name { font-size: 11px; font-weight: 600; }
+  .swatch-hex { font-size: 10px; color: #888; font-family: monospace; }
+  /* dark swatch text */
+  .panel--dark .swatch-name { color: rgba(255,255,255,0.7); }
+  .panel--dark .swatch-hex { color: rgba(255,255,255,0.35); }
+
+  /* Arrow */
+  .arrow { display: flex; align-items: center; justify-content: center; font-size: 28px; color: #aaa; }
+
+  /* Section mockup */
+  .mockup-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #888; margin-bottom: 12px; }
+  .mock-section { border-radius: 10px; overflow: hidden; border: 1px solid rgba(0,0,0,0.1); }
+  .mock-nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; font-size: 11px; font-weight: 700; letter-spacing: 3px; }
+  .mock-hero { padding: 40px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; }
+  .mock-hero-text {}
+  .mock-eyebrow { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 8px; }
+  .mock-h1 { font-size: 28px; font-weight: 800; line-height: 1.1; margin-bottom: 12px; }
+  .mock-p { font-size: 11px; line-height: 1.7; margin-bottom: 16px; }
+  .mock-btn { display: inline-block; padding: 9px 18px; border-radius: 2px; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .mock-products { display: flex; gap: 8px; justify-content: center; }
+  .mock-product-img { width: 64px; height: 90px; border-radius: 4px; border: 1px solid; }
+  .mock-marquee { padding: 10px 24px; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; text-align: center; }
+  .mock-card-section { padding: 28px 24px; }
+  .mock-section-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
+  .mock-section-title { font-size: 18px; font-weight: 800; margin-bottom: 16px; }
+  .mock-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .mock-card { border-radius: 4px; border: 1px solid; overflow: hidden; }
+  .mock-card-img { height: 56px; }
+  .mock-card-body { padding: 8px; }
+  .mock-card-cat { font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .mock-card-name { font-size: 10px; font-weight: 700; margin-top: 2px; }
+  .mock-card-price { font-size: 10px; font-weight: 600; margin-top: 6px; }
+
+  /* LIGHT THEME MOCK */
+  .mock--light .mock-nav { background: #FFFFFF; color: #1C1F2A; border-bottom: 1px solid rgba(28,31,42,0.08); }
+  .mock--light .mock-nav .logo { color: #1C1F2A; }
+  .mock--light .mock-nav .nav-links { color: rgba(28,31,42,0.5); font-size: 10px; display: flex; gap: 16px; }
+  .mock--light .mock-nav .cta-btn { background: #D22630; color: #fff; padding: 6px 12px; border-radius: 2px; font-size: 9px; }
+  .mock--light .mock-hero { background: #FFFFFF; }
+  .mock--light .mock-eyebrow { color: #D22630; }
+  .mock--light .mock-h1 { color: #1C1F2A; }
+  .mock--light .mock-p { color: rgba(28,31,42,0.55); }
+  .mock--light .mock-btn { background: #D22630; color: #fff; }
+  .mock--light .mock-product-img { background: rgba(28,31,42,0.04); border-color: rgba(28,31,42,0.1); }
+  .mock--light .mock-marquee { background: #D22630; color: rgba(255,255,255,0.9); }
+  .mock--light .mock-card-section { background: #F5F5F7; }
+  .mock--light .mock-section-label { color: #D22630; }
+  .mock--light .mock-section-title { color: #1C1F2A; }
+  .mock--light .mock-card { background: #fff; border-color: rgba(28,31,42,0.08); }
+  .mock--light .mock-card-img { background: rgba(28,31,42,0.04); }
+  .mock--light .mock-card-cat { color: #D22630; }
+  .mock--light .mock-card-name { color: #1C1F2A; }
+  .mock--light .mock-card-price { color: #1C1F2A; }
+</style>
+
+<div class="wrap">
+  <h2>Light Theme — Color System</h2>
+  <p class="sub">Current dark palette vs. new light palette using the client's brand colors</p>
+
+  <div class="panels">
+    <!-- Dark (current) -->
+    <div class="panel panel--dark">
+      <div class="panel-header">Current — Dark Theme</div>
+      <div class="panel-body">
+        <div class="swatch">
+          <div class="swatch-dot" style="background:#1C1F29;"></div>
+          <div class="swatch-info"><span class="swatch-name">Page Background</span><span class="swatch-hex">#1C1F29</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-dot" style="background:#22252F;"></div>
+          <div class="swatch-info"><span class="swatch-name">Section Alt BG</span><span class="swatch-hex">#22252F</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-dot" style="background:#FFFFFF;border:1px solid #333;"></div>
+          <div class="swatch-info"><span class="swatch-name">Primary Text</span><span class="swatch-hex">#FFFFFF</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-dot" style="background:rgba(255,255,255,0.45);"></div>
+          <div class="swatch-info"><span class="swatch-name">Muted Text</span><span class="swatch-hex">rgba(255,255,255,0.45)</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-dot" style="background:#D42F2F;"></div>
+          <div class="swatch-info"><span class="swatch-name">Red Accent</span><span class="swatch-hex">#D42F2F</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-dot" style="background:rgba(255,255,255,0.08);"></div>
+          <div class="swatch-info"><span class="swatch-name">Borders</span><span class="swatch-hex">rgba(255,255,255,0.08)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Light (new) -->
+    <div class="panel panel--light">
+      <div class="panel-header">New — Light Theme</div>
+      <div class="panel-body">
+        <div class="swatch">
+          <div class="swatch-dot" style="background:#FFFFFF;"></div>
+          <div class="swatch-info"><span class="swatch-name">Page Background</span><span class="swatch-hex">#FFFFFF</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-dot" style="background:#F5F5F7;"></div>
+          <div class="swatch-info"><span class="swatch-name">Section Alt BG</span><span class="swatch-hex">#F5F5F7 (light gray)</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-dot" style="background:#1C1F2A;"></div>
+          <div class="swatch-info"><span class="swatch-name">Primary Text</span><span class="swatch-hex">#1C1F2A</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-dot" style="background:rgba(28,31,42,0.55);"></div>
+          <div class="swatch-info"><span class="swatch-name">Muted Text</span><span class="swatch-hex">rgba(28,31,42,0.55)</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-dot" style="background:#D22630;"></div>
+          <div class="swatch-info"><span class="swatch-name">Red Accent</span><span class="swatch-hex">#D22630 (updated)</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-dot" style="background:rgba(28,31,42,0.1);"></div>
+          <div class="swatch-info"><span class="swatch-name">Borders</span><span class="swatch-hex">rgba(28,31,42,0.1)</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Live mock of the light theme -->
+  <div class="mockup-label">Page Preview — Light Theme</div>
+  <div class="mock-section mock--light">
+    <!-- Nav -->
+    <div class="mock-nav">
+      <span class="logo">HABITO</span>
+      <div class="nav-links">
+        <span>Products</span>
+        <span>About</span>
+        <span>Join</span>
+        <span>Contact</span>
+      </div>
+      <span class="cta-btn">Join Now</span>
+    </div>
+
+    <!-- Hero -->
+    <div class="mock-hero">
+      <div class="mock-hero-text">
+        <div class="mock-eyebrow">Premium Supplements</div>
+        <div class="mock-h1">Choose Better.<br>Live Greater.</div>
+        <div class="mock-p">Premium, clean ingredients. Effective, proven results. Community support.</div>
+        <span class="mock-btn">Make the Change Today</span>
+      </div>
+      <div class="mock-products">
+        <div class="mock-product-img"></div>
+        <div class="mock-product-img" style="height:110px;"></div>
+        <div class="mock-product-img"></div>
+      </div>
+    </div>
+
+    <!-- Marquee -->
+    <div class="mock-marquee">
+      Free Shipping on Orders $75+ &nbsp;·&nbsp; 30-Day Money Back Guarantee &nbsp;·&nbsp; Clean Ingredients &nbsp;·&nbsp; No Proprietary Blends
+    </div>
+
+    <!-- Card section -->
+    <div class="mock-card-section">
+      <div class="mock-section-label">Best Sellers</div>
+      <div class="mock-section-title">Featured Products</div>
+      <div class="mock-cards">
+        <div class="mock-card">
+          <div class="mock-card-img"></div>
+          <div class="mock-card-body">
+            <div class="mock-card-cat">Immunity</div>
+            <div class="mock-card-name">Immune Plus</div>
+            <div class="mock-card-price">$34.99</div>
+          </div>
+        </div>
+        <div class="mock-card">
+          <div class="mock-card-img"></div>
+          <div class="mock-card-body">
+            <div class="mock-card-cat">Performance</div>
+            <div class="mock-card-name">Pre-Workout</div>
+            <div class="mock-card-price">$39.99</div>
+          </div>
+        </div>
+        <div class="mock-card">
+          <div class="mock-card-img"></div>
+          <div class="mock-card-body">
+            <div class="mock-card-cat">Recovery</div>
+            <div class="mock-card-name">HMB + D3</div>
+            <div class="mock-card-price">$29.99</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
