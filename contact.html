@@ -25,129 +25,167 @@
 </nav>
 
 <main>
+
 <!-- CONTACT HERO -->
-<section class="section section--base section--texture">
+<section style="background:#1C1F2A;" class="section">
   <div class="container">
     <div class="contact-hero__grid gsap-reveal">
       <div>
-        <span class="eyebrow">Get in Touch</span>
-        <h1 style="font-size:52px;margin-bottom:16px;">We're here<br>to help.</h1>
-        <p style="font-size:14px;color:var(--text-muted);line-height:1.75;max-width:360px;">Whether you have a product question, need order support, or just want to talk supplements — we're a real team and we actually respond.</p>
+        <span class="eyebrow" style="color:rgba(255,255,255,0.45);">Get in Touch</span>
+        <h1 style="color:#FFFFFF;margin-bottom:20px;">WE'RE HERE<br>TO HELP.</h1>
+        <p style="color:rgba(255,255,255,0.62);line-height:1.75;max-width:360px;">Whether you have a product question, need order support, or just want to talk supplements — we're a real team and we actually respond.</p>
       </div>
       <div class="info-cards">
-        <div class="info-card">
+        <div class="info-card info-card--dark">
           <p class="info-card__label">Address</p>
           <p class="info-card__value">1996 E 2540 S<br>Saint George, UT 84790</p>
         </div>
-        <div class="info-card">
+        <div class="info-card info-card--dark">
           <p class="info-card__label">Email</p>
           <p class="info-card__value">support@habitolife.com</p>
         </div>
-        <div class="info-card">
+        <div class="info-card info-card--dark">
           <p class="info-card__label">Response Time</p>
-          <p class="info-card__value">We respond within 1 business day.<br>Mon–Fri, 9am–5pm MT.</p>
+          <p class="info-card__value">Within 1 business day.<br>Mon–Fri, 9am–5pm MT.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FORM + FAQ -->
+<!-- CONTACT FORM -->
 <section class="section section--lift">
-  <div class="container">
-    <div class="contact-form-faq-grid">
+  <div class="container" style="max-width:840px;">
+    <div class="gsap-reveal" style="margin-bottom:40px;">
+      <span class="eyebrow">Send a Message</span>
+      <h2>GET IN TOUCH.</h2>
+    </div>
+    <form class="gsap-reveal">
+      <div class="form-grid" style="margin-bottom:16px;">
+        <div class="form-field">
+          <label class="form-label" for="cf-first">First Name</label>
+          <input class="form-input" type="text" id="cf-first" placeholder="John">
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="cf-last">Last Name</label>
+          <input class="form-input" type="text" id="cf-last" placeholder="Smith">
+        </div>
+        <div class="form-field form-field--full">
+          <label class="form-label" for="cf-email">Email</label>
+          <input class="form-input" type="email" id="cf-email" placeholder="john@example.com">
+        </div>
+        <div class="form-field form-field--full">
+          <label class="form-label" for="cf-topic">Topic</label>
+          <select class="form-select" id="cf-topic">
+            <option value="">Select a topic</option>
+            <option value="order-status">Order Status</option>
+            <option value="product-question">Product Question</option>
+            <option value="returns-refunds">Returns &amp; Refunds</option>
+            <option value="membership">Membership</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-field form-field--full">
+          <label class="form-label" for="cf-order">Order # (optional)</label>
+          <input class="form-input" type="text" id="cf-order" placeholder="HAB-000000">
+        </div>
+        <div class="form-field form-field--full">
+          <label class="form-label" for="cf-message">Message</label>
+          <textarea class="form-textarea" id="cf-message" placeholder="Tell us how we can help..."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;font-size:11px;padding:14px;">Send Message →</button>
+      <p style="font-size:11px;color:var(--text-ghost);margin-top:10px;text-align:center;">We respect your privacy. Your information is never shared.</p>
+    </form>
+  </div>
+</section>
 
-      <!-- CONTACT FORM -->
-      <div class="gsap-reveal">
-        <h2 style="font-size:28px;margin-bottom:28px;">Send a Message</h2>
-        <form>
-          <div class="form-grid" style="margin-bottom:16px;">
-            <div class="form-field">
-              <label class="form-label" for="cf-first">First Name</label>
-              <input class="form-input" type="text" id="cf-first" placeholder="John">
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="cf-last">Last Name</label>
-              <input class="form-input" type="text" id="cf-last" placeholder="Smith">
-            </div>
-            <div class="form-field form-field--full">
-              <label class="form-label" for="cf-email">Email</label>
-              <input class="form-input" type="email" id="cf-email" placeholder="john@example.com">
-            </div>
-            <div class="form-field form-field--full">
-              <label class="form-label" for="cf-topic">Topic</label>
-              <select class="form-select" id="cf-topic">
-                <option value="">Select a topic</option>
-                <option value="order-status">Order Status</option>
-                <option value="product-question">Product Question</option>
-                <option value="returns-refunds">Returns &amp; Refunds</option>
-                <option value="membership">Membership</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            <div class="form-field form-field--full">
-              <label class="form-label" for="cf-order">Order # (optional)</label>
-              <input class="form-input" type="text" id="cf-order" placeholder="HAB-000000">
-            </div>
-            <div class="form-field form-field--full">
-              <label class="form-label" for="cf-message">Message</label>
-              <textarea class="form-textarea" id="cf-message" placeholder="Tell us how we can help..."></textarea>
-            </div>
-          </div>
-          <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;font-size:11px;padding:14px;">Send Message</button>
-          <p style="font-size:11px;color:var(--text-ghost);margin-top:10px;text-align:center;">We respect your privacy. Your information is never shared.</p>
-        </form>
+<!-- FAQ -->
+<section class="section faq-section">
+  <div class="container" style="max-width:800px;">
+    <div class="gsap-reveal faq-header">
+      <span class="eyebrow">FAQ</span>
+      <h2>COMMON QUESTIONS.</h2>
+    </div>
+    <div class="faq">
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          How long does shipping take?
+          <span class="faq__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="11" r="10" stroke="currentColor" stroke-width="1.25"/>
+              <line class="faq__icon-v" x1="11" y1="5.5" x2="11" y2="16.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+              <line x1="5.5" y1="11" x2="16.5" y2="11" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq__answer">
+          <p>Standard shipping takes 3–5 business days. Members receive free standard shipping on every order. Expedited options are available at checkout.</p>
+        </div>
       </div>
 
-      <!-- FAQ -->
-      <div class="gsap-reveal">
-        <h2 style="font-size:28px;margin-bottom:28px;">Got questions?</h2>
-        <div class="faq">
-          <div class="faq__item">
-            <button class="faq__question" aria-expanded="false">
-              How long does shipping take?
-              <span class="faq__icon">+</span>
-            </button>
-            <div class="faq__answer">
-              <p>Standard shipping takes 3–5 business days. Members receive free standard shipping on every order. Expedited options are available at checkout.</p>
-            </div>
-          </div>
-          <div class="faq__item">
-            <button class="faq__question" aria-expanded="false">
-              What is your return policy?
-              <span class="faq__icon">+</span>
-            </button>
-            <div class="faq__answer">
-              <p>We offer a 30-day return policy on all products. If you're not satisfied, contact us within 30 days of delivery for a full refund — no questions asked.</p>
-            </div>
-          </div>
-          <div class="faq__item">
-            <button class="faq__question" aria-expanded="false">
-              Are your products third-party tested?
-              <span class="faq__icon">+</span>
-            </button>
-            <div class="faq__answer">
-              <p>Yes. Every Habito product is tested by an independent third-party laboratory for purity, potency, and label accuracy. Lab reports are available on request.</p>
-            </div>
-          </div>
-          <div class="faq__item">
-            <button class="faq__question" aria-expanded="false">
-              Can I change or cancel my membership?
-              <span class="faq__icon">+</span>
-            </button>
-            <div class="faq__answer">
-              <p>Your Habito membership is a one-time payment with no recurring charges — there's nothing to cancel. Member pricing and free shipping are yours permanently.</p>
-            </div>
-          </div>
-          <div class="faq__item">
-            <button class="faq__question" aria-expanded="false">
-              Do you ship internationally?
-              <span class="faq__icon">+</span>
-            </button>
-            <div class="faq__answer">
-              <p>Currently we ship within the United States only. International shipping is on our roadmap — join our email list to be notified when it becomes available.</p>
-            </div>
-          </div>
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          What is your return policy?
+          <span class="faq__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="11" r="10" stroke="currentColor" stroke-width="1.25"/>
+              <line class="faq__icon-v" x1="11" y1="5.5" x2="11" y2="16.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+              <line x1="5.5" y1="11" x2="16.5" y2="11" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq__answer">
+          <p>We offer a 30-day return policy on all products. If you're not satisfied, contact us within 30 days of delivery for a full refund — no questions asked.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          Are your products third-party tested?
+          <span class="faq__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="11" r="10" stroke="currentColor" stroke-width="1.25"/>
+              <line class="faq__icon-v" x1="11" y1="5.5" x2="11" y2="16.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+              <line x1="5.5" y1="11" x2="16.5" y2="11" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq__answer">
+          <p>Yes. Every Habito product is tested by an independent third-party laboratory for purity, potency, and label accuracy. Lab reports are available on request.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          Can I change or cancel my membership?
+          <span class="faq__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="11" r="10" stroke="currentColor" stroke-width="1.25"/>
+              <line class="faq__icon-v" x1="11" y1="5.5" x2="11" y2="16.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+              <line x1="5.5" y1="11" x2="16.5" y2="11" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq__answer">
+          <p>Your Habito membership is a one-time payment with no recurring charges — there's nothing to cancel. Member pricing and free shipping are yours permanently.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          Do you ship internationally?
+          <span class="faq__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="11" r="10" stroke="currentColor" stroke-width="1.25"/>
+              <line class="faq__icon-v" x1="11" y1="5.5" x2="11" y2="16.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+              <line x1="5.5" y1="11" x2="16.5" y2="11" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq__answer">
+          <p>Currently we ship within the United States only. International shipping is on our roadmap — join our email list to be notified when it becomes available.</p>
         </div>
       </div>
 

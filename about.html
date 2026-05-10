@@ -25,88 +25,128 @@
 </nav>
 
 <main>
-<!-- HERO -->
-<section class="section section--base section--texture" style="padding:100px 0 80px;text-align:center;">
+
+<!-- PAGE HERO -->
+<section style="background:#1C1F2A;padding:100px 0 88px;text-align:center;">
   <div class="container gsap-reveal">
-    <span class="eyebrow">Our Story</span>
-    <h1 style="font-size:60px;max-width:700px;margin:0 auto 20px;">More Value.<br>No Gimmicks.</h1>
-    <p style="font-size:15px;color:var(--text-muted);max-width:520px;margin:0 auto;line-height:1.75;">Habito was built for people who are tired of overpaying for supplements they can barely pronounce. We strip away the marketing overhead and put the value back in the product.</p>
+    <span class="eyebrow" style="color:rgba(255,255,255,0.45);">Our Story</span>
+    <h1 style="color:#FFFFFF;max-width:700px;margin:20px auto 24px;">MORE VALUE.<br>NO GIMMICKS.</h1>
+    <p style="color:rgba(255,255,255,0.62);max-width:520px;margin:0 auto;font-size:1.0625rem;line-height:1.75;">Habito was built for people who are tired of overpaying for supplements they can barely pronounce. We strip away the marketing overhead and put the value back in the product.</p>
   </div>
 </section>
 
-<!-- MISSION -->
-<section class="section section--lift">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;" class="gsap-reveal">
-      <div>
-        <span class="eyebrow">Our Mission</span>
-        <h2 style="font-size:36px;margin-bottom:20px;">Clean ingredients.<br>Honest prices.</h2>
-        <p class="pull-quote">"You pay for the product, not the marketing."</p>
-        <p style="font-size:13px;color:var(--text-muted);line-height:1.75;margin-top:16px;">The supplement industry is rife with inflated margins, proprietary blends, and celebrity endorsements. Every dollar that goes to a paid influencer is a dollar that doesn't go into your product. At Habito, we made a different choice: invest in ingredients, not image.</p>
-      </div>
-      <div style="background:var(--dark-card);border:1px solid var(--border);border-radius:4px;height:320px;display:flex;align-items:center;justify-content:center;">
-        <p style="font-size:12px;color:var(--text-ghost);">[ Brand image placeholder ]</p>
-      </div>
+<!-- MISSION — LIFESTYLE SPLIT -->
+<section class="lifestyle-split" aria-label="Our mission">
+  <div class="lifestyle-split__media">
+    <div class="lifestyle-split__duotone">
+      <img src="images/lifestyle-athlete.jpg" alt="Athlete in training" />
+    </div>
+  </div>
+  <div class="lifestyle-split__content">
+    <div class="lifestyle-split__inner">
+      <span class="eyebrow">Our Mission</span>
+      <h2>CLEAN INGREDIENTS.<br>HONEST PRICES.</h2>
+      <p style="font-style:italic;border-left:2px solid rgba(210,38,48,0.6);padding:4px 0 4px 20px;color:rgba(255,255,255,0.55);margin-bottom:28px;">"You pay for the product, not the marketing."</p>
+      <p>The supplement industry is rife with inflated margins, proprietary blends, and celebrity endorsements. Every dollar that goes to a paid influencer is a dollar that doesn't go into your product. At Habito, we made a different choice: invest in ingredients, not image.</p>
     </div>
   </div>
 </section>
 
-<!-- WHAT WE STAND FOR -->
+<!-- CORE VALUES -->
 <section class="section section--base">
   <div class="container">
-    <div class="gsap-reveal" style="margin-bottom:48px;">
+    <div class="value-anchor gsap-reveal">
       <span class="eyebrow">Core Values</span>
-      <h2 style="font-size:36px;">What We Stand For</h2>
+      <h2>WHAT WE STAND FOR.</h2>
     </div>
     <div class="about-values-grid gsap-stagger">
+
       <div class="value-card">
-        <div class="value-card__dot"></div>
-        <p class="value-card__title">Clean Ingredients</p>
+        <div class="value-card__icon">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+            <circle cx="22" cy="22" r="20" stroke="#D22630" stroke-width="1.25"/>
+            <polyline points="13,22 18,28 31,14" stroke="#D22630" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="value-card__number">01</h3>
+        <h3 class="value-card__title">Clean Ingredients</h3>
         <p class="value-card__text">No artificial fillers, no proprietary blends, no underdosed formulas. Every ingredient listed with its exact dose.</p>
       </div>
+
       <div class="value-card">
-        <div class="value-card__dot"></div>
-        <p class="value-card__title">Pure Performance</p>
+        <div class="value-card__icon">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+            <circle cx="22" cy="22" r="20" stroke="#D22630" stroke-width="1.25"/>
+            <line x1="13" y1="22" x2="31" y2="22" stroke="#D22630" stroke-width="1.25" stroke-linecap="round"/>
+            <line x1="22" y1="13" x2="22" y2="31" stroke="#D22630" stroke-width="1.25" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="value-card__number">02</h3>
+        <h3 class="value-card__title">Pure Performance</h3>
         <p class="value-card__text">Clinically-researched dosages of compounds that have been proven to work — not compounds that look good on a label.</p>
       </div>
+
       <div class="value-card">
-        <div class="value-card__dot"></div>
-        <p class="value-card__title">Real Results</p>
+        <div class="value-card__icon">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+            <circle cx="22" cy="22" r="20" stroke="#D22630" stroke-width="1.25"/>
+            <circle cx="22" cy="22" r="9" stroke="#D22630" stroke-width="1.25"/>
+            <circle cx="22" cy="22" r="3" stroke="#D22630" stroke-width="1.25"/>
+          </svg>
+        </div>
+        <h3 class="value-card__number">03</h3>
+        <h3 class="value-card__title">Real Results</h3>
         <p class="value-card__text">Third-party tested and verified. What the label says is what you get — every batch, every time.</p>
       </div>
+
       <div class="value-card">
-        <div class="value-card__dot"></div>
-        <p class="value-card__title">No Gimmicks</p>
+        <div class="value-card__icon">
+          <svg width="60" height="44" viewBox="0 0 60 44" fill="none" aria-hidden="true">
+            <circle cx="10" cy="22" r="8" stroke="#D22630" stroke-width="1.25"/>
+            <circle cx="30" cy="22" r="8" stroke="#D22630" stroke-width="1.25"/>
+            <circle cx="50" cy="22" r="8" stroke="#D22630" stroke-width="1.25"/>
+          </svg>
+        </div>
+        <h3 class="value-card__number">04</h3>
+        <h3 class="value-card__title">No Gimmicks</h3>
         <p class="value-card__text">No detox teas, no magic pills, no influencer-hyped miracle cures. Just solid nutrition science in capsule and powder form.</p>
       </div>
+
     </div>
   </div>
 </section>
 
 <!-- THE HABITO STORY -->
-<section class="section section--lift">
+<section style="background:#1C1F2A;" class="section">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;" class="gsap-reveal">
+    <div class="about-story-grid gsap-reveal">
       <div>
-        <span class="eyebrow">How We Started</span>
-        <h2 style="font-size:36px;margin-bottom:20px;">The Habito Story</h2>
-        <p style="font-size:13px;color:var(--text-muted);line-height:1.8;margin-bottom:16px;">Habito was founded in Saint George, Utah by a small team frustrated with the supplement market's worst habits — hidden ingredients, inflated prices, and relentless upsells. They set out to build a brand that could deliver clinical-quality nutrition without the six-figure marketing budget baked into every bottle.</p>
-        <p style="font-size:13px;color:var(--text-muted);line-height:1.8;">Starting with a tight catalog of high-priority formulas, Habito grew through word of mouth and repeat customers who noticed the difference. Every product we've added since has passed the same test: does this provide real value at an honest price?</p>
+        <span class="eyebrow" style="color:rgba(255,255,255,0.45);">How We Started</span>
+        <h2 style="color:#FFFFFF;margin-top:16px;margin-bottom:28px;">THE HABITO STORY.</h2>
+        <p style="color:rgba(255,255,255,0.62);line-height:1.8;margin-bottom:20px;">Habito was founded in Saint George, Utah by a small team frustrated with the supplement market's worst habits — hidden ingredients, inflated prices, and relentless upsells. They set out to build a brand that could deliver clinical-quality nutrition without the six-figure marketing budget baked into every bottle.</p>
+        <p style="color:rgba(255,255,255,0.62);line-height:1.8;">Starting with a tight catalog of high-priority formulas, Habito grew through word of mouth and repeat customers who noticed the difference. Every product we've added since has passed the same test: does this provide real value at an honest price?</p>
       </div>
       <div>
-        <p class="pull-quote" style="font-size:20px;margin:32px 0;">"Choose Better. Live Greater."</p>
-        <p style="font-size:13px;color:var(--text-muted);line-height:1.8;">That's not a marketing tagline — it's a challenge. We believe that if you put the right things in your body and make intentional choices about your health, you'll live better. Habito exists to make those choices easier and more affordable.</p>
+        <p style="font-family:var(--font-display);font-weight:700;font-size:1.75rem;color:#FFFFFF;line-height:1.25;margin-bottom:28px;">"Choose Better.<br>Live Greater."</p>
+        <p style="color:rgba(255,255,255,0.62);line-height:1.8;margin-bottom:40px;">That's not a marketing tagline — it's a challenge. We believe that if you put the right things in your body and make intentional choices about your health, you'll live better. Habito exists to make those choices easier and more affordable.</p>
+        <span class="founder-teaser__location" style="color:rgba(255,255,255,0.35);">
+          <svg width="12" height="15" viewBox="0 0 12 15" fill="none" aria-hidden="true">
+            <path d="M6 0C2.686 0 0 2.686 0 6c0 4.5 6 9 6 9s6-4.5 6-9c0-3.314-2.686-6-6-6z" stroke="currentColor" stroke-width="1.2"/>
+            <circle cx="6" cy="6" r="2" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+          Saint George, UT
+        </span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- OUR COMMITMENTS -->
-<section class="section section--base">
+<section class="section section--lift">
   <div class="container">
-    <div class="gsap-reveal" style="margin-bottom:40px;">
+    <div class="gsap-reveal" style="margin-bottom:48px;">
       <span class="eyebrow">Our Promises</span>
-      <h2 style="font-size:36px;">Our Commitments</h2>
+      <h2>OUR COMMITMENTS.</h2>
     </div>
     <div class="about-commitments-grid gsap-stagger">
       <div class="commitment-item">
@@ -133,17 +173,11 @@
   </div>
 </section>
 
-<!-- JOIN CTA -->
-<section class="section section--red join-cta-section">
-  <div class="container">
-    <span class="eyebrow" style="color:rgba(255,255,255,0.6);">Ready to Choose Better?</span>
-    <h2>Get $150 in Supplements for Only $75</h2>
-    <div class="join-cta__price-row gsap-reveal">
-      <span class="join-cta__price-old">$150</span>
-      <span class="join-cta__price-new">$75</span>
-    </div>
-    <p style="font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:28px;">One-time payment · No recurring fees · No subscriptions</p>
-    <a href="join.html" class="btn btn--white gsap-reveal">Join Habito — $75 →</a>
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container final-cta__inner gsap-reveal">
+    <h2 class="final-cta__headline">READY TO BUILD THE HABIT?</h2>
+    <a href="join.html" class="btn btn--white final-cta__btn">JOIN HABITO →</a>
   </div>
 </section>
 

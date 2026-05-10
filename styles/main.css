@@ -1316,6 +1316,63 @@ p {
 }
 .btn--ghost-white:hover { color: #FFFFFF; border-bottom-color: rgba(255,255,255,0.75); }
 
+/* ==============================================
+   ABOUT — STORY GRID
+   ============================================== */
+
+.about-story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ==============================================
+   PRODUCT DETAIL — DARK SECTION
+   ============================================== */
+
+.product-section--dark { background: #1C1F2A; }
+.product-section--dark .eyebrow { color: rgba(255,255,255,0.45); }
+.product-section--dark .product-detail__name { color: #FFFFFF; }
+.product-section--dark .product-detail__rating { color: rgba(255,255,255,0.45); }
+.product-section--dark .product-detail__price-retail { color: rgba(255,255,255,0.3); }
+.product-section--dark .product-detail__price-member { color: #FFFFFF; }
+.product-section--dark .product-detail__format-label { color: rgba(255,255,255,0.45); }
+.product-section--dark .format-btn { border-color: rgba(255,255,255,0.12); color: rgba(255,255,255,0.5); }
+.product-section--dark .format-btn.active { border-color: var(--red); color: #FFFFFF; }
+.product-section--dark .qty-control { border-color: rgba(255,255,255,0.15); }
+.product-section--dark .qty-control button { color: rgba(255,255,255,0.5); }
+.product-section--dark .qty-control button:hover { color: #FFFFFF; }
+.product-section--dark .qty-control__value { border-color: rgba(255,255,255,0.15); color: #FFFFFF; }
+.product-section--dark .btn--outline { border-color: rgba(255,255,255,0.2); color: #FFFFFF; }
+.product-section--dark .btn--outline:hover { border-color: rgba(255,255,255,0.4); }
+.product-section--dark .trust-badge { color: rgba(255,255,255,0.45); }
+.product-section--dark .product-detail__desc { color: rgba(255,255,255,0.62); }
+.product-section--dark .product-detail__main-image {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.08);
+}
+.product-section--dark .product-detail__main-image::after {
+  background: radial-gradient(ellipse, rgba(210,38,48,0.2) 0%, transparent 70%);
+}
+.product-section--dark .product-detail__thumb {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.08);
+}
+.product-section--dark .product-detail__thumb.active,
+.product-section--dark .product-detail__thumb:hover { border-color: var(--red); }
+
+/* Contact — dark info cards */
+.info-card--dark {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.08);
+}
+.info-card--dark .info-card__label { color: rgba(255,255,255,0.35); }
+.info-card--dark .info-card__value { color: rgba(255,255,255,0.62); }
+
+@media (max-width: 900px) {
+  .about-story-grid { grid-template-columns: 1fr; gap: 40px; }
+}
 
 /* Mobile */
 @media (max-width: 768px) {
