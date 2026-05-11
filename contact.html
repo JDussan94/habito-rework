@@ -6,7 +6,7 @@
   <title>Contact — Habito</title>
   <link rel="stylesheet" href="styles/main.css">
 </head>
-<body>
+<body data-page="contact">
 
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar" aria-label="Main navigation">
@@ -26,57 +26,51 @@
 
 <main>
 
-<!-- CONTACT HERO -->
-<section style="background:#1C1F2A;" class="section">
-  <div class="container">
-    <div class="contact-hero__grid gsap-reveal">
-      <div>
-        <span class="eyebrow" style="color:rgba(255,255,255,0.45);">Get in Touch</span>
-        <h1 style="color:#FFFFFF;margin-bottom:20px;">WE'RE HERE<br>TO HELP.</h1>
-        <p style="color:rgba(255,255,255,0.62);line-height:1.75;max-width:360px;">Whether you have a product question, need order support, or just want to talk supplements — we're a real team and we actually respond.</p>
+<!-- CONTACT SPLIT -->
+<section class="contact-split">
+  <div class="contact-split__left gsap-reveal">
+    <div class="contact-split__headline">
+      <h1 class="contact-split__big">WE'RE HERE<br>TO <span class="contact-split__red">HELP.</span></h1>
+    </div>
+    <div class="contact-split__info-list">
+      <div class="contact-info-row">
+        <p class="contact-info-row__label">Address</p>
+        <p class="contact-info-row__value">1996 E 2540 S<br>Saint George, UT 84790</p>
       </div>
-      <div class="info-cards">
-        <div class="info-card info-card--dark">
-          <p class="info-card__label">Address</p>
-          <p class="info-card__value">1996 E 2540 S<br>Saint George, UT 84790</p>
-        </div>
-        <div class="info-card info-card--dark">
-          <p class="info-card__label">Email</p>
-          <p class="info-card__value">support@habitolife.com</p>
-        </div>
-        <div class="info-card info-card--dark">
-          <p class="info-card__label">Response Time</p>
-          <p class="info-card__value">Within 1 business day.<br>Mon–Fri, 9am–5pm MT.</p>
-        </div>
+      <div class="contact-info-row">
+        <p class="contact-info-row__label">Email</p>
+        <p class="contact-info-row__value">support@habitolife.com</p>
+      </div>
+      <div class="contact-info-row">
+        <p class="contact-info-row__label">Response Time</p>
+        <p class="contact-info-row__value">Within 1 business day.<br>Mon–Fri, 9am–5pm MT.</p>
       </div>
     </div>
+    <p class="contact-split__location">
+      <svg width="12" height="15" viewBox="0 0 12 15" fill="none" aria-hidden="true"><path d="M6 0C2.686 0 0 2.686 0 6c0 4.5 6 9 6 9s6-4.5 6-9c0-3.314-2.686-6-6-6z" stroke="currentColor" stroke-width="1.2"/><circle cx="6" cy="6" r="2" stroke="currentColor" stroke-width="1.2"/></svg>
+      Saint George, UT
+    </p>
   </div>
-</section>
-
-<!-- CONTACT FORM -->
-<section class="section section--lift">
-  <div class="container" style="max-width:840px;">
-    <div class="gsap-reveal" style="margin-bottom:40px;">
-      <span class="eyebrow">Send a Message</span>
-      <h2>GET IN TOUCH.</h2>
-    </div>
-    <form class="gsap-reveal">
+  <div class="contact-split__right gsap-reveal">
+    <span class="eyebrow">Send a Message</span>
+    <h2 class="contact-split__form-heading">GET IN TOUCH.</h2>
+    <form class="contact-split__form">
       <div class="form-grid" style="margin-bottom:16px;">
         <div class="form-field">
           <label class="form-label" for="cf-first">First Name</label>
-          <input class="form-input" type="text" id="cf-first" placeholder="John">
+          <input class="form-input" type="text" id="cf-first" placeholder="John" required>
         </div>
         <div class="form-field">
           <label class="form-label" for="cf-last">Last Name</label>
-          <input class="form-input" type="text" id="cf-last" placeholder="Smith">
+          <input class="form-input" type="text" id="cf-last" placeholder="Smith" required>
         </div>
         <div class="form-field form-field--full">
           <label class="form-label" for="cf-email">Email</label>
-          <input class="form-input" type="email" id="cf-email" placeholder="john@example.com">
+          <input class="form-input" type="email" id="cf-email" placeholder="john@example.com" required>
         </div>
         <div class="form-field form-field--full">
           <label class="form-label" for="cf-topic">Topic</label>
-          <select class="form-select" id="cf-topic">
+          <select class="form-select" id="cf-topic" required>
             <option value="">Select a topic</option>
             <option value="order-status">Order Status</option>
             <option value="product-question">Product Question</option>
@@ -91,7 +85,7 @@
         </div>
         <div class="form-field form-field--full">
           <label class="form-label" for="cf-message">Message</label>
-          <textarea class="form-textarea" id="cf-message" placeholder="Tell us how we can help..."></textarea>
+          <textarea class="form-textarea" id="cf-message" placeholder="Tell us how we can help..." required></textarea>
         </div>
       </div>
       <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;font-size:11px;padding:14px;">Send Message →</button>
@@ -101,13 +95,14 @@
 </section>
 
 <!-- FAQ -->
-<section class="section faq-section">
+<section class="section faq-section dark-section">
   <div class="container" style="max-width:800px;">
-    <div class="gsap-reveal faq-header">
-      <span class="eyebrow">FAQ</span>
+    <div class="gsap-reveal faq-header" style="margin-bottom:56px;">
+      <span class="eyebrow">Common Questions</span>
       <h2>COMMON QUESTIONS.</h2>
+      <span class="h2-red-rule"></span>
     </div>
-    <div class="faq">
+    <div class="faq faq--dark">
 
       <div class="faq__item">
         <button class="faq__question" aria-expanded="false">

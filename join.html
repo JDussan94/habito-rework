@@ -6,7 +6,7 @@
   <title>Join Habito — Get $150 in Supplements for $75</title>
   <link rel="stylesheet" href="styles/main.css">
 </head>
-<body>
+<body data-page="join">
 
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar" aria-label="Main navigation">
@@ -25,47 +25,77 @@
 </nav>
 
 <main>
-<!-- JOIN HERO -->
-<section style="background:#1C1F2A;text-align:center;padding:96px 0 88px;">
-  <div class="container gsap-reveal">
-    <span class="eyebrow" style="color:rgba(255,255,255,0.45);">Limited Offer · One-Time Fee</span>
-    <h1 style="color:#FFFFFF;max-width:720px;margin:20px auto 28px;">GET $150 IN SUPPLEMENTS<br>FOR JUST $75</h1>
-    <div class="join-hero__price-row">
-      <span class="join-hero__price-old" style="color:rgba(255,255,255,0.3);">$150</span>
-      <span class="join-hero__price-new" style="color:#FFFFFF;">$75</span>
+<!-- JOIN HERO — RED VALUE WALL -->
+<section class="join-hero">
+  <canvas class="join-hero__grain" aria-hidden="true"></canvas>
+  <div class="container join-hero__inner gsap-reveal">
+    <span class="eyebrow" style="color:rgba(255,255,255,0.55);">One-Time · No Recurring Fees</span>
+    <div class="join-hero__price">
+      <span class="join-hero__currency">$</span>
+      <span class="join-hero__amount">75</span>
     </div>
-    <p class="join-hero__note" style="color:rgba(255,255,255,0.45);">One-time payment · No recurring fees · No subscriptions</p>
-    <a href="#signup" class="btn btn--hero">JOIN HABITO — $75 →</a>
+    <p class="join-hero__sub">Get over $150 in supplements, gear, and permanent member pricing.</p>
+    <div class="join-hero__items">
+      <div class="join-hero__item-tile">
+        <span class="join-hero__item-num">01</span>
+        <span class="join-hero__item-title">Best-Seller Bundle</span>
+      </div>
+      <div class="join-hero__item-tile">
+        <span class="join-hero__item-num">02</span>
+        <span class="join-hero__item-title">Exclusive Tee</span>
+      </div>
+      <div class="join-hero__item-tile">
+        <span class="join-hero__item-num">03</span>
+        <span class="join-hero__item-title">Shaker Bottle</span>
+      </div>
+      <div class="join-hero__item-tile">
+        <span class="join-hero__item-num">04</span>
+        <span class="join-hero__item-title">Member Pricing Forever</span>
+      </div>
+    </div>
+    <a href="#signup" class="join-hero__cta">Join Habito — $75 →</a>
   </div>
 </section>
 
-<!-- WHAT'S INCLUDED -->
-<section class="section section--lift">
+<!-- WHAT'S INCLUDED — DARK EDITORIAL LIST -->
+<section class="join-included dark-section section">
   <div class="container">
-    <div class="gsap-reveal" style="margin-bottom:40px;text-align:center;">
-      <span class="eyebrow">Your Bundle</span>
-      <h2 style="font-size:36px;">What's Included</h2>
-    </div>
-    <div class="whats-included-grid gsap-stagger">
-      <div class="included-card">
-        <div class="included-card__icon"><span role="img" aria-label="Package">📦</span></div>
-        <p class="included-card__title">Collection of Best-Selling Products</p>
-        <p class="included-card__text">A hand-picked selection of Habito's top-rated supplements across multiple health goals — worth over $150 at retail pricing.</p>
+    <div class="join-included__grid">
+      <div class="gsap-reveal">
+        <span class="eyebrow" style="color:rgba(255,255,255,0.45);">Your Bundle</span>
+        <h2 style="color:#FFFFFF;">WHAT YOU GET.</h2>
+        <span class="h2-red-rule"></span>
+        <p style="color:rgba(255,255,255,0.55);margin-top:24px;max-width:320px;line-height:1.75;">Everything you need to start your Habito journey — shipped directly to your door with free delivery.</p>
       </div>
-      <div class="included-card">
-        <div class="included-card__icon"><span role="img" aria-label="T-shirt">👕</span></div>
-        <p class="included-card__title">Exclusive Early-Supporter T-Shirt</p>
-        <p class="included-card__text">A limited-edition Habito tee available only to founding members. Clean design, premium fit, built to last.</p>
-      </div>
-      <div class="included-card">
-        <div class="included-card__icon"><span role="img" aria-label="Shaker bottle">🥤</span></div>
-        <p class="included-card__title">Habito Shaker Bottle</p>
-        <p class="included-card__text">A durable, leak-proof 28oz shaker with the Habito mark. Your daily companion for powders and hydration.</p>
-      </div>
-      <div class="included-card">
-        <div class="included-card__icon"><span role="img" aria-label="Delivery truck">🚚</span></div>
-        <p class="included-card__title">Free Shipping + Member Pricing Forever</p>
-        <p class="included-card__text">One-time fee unlocks free shipping on all future orders and exclusive member pricing on every product — permanently.</p>
+      <div class="join-included__list gsap-stagger">
+        <div class="join-included__item">
+          <span class="join-included__num">01</span>
+          <div>
+            <p class="join-included__title">Collection of Best-Selling Products</p>
+            <p class="join-included__text">A hand-picked selection of Habito's top-rated supplements across multiple health goals — worth over $150 at retail pricing.</p>
+          </div>
+        </div>
+        <div class="join-included__item">
+          <span class="join-included__num">02</span>
+          <div>
+            <p class="join-included__title">Exclusive Early-Supporter T-Shirt</p>
+            <p class="join-included__text">A limited-edition Habito tee available only to founding members. Clean design, premium fit, built to last.</p>
+          </div>
+        </div>
+        <div class="join-included__item">
+          <span class="join-included__num">03</span>
+          <div>
+            <p class="join-included__title">Habito Shaker Bottle</p>
+            <p class="join-included__text">A durable, leak-proof 28oz shaker with the Habito mark. Your daily companion for powders and hydration.</p>
+          </div>
+        </div>
+        <div class="join-included__item">
+          <span class="join-included__num">04</span>
+          <div>
+            <p class="join-included__title">Free Shipping + Member Pricing Forever</p>
+            <p class="join-included__text">One-time fee unlocks free shipping on all future orders and exclusive member pricing on every product — permanently.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -76,91 +106,131 @@
   <div class="container">
     <div class="gsap-reveal" style="margin-bottom:40px;">
       <span class="eyebrow">Customize Your Bundle</span>
-      <h2 style="font-size:36px;">Choose Your Products</h2>
+      <h2 id="picker-heading" style="font-size:36px;">Choose Your Products</h2>
       <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">Select the products you'd like included in your membership bundle.</p>
     </div>
-    <div class="product-picker-grid gsap-stagger">
-      <div class="picker-card selected">
-        <img src="https://picsum.photos/seed/pk1/60/80" alt="Blood Sugar Support">
+    <div class="product-picker-grid gsap-stagger" role="group" aria-labelledby="picker-heading">
+      <div class="picker-card picker-card--v2 selected" role="checkbox" aria-checked="true">
+        <div class="picker-card__swatch"></div>
         <p class="picker-card__name">Blood Sugar Support</p>
+        <span class="picker-card__check" aria-hidden="true">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4l3.5 3.5L11 1" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
       </div>
-      <div class="picker-card">
-        <img src="https://picsum.photos/seed/pk2/60/80" alt="Brain Support">
+      <div class="picker-card picker-card--v2" role="checkbox" aria-checked="false">
+        <div class="picker-card__swatch"></div>
         <p class="picker-card__name">Brain Support</p>
+        <span class="picker-card__check" aria-hidden="true">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4l3.5 3.5L11 1" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
       </div>
-      <div class="picker-card selected">
-        <img src="https://picsum.photos/seed/pk3/60/80" alt="Immune+">
+      <div class="picker-card picker-card--v2 selected" role="checkbox" aria-checked="true">
+        <div class="picker-card__swatch"></div>
         <p class="picker-card__name">Immune+</p>
+        <span class="picker-card__check" aria-hidden="true">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4l3.5 3.5L11 1" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
       </div>
-      <div class="picker-card">
-        <img src="https://picsum.photos/seed/pk4/60/80" alt="HMB + D3">
+      <div class="picker-card picker-card--v2" role="checkbox" aria-checked="false">
+        <div class="picker-card__swatch"></div>
         <p class="picker-card__name">HMB + D3</p>
+        <span class="picker-card__check" aria-hidden="true">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4l3.5 3.5L11 1" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
       </div>
-      <div class="picker-card selected">
-        <img src="https://picsum.photos/seed/pk5/60/80" alt="Natural Testo Boost">
+      <div class="picker-card picker-card--v2 selected" role="checkbox" aria-checked="true">
+        <div class="picker-card__swatch"></div>
         <p class="picker-card__name">Natural Testo Boost</p>
+        <span class="picker-card__check" aria-hidden="true">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4l3.5 3.5L11 1" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
       </div>
-      <div class="picker-card">
-        <img src="https://picsum.photos/seed/pk6/60/80" alt="Pre-Workout Sour Apple">
+      <div class="picker-card picker-card--v2" role="checkbox" aria-checked="false">
+        <div class="picker-card__swatch"></div>
         <p class="picker-card__name">Pre-Workout Sour Apple</p>
+        <span class="picker-card__check" aria-hidden="true">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4l3.5 3.5L11 1" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
       </div>
-      <div class="picker-card">
-        <img src="https://picsum.photos/seed/pk7/60/80" alt="Multi Collagen Peptides">
+      <div class="picker-card picker-card--v2" role="checkbox" aria-checked="false">
+        <div class="picker-card__swatch"></div>
         <p class="picker-card__name">Multi Collagen Peptides</p>
+        <span class="picker-card__check" aria-hidden="true">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4l3.5 3.5L11 1" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
       </div>
-      <div class="picker-card selected">
-        <img src="https://picsum.photos/seed/pk8/60/80" alt="Apple Cider Vinegar">
+      <div class="picker-card picker-card--v2 selected" role="checkbox" aria-checked="true">
+        <div class="picker-card__swatch"></div>
         <p class="picker-card__name">Apple Cider Vinegar</p>
+        <span class="picker-card__check" aria-hidden="true">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4l3.5 3.5L11 1" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SIGN-UP FORM -->
-<section class="section section--lift" id="signup">
-  <div class="container" style="max-width:640px;">
-    <div class="gsap-reveal" style="margin-bottom:40px;">
-      <span class="eyebrow">Almost There</span>
-      <h2 style="font-size:36px;">Complete Your Order</h2>
+<!-- SIGN-UP FORM — DARK WITH ORDER SUMMARY -->
+<section class="join-form-section dark-section" id="signup">
+  <div class="container join-form-section__grid">
+    <!-- FORM -->
+    <div class="join-form__fields gsap-reveal">
+      <span class="eyebrow" style="color:rgba(255,255,255,0.45);">Almost There</span>
+      <h2 style="color:#FFFFFF;margin-bottom:32px;">COMPLETE YOUR ORDER.</h2>
+      <form>
+        <div class="form-grid" style="margin-bottom:16px;">
+          <div class="form-field">
+            <label class="form-label" style="color:rgba(255,255,255,0.45);" for="first-name">First Name</label>
+            <input class="input--dark" type="text" id="first-name" placeholder="John">
+          </div>
+          <div class="form-field">
+            <label class="form-label" style="color:rgba(255,255,255,0.45);" for="last-name">Last Name</label>
+            <input class="input--dark" type="text" id="last-name" placeholder="Smith">
+          </div>
+          <div class="form-field">
+            <label class="form-label" style="color:rgba(255,255,255,0.45);" for="email">Email</label>
+            <input class="input--dark" type="email" id="email" placeholder="john@example.com">
+          </div>
+          <div class="form-field">
+            <label class="form-label" style="color:rgba(255,255,255,0.45);" for="phone">Phone</label>
+            <input class="input--dark" type="tel" id="phone" placeholder="(555) 000-0000">
+          </div>
+          <div class="form-field form-field--full">
+            <label class="form-label" style="color:rgba(255,255,255,0.45);" for="address">Shipping Address</label>
+            <input class="input--dark" type="text" id="address" placeholder="123 Main St, City, ST 00000">
+          </div>
+        </div>
+        <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;font-size:11px;padding:16px;">Join Habito — $75 →</button>
+        <p style="text-align:center;font-size:11px;color:rgba(255,255,255,0.3);margin-top:12px;">No recurring charges. One-time payment only.</p>
+      </form>
     </div>
-    <form class="gsap-reveal">
-      <div class="form-grid" style="margin-bottom:16px;">
-        <div class="form-field">
-          <label class="form-label" for="first-name">First Name</label>
-          <input class="form-input" type="text" id="first-name" placeholder="John">
+    <!-- ORDER SUMMARY -->
+    <div class="join-order-summary gsap-reveal">
+      <p class="eyebrow" style="color:rgba(255,255,255,0.45);">Order Summary</p>
+      <div class="join-order-summary__items">
+        <div class="join-order-summary__line">
+          <span>Best-Seller Bundle</span>
+          <span style="color:rgba(255,255,255,0.3);text-decoration:line-through;">$120.00</span>
         </div>
-        <div class="form-field">
-          <label class="form-label" for="last-name">Last Name</label>
-          <input class="form-input" type="text" id="last-name" placeholder="Smith">
+        <div class="join-order-summary__line">
+          <span>Exclusive Tee</span>
+          <span style="color:rgba(255,255,255,0.3);text-decoration:line-through;">$18.00</span>
         </div>
-        <div class="form-field">
-          <label class="form-label" for="email">Email</label>
-          <input class="form-input" type="email" id="email" placeholder="john@example.com">
+        <div class="join-order-summary__line">
+          <span>Shaker Bottle</span>
+          <span style="color:rgba(255,255,255,0.3);text-decoration:line-through;">$14.00</span>
         </div>
-        <div class="form-field">
-          <label class="form-label" for="phone">Phone</label>
-          <input class="form-input" type="tel" id="phone" placeholder="(555) 000-0000">
-        </div>
-        <div class="form-field form-field--full">
-          <label class="form-label" for="address">Shipping Address</label>
-          <input class="form-input" type="text" id="address" placeholder="123 Main St, City, ST 00000">
+        <div class="join-order-summary__line">
+          <span>Free Shipping</span>
+          <span style="color:rgba(255,255,255,0.3);text-decoration:line-through;">$9.99</span>
         </div>
       </div>
-
-      <div style="background:var(--dark-card);border:1px solid var(--border);border-radius:4px;padding:20px;margin-bottom:20px;">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-          <span style="font-size:13px;color:var(--text-muted);">Habito Membership Bundle</span>
-          <span style="font-size:14px;color:var(--text-ghost);text-decoration:line-through;">$150.00</span>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;">
-          <span style="font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--white);">Order Total</span>
-          <span style="font-family:var(--font-display);font-weight:800;font-size:24px;color:var(--white);">$75.00</span>
-        </div>
+      <div class="join-order-summary__total">
+        <span style="font-family:var(--font-display);font-weight:700;color:#FFFFFF;">Total Today</span>
+        <span class="join-order-summary__price">$75</span>
       </div>
-
-      <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;font-size:12px;padding:16px;">Join Habito — $75 →</button>
-      <p style="text-align:center;font-size:11px;color:var(--text-ghost);margin-top:12px;">No recurring charges. One-time payment only.</p>
-    </form>
+      <p style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:16px;line-height:1.6;">Your membership includes permanent member pricing on all 18+ products. One-time payment. No recurring charges.</p>
+    </div>
   </div>
 </section>
 

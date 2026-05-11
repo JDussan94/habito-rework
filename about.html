@@ -6,7 +6,7 @@
   <title>About Habito — More Value. No Gimmicks.</title>
   <link rel="stylesheet" href="styles/main.css">
 </head>
-<body>
+<body data-page="about">
 
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar" aria-label="Main navigation">
@@ -26,148 +26,143 @@
 
 <main>
 
-<!-- PAGE HERO -->
-<section style="background:#1C1F2A;padding:100px 0 88px;text-align:center;">
-  <div class="container gsap-reveal">
-    <span class="eyebrow" style="color:rgba(255,255,255,0.45);">Our Story</span>
-    <h1 style="color:#FFFFFF;max-width:700px;margin:20px auto 24px;">MORE VALUE.<br>NO GIMMICKS.</h1>
-    <p style="color:rgba(255,255,255,0.62);max-width:520px;margin:0 auto;font-size:1.0625rem;line-height:1.75;">Habito was built for people who are tired of overpaying for supplements they can barely pronounce. We strip away the marketing overhead and put the value back in the product.</p>
+<!-- PAGE HERO — DIAGONAL STATS SPLIT -->
+<section class="about-hero">
+  <div class="about-hero__left">
+    <div class="about-hero__founding">
+      <span class="about-hero__year">2022</span>
+      <span class="about-hero__city">Saint George, UT</span>
+    </div>
+    <div class="about-hero__tagline">MORE VALUE.<br>NO GIMMICKS.</div>
   </div>
-</section>
-
-<!-- MISSION — LIFESTYLE SPLIT -->
-<section class="lifestyle-split" aria-label="Our mission">
-  <div class="lifestyle-split__media">
-    <div class="lifestyle-split__duotone">
-      <img src="images/lifestyle-athlete.jpg" alt="Athlete in training" />
+  <div class="about-hero__right">
+    <div class="about-stat gsap-reveal">
+      <span class="about-stat__num" data-target="10000">0</span>
+      <span class="about-stat__suffix">+</span>
+      <span class="about-stat__label">Members</span>
+    </div>
+    <div class="about-stat gsap-reveal">
+      <span class="about-stat__num" data-target="18">0</span>
+      <span class="about-stat__label">Products</span>
+    </div>
+    <div class="about-stat gsap-reveal">
+      <span class="about-stat__num" data-target="0">0</span>
+      <span class="about-stat__prefix">$</span>
+      <span class="about-stat__label">Ad Spend</span>
     </div>
   </div>
-  <div class="lifestyle-split__content">
-    <div class="lifestyle-split__inner">
-      <span class="eyebrow">Our Mission</span>
-      <h2>CLEAN INGREDIENTS.<br>HONEST PRICES.</h2>
-      <p style="font-style:italic;border-left:2px solid rgba(210,38,48,0.6);padding:4px 0 4px 20px;color:rgba(255,255,255,0.55);margin-bottom:28px;">"You pay for the product, not the marketing."</p>
-      <p>The supplement industry is rife with inflated margins, proprietary blends, and celebrity endorsements. Every dollar that goes to a paid influencer is a dollar that doesn't go into your product. At Habito, we made a different choice: invest in ingredients, not image.</p>
-    </div>
-  </div>
+  <div class="about-hero__redline"></div>
 </section>
 
-<!-- CORE VALUES -->
-<section class="section section--base">
+<!-- MANIFESTO BLOCK -->
+<section class="about-manifesto dark-section section">
   <div class="container">
-    <div class="value-anchor gsap-reveal">
-      <span class="eyebrow">Core Values</span>
-      <h2>WHAT WE STAND FOR.</h2>
-    </div>
-    <div class="about-values-grid gsap-stagger">
-
-      <div class="value-card">
-        <div class="value-card__icon">
-          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-            <circle cx="22" cy="22" r="20" stroke="#D22630" stroke-width="1.25"/>
-            <polyline points="13,22 18,28 31,14" stroke="#D22630" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+    <div class="about-manifesto__inner gsap-reveal">
+      <div class="about-manifesto__quote-mark" aria-hidden="true">"</div>
+      <blockquote class="about-manifesto__quote">
+        You pay for the product,<br>not the marketing.
+      </blockquote>
+      <div class="about-manifesto__prose-grid">
+        <div>
+          <span class="eyebrow" style="color:rgba(255,255,255,0.45);">How We Started</span>
+          <p>Habito was founded in Saint George, Utah by a small team frustrated with the supplement market's worst habits — hidden ingredients, inflated prices, and relentless upsells. They set out to build a brand that could deliver clinical-quality nutrition without the six-figure marketing budget baked into every bottle.</p>
+          <p style="margin-top:20px;">Starting with a tight catalog of high-priority formulas, Habito grew through word of mouth and repeat customers who noticed the difference.</p>
         </div>
-        <h3 class="value-card__number">01</h3>
-        <h3 class="value-card__title">Clean Ingredients</h3>
-        <p class="value-card__text">No artificial fillers, no proprietary blends, no underdosed formulas. Every ingredient listed with its exact dose.</p>
-      </div>
-
-      <div class="value-card">
-        <div class="value-card__icon">
-          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-            <circle cx="22" cy="22" r="20" stroke="#D22630" stroke-width="1.25"/>
-            <line x1="13" y1="22" x2="31" y2="22" stroke="#D22630" stroke-width="1.25" stroke-linecap="round"/>
-            <line x1="22" y1="13" x2="22" y2="31" stroke="#D22630" stroke-width="1.25" stroke-linecap="round"/>
-          </svg>
+        <div>
+          <span class="eyebrow" style="color:rgba(255,255,255,0.45);">The Standard</span>
+          <p>Every product we've added has passed the same test: does this provide real value at an honest price? No celebrity endorsements. No detox teas. No miracle cures. Just solid nutrition science in capsule and powder form.</p>
+          <p style="margin-top:20px;" class="about-manifesto__location">
+            <svg width="12" height="15" viewBox="0 0 12 15" fill="none" aria-hidden="true" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M6 0C2.686 0 0 2.686 0 6c0 4.5 6 9 6 9s6-4.5 6-9c0-3.314-2.686-6-6-6z" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/><circle cx="6" cy="6" r="2" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/></svg>
+            Saint George, UT
+          </p>
         </div>
-        <h3 class="value-card__number">02</h3>
-        <h3 class="value-card__title">Pure Performance</h3>
-        <p class="value-card__text">Clinically-researched dosages of compounds that have been proven to work — not compounds that look good on a label.</p>
-      </div>
-
-      <div class="value-card">
-        <div class="value-card__icon">
-          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-            <circle cx="22" cy="22" r="20" stroke="#D22630" stroke-width="1.25"/>
-            <circle cx="22" cy="22" r="9" stroke="#D22630" stroke-width="1.25"/>
-            <circle cx="22" cy="22" r="3" stroke="#D22630" stroke-width="1.25"/>
-          </svg>
-        </div>
-        <h3 class="value-card__number">03</h3>
-        <h3 class="value-card__title">Real Results</h3>
-        <p class="value-card__text">Third-party tested and verified. What the label says is what you get — every batch, every time.</p>
-      </div>
-
-      <div class="value-card">
-        <div class="value-card__icon">
-          <svg width="60" height="44" viewBox="0 0 60 44" fill="none" aria-hidden="true">
-            <circle cx="10" cy="22" r="8" stroke="#D22630" stroke-width="1.25"/>
-            <circle cx="30" cy="22" r="8" stroke="#D22630" stroke-width="1.25"/>
-            <circle cx="50" cy="22" r="8" stroke="#D22630" stroke-width="1.25"/>
-          </svg>
-        </div>
-        <h3 class="value-card__number">04</h3>
-        <h3 class="value-card__title">No Gimmicks</h3>
-        <p class="value-card__text">No detox teas, no magic pills, no influencer-hyped miracle cures. Just solid nutrition science in capsule and powder form.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- THE HABITO STORY -->
-<section style="background:#1C1F2A;" class="section">
-  <div class="container">
-    <div class="about-story-grid gsap-reveal">
-      <div>
-        <span class="eyebrow" style="color:rgba(255,255,255,0.45);">How We Started</span>
-        <h2 style="color:#FFFFFF;margin-top:16px;margin-bottom:28px;">THE HABITO STORY.</h2>
-        <p style="color:rgba(255,255,255,0.62);line-height:1.8;margin-bottom:20px;">Habito was founded in Saint George, Utah by a small team frustrated with the supplement market's worst habits — hidden ingredients, inflated prices, and relentless upsells. They set out to build a brand that could deliver clinical-quality nutrition without the six-figure marketing budget baked into every bottle.</p>
-        <p style="color:rgba(255,255,255,0.62);line-height:1.8;">Starting with a tight catalog of high-priority formulas, Habito grew through word of mouth and repeat customers who noticed the difference. Every product we've added since has passed the same test: does this provide real value at an honest price?</p>
-      </div>
-      <div>
-        <p style="font-family:var(--font-display);font-weight:700;font-size:1.75rem;color:#FFFFFF;line-height:1.25;margin-bottom:28px;">"Choose Better.<br>Live Greater."</p>
-        <p style="color:rgba(255,255,255,0.62);line-height:1.8;margin-bottom:40px;">That's not a marketing tagline — it's a challenge. We believe that if you put the right things in your body and make intentional choices about your health, you'll live better. Habito exists to make those choices easier and more affordable.</p>
-        <span class="founder-teaser__location" style="color:rgba(255,255,255,0.35);">
-          <svg width="12" height="15" viewBox="0 0 12 15" fill="none" aria-hidden="true">
-            <path d="M6 0C2.686 0 0 2.686 0 6c0 4.5 6 9 6 9s6-4.5 6-9c0-3.314-2.686-6-6-6z" stroke="currentColor" stroke-width="1.2"/>
-            <circle cx="6" cy="6" r="2" stroke="currentColor" stroke-width="1.2"/>
-          </svg>
-          Saint George, UT
-        </span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- OUR COMMITMENTS -->
+<!-- VALUES TAPE -->
 <section class="section section--lift">
   <div class="container">
     <div class="gsap-reveal" style="margin-bottom:48px;">
-      <span class="eyebrow">Our Promises</span>
-      <h2>OUR COMMITMENTS.</h2>
+      <span class="eyebrow">Core Values</span>
+      <h2>WHAT WE STAND FOR.</h2>
     </div>
-    <div class="about-commitments-grid gsap-stagger">
-      <div class="commitment-item">
-        <p class="commitment-item__num">01</p>
-        <p class="commitment-item__title">Ingredient Transparency</p>
-        <p class="commitment-item__text">Full label disclosure, exact doses, no proprietary blends. You know exactly what you're taking and why.</p>
+  </div>
+  <div class="about-values-tape gsap-stagger">
+    <div class="about-value-block">
+      <span class="about-value-block__num">01</span>
+      <div class="about-value-block__divider"></div>
+      <div class="about-value-block__content">
+        <h3 class="about-value-block__title">Clean Ingredients</h3>
+        <p class="about-value-block__text">No artificial fillers, no proprietary blends, no underdosed formulas. Every ingredient listed with its exact dose.</p>
       </div>
-      <div class="commitment-item">
-        <p class="commitment-item__num">02</p>
-        <p class="commitment-item__title">Community First</p>
-        <p class="commitment-item__text">Members get access to pricing, products, and community resources that the general public doesn't. We grow together.</p>
+    </div>
+    <div class="about-value-block">
+      <span class="about-value-block__num">02</span>
+      <div class="about-value-block__divider"></div>
+      <div class="about-value-block__content">
+        <h3 class="about-value-block__title">Pure Performance</h3>
+        <p class="about-value-block__text">Clinically-researched dosages of compounds proven to work — not compounds that look good on a label.</p>
       </div>
-      <div class="commitment-item">
-        <p class="commitment-item__num">03</p>
-        <p class="commitment-item__title">Honest Pricing</p>
-        <p class="commitment-item__text">Prices reflect ingredient cost and manufacturing — not ad spend. We publish our reasoning when we change a price.</p>
+    </div>
+    <div class="about-value-block">
+      <span class="about-value-block__num">03</span>
+      <div class="about-value-block__divider"></div>
+      <div class="about-value-block__content">
+        <h3 class="about-value-block__title">Real Results</h3>
+        <p class="about-value-block__text">Third-party tested and verified. What the label says is what you get — every batch, every time.</p>
       </div>
-      <div class="commitment-item">
-        <p class="commitment-item__num">04</p>
-        <p class="commitment-item__title">Quality Sourcing</p>
-        <p class="commitment-item__text">Every raw material is vetted for purity and potency before it enters our supply chain. Third-party lab reports available on request.</p>
+    </div>
+    <div class="about-value-block">
+      <span class="about-value-block__num">04</span>
+      <div class="about-value-block__divider"></div>
+      <div class="about-value-block__content">
+        <h3 class="about-value-block__title">No Gimmicks</h3>
+        <p class="about-value-block__text">No detox teas, no magic pills, no miracle cures. Just solid nutrition science in capsule and powder form.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMITMENTS — STAGGERED 2-COL -->
+<section class="section section--base">
+  <div class="container">
+    <div class="about-commitments-split">
+      <div class="about-commitments-split__lead gsap-reveal">
+        <span class="eyebrow">Our Promises</span>
+        <h2>OUR COMMITMENTS.</h2>
+        <span class="h2-red-rule"></span>
+      </div>
+      <div class="about-commitments-split__list gsap-stagger">
+        <div class="about-commitment-row">
+          <span class="about-commitment-row__num">01</span>
+          <div>
+            <p class="about-commitment-row__title">Ingredient Transparency</p>
+            <p class="about-commitment-row__text">Full label disclosure, exact doses, no proprietary blends. You know exactly what you're taking and why.</p>
+          </div>
+        </div>
+        <div class="about-commitment-row">
+          <span class="about-commitment-row__num">02</span>
+          <div>
+            <p class="about-commitment-row__title">Community First</p>
+            <p class="about-commitment-row__text">Members get access to pricing, products, and community resources that the general public doesn't. We grow together.</p>
+          </div>
+        </div>
+        <div class="about-commitment-row">
+          <span class="about-commitment-row__num">03</span>
+          <div>
+            <p class="about-commitment-row__title">Honest Pricing</p>
+            <p class="about-commitment-row__text">Prices reflect ingredient cost and manufacturing — not ad spend. We publish our reasoning when we change a price.</p>
+          </div>
+        </div>
+        <div class="about-commitment-row">
+          <span class="about-commitment-row__num">04</span>
+          <div>
+            <p class="about-commitment-row__title">Quality Sourcing</p>
+            <p class="about-commitment-row__text">Every raw material is vetted for purity and potency before it enters our supply chain. Third-party lab reports on request.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

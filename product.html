@@ -6,7 +6,7 @@
   <title>Blood Sugar Support — Habito</title>
   <link rel="stylesheet" href="styles/main.css">
 </head>
-<body>
+<body data-page="product">
 
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar" aria-label="Main navigation">
@@ -26,27 +26,34 @@
 
 <main>
 <!-- BREADCRUMB -->
-<div class="breadcrumb">
+<div class="breadcrumb breadcrumb--light">
   <div class="container">
     <ol class="breadcrumb__list">
       <li class="breadcrumb__item"><a href="index.html">Home</a></li>
-      <li class="breadcrumb__sep" aria-hidden="true">›</li>
+      <li class="breadcrumb__sep" aria-hidden="true">
+        <svg width="6" height="10" viewBox="0 0 6 10" fill="none"><path d="M1 1l4 4-4 4" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </li>
       <li class="breadcrumb__item"><a href="all-products.html">Shop</a></li>
-      <li class="breadcrumb__sep" aria-hidden="true">›</li>
+      <li class="breadcrumb__sep" aria-hidden="true">
+        <svg width="6" height="10" viewBox="0 0 6 10" fill="none"><path d="M1 1l4 4-4 4" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </li>
       <li class="breadcrumb__item"><a href="all-products.html">Capsules</a></li>
-      <li class="breadcrumb__sep" aria-hidden="true">›</li>
+      <li class="breadcrumb__sep" aria-hidden="true">
+        <svg width="6" height="10" viewBox="0 0 6 10" fill="none"><path d="M1 1l4 4-4 4" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </li>
       <li class="breadcrumb__item breadcrumb__item--active">Blood Sugar Support</li>
     </ol>
   </div>
 </div>
 
-<!-- PRODUCT DETAIL -->
-<section class="section product-section--dark">
+<!-- PRODUCT ZONE — DARK SCIENCE PANEL -->
+<section class="product-zone">
   <div class="container">
     <div class="product-detail__grid gsap-reveal">
       <!-- LEFT: Images -->
       <div class="product-detail__media">
-        <div class="product-detail__main-image">
+        <div class="product-zone__image-wrap">
+          <div class="product-zone__glow" aria-hidden="true"></div>
           <img src="images/products/blood-sugar.jpg" alt="Blood Sugar Support" loading="lazy">
         </div>
         <div class="product-detail__thumbnails">
@@ -54,25 +61,25 @@
             <img src="images/products/blood-sugar.jpg" alt="Blood Sugar Support view 1">
           </div>
           <div class="product-detail__thumb">
-            <img src="images/products/blood-sugar-2.jpg" alt="Blood Sugar Support view 2">
+            <img src="images/products/blood-sugar-2.jpg" alt="view 2">
           </div>
           <div class="product-detail__thumb">
-            <img src="images/products/blood-sugar-3.jpg" alt="Blood Sugar Support view 3">
+            <img src="images/products/blood-sugar-3.jpg" alt="view 3">
           </div>
           <div class="product-detail__thumb">
-            <img src="images/products/blood-sugar-4.jpg" alt="Blood Sugar Support view 4">
+            <img src="images/products/blood-sugar-4.jpg" alt="view 4">
           </div>
         </div>
       </div>
 
       <!-- RIGHT: Info -->
       <div class="product-detail__info">
-        <span class="eyebrow">Capsules</span>
+        <span class="eyebrow" style="color:rgba(255,255,255,0.45);">Capsules</span>
         <h1 class="product-detail__name">Blood Sugar Support</h1>
 
         <div class="product-detail__rating">
           <span class="product-detail__stars">★★★★★</span>
-          <span>4.8 (124 reviews)</span>
+          <span style="color:rgba(255,255,255,0.45);font-size:0.875rem;">4.8 (124 reviews)</span>
         </div>
 
         <div class="product-detail__price-row">
@@ -95,40 +102,66 @@
             <span class="qty-control__value">1</span>
             <button type="button" aria-label="Increase quantity">+</button>
           </div>
-          <button class="btn btn--outline" style="flex:1;">Add to Cart</button>
+          <button class="btn btn--primary product-zone__add-btn">Add to Cart →</button>
         </div>
 
         <div class="trust-badges">
-          <div class="trust-badge"><span role="img" aria-label="Package">📦</span> Free Shipping</div>
-          <div class="trust-badge"><span role="img" aria-label="Lab">🔬</span> 3rd-Party Tested</div>
-          <div class="trust-badge"><span aria-hidden="true">↩</span> 30-Day Returns</div>
+          <div class="trust-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 8h14M5 8a2 2 0 00-2 2v6a2 2 0 002 2h14a2 2 0 002-2v-6a2 2 0 00-2-2M5 8V6a2 2 0 012-2h10a2 2 0 012 2v2"/></svg>
+            Free Shipping
+          </div>
+          <div class="trust-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            3rd-Party Tested
+          </div>
+          <div class="trust-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"/></svg>
+            30-Day Returns
+          </div>
         </div>
 
-        <p class="product-detail__desc">Support healthy blood sugar levels naturally with our clinically-dosed Blood Sugar Support formula. Featuring berberine, chromium, and Ceylon cinnamon — three of the most researched compounds for glucose metabolism and insulin sensitivity. Clean ingredients. No artificial fillers. No proprietary blends.</p>
+        <p class="product-detail__desc">Support healthy blood sugar levels naturally with our clinically-dosed formula. Featuring berberine, chromium, and Ceylon cinnamon — three of the most researched compounds for glucose metabolism and insulin sensitivity. Clean ingredients. No fillers. No proprietary blends.</p>
       </div>
     </div>
   </div>
 </section>
+
+<!-- INGREDIENT DATA BAR -->
+<div class="ingredient-data-bar gsap-stagger">
+  <div class="ingredient-data-bar__item">
+    <span class="ingredient-data-bar__dose">500mg</span>
+    <span class="ingredient-data-bar__name">Berberine HCl</span>
+  </div>
+  <div class="ingredient-data-bar__item">
+    <span class="ingredient-data-bar__dose">250mg</span>
+    <span class="ingredient-data-bar__name">Ceylon Cinnamon</span>
+  </div>
+  <div class="ingredient-data-bar__item">
+    <span class="ingredient-data-bar__dose">200mcg</span>
+    <span class="ingredient-data-bar__name">Chromium Picolinate</span>
+  </div>
+</div>
 
 <!-- KEY INGREDIENTS -->
 <section class="section section--lift">
   <div class="container">
     <div class="gsap-reveal" style="margin-bottom:40px;">
       <span class="eyebrow">What's Inside</span>
-      <h2 style="font-size:36px;">Key Ingredients</h2>
+      <h2>Key Ingredients</h2>
+      <span class="h2-red-rule"></span>
     </div>
     <div class="ingredients-grid gsap-stagger">
-      <div class="ingredient-card">
+      <div class="ingredient-card--v2">
         <p class="ingredient-card__name">Berberine HCl</p>
         <p class="ingredient-card__dosage">500mg per serving</p>
         <p class="ingredient-card__benefit">Clinically studied for glucose metabolism and insulin sensitivity. Activates AMPK — the same pathway targeted by metformin.</p>
       </div>
-      <div class="ingredient-card">
+      <div class="ingredient-card--v2">
         <p class="ingredient-card__name">Ceylon Cinnamon</p>
         <p class="ingredient-card__dosage">250mg per serving</p>
         <p class="ingredient-card__benefit">True cinnamon (not cassia) shown to reduce fasting blood glucose and improve lipid profiles in multiple RCTs.</p>
       </div>
-      <div class="ingredient-card">
+      <div class="ingredient-card--v2">
         <p class="ingredient-card__name">Chromium Picolinate</p>
         <p class="ingredient-card__dosage">200mcg per serving</p>
         <p class="ingredient-card__benefit">An essential trace mineral that enhances insulin receptor binding and improves glucose uptake into cells.</p>
@@ -148,7 +181,7 @@
       <a href="all-products.html" class="btn btn--ghost">View All →</a>
     </div>
     <div class="products-grid gsap-stagger">
-      <div class="product-card">
+      <div class="product-card product-card--v2">
         <a href="product.html" class="product-card__image-wrap">
           <img src="images/products/brain-support.jpg" alt="Brain Support" loading="lazy">
         </a>
@@ -159,7 +192,7 @@
           <a href="product.html" class="product-card__add-btn">ADD TO CART +</a>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card product-card--v2">
         <a href="product.html" class="product-card__image-wrap">
           <img src="images/products/immune-plus.jpg" alt="Immune+" loading="lazy">
         </a>
@@ -170,7 +203,7 @@
           <a href="product.html" class="product-card__add-btn">ADD TO CART +</a>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card product-card--v2">
         <a href="product.html" class="product-card__image-wrap">
           <img src="images/products/hmb-d3.jpg" alt="HMB + D3" loading="lazy">
         </a>
@@ -181,7 +214,7 @@
           <a href="product.html" class="product-card__add-btn">ADD TO CART +</a>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card product-card--v2">
         <a href="product.html" class="product-card__image-wrap">
           <img src="images/products/keto-burn.jpg" alt="Keto Burn" loading="lazy">
         </a>

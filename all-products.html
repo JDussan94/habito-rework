@@ -6,7 +6,7 @@
   <title>All Products — Habito</title>
   <link rel="stylesheet" href="styles/main.css">
 </head>
-<body>
+<body data-page="shop">
 
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar" aria-label="Main navigation">
@@ -25,15 +25,16 @@
 </nav>
 
 <main>
-<!-- PAGE HERO -->
-<section style="background:#1C1F2A;" class="catalog-hero">
-  <div class="container gsap-reveal">
-    <span class="eyebrow" style="color:rgba(255,255,255,0.45);">Habito Essentials</span>
-    <h1 style="color:#FFFFFF;margin-bottom:12px;">ALL PRODUCTS.</h1>
-    <p style="color:rgba(255,255,255,0.55);">Clean supplements. Real ingredients. No gimmicks.</p>
-    <p class="catalog-hero__count" style="color:rgba(255,255,255,0.28);">18 products across 4 categories</p>
+<!-- CATALOG HEADER — EDITORIAL STRIP -->
+<div class="catalog-header">
+  <div class="container catalog-header__row">
+    <div>
+      <span class="eyebrow">Habito Essentials</span>
+      <h1 class="catalog-header__title">ALL PRODUCTS.</h1>
+    </div>
+    <p class="catalog-header__count">18 products · 4 categories</p>
   </div>
-</section>
+</div>
 
 <!-- CATEGORY TABS -->
 <div class="category-tabs">
@@ -54,61 +55,45 @@
     <div class="catalog-layout">
 
       <!-- SIDEBAR -->
-      <aside class="catalog-sidebar">
-        <div class="filter-section">
-          <p class="filter-label">Category</p>
-          <label class="filter-option">
-            <input type="checkbox" checked>
-            <span class="filter-option-label">Capsules (11)</span>
-          </label>
-          <label class="filter-option">
-            <input type="checkbox">
-            <span class="filter-option-label">Gummies (2)</span>
-          </label>
-          <label class="filter-option">
-            <input type="checkbox">
-            <span class="filter-option-label">Liquid (2)</span>
-          </label>
-          <label class="filter-option">
-            <input type="checkbox">
-            <span class="filter-option-label">Powder (3)</span>
-          </label>
-        </div>
-        <div class="filter-section">
-          <p class="filter-label">Health Goal</p>
-          <label class="filter-option">
-            <input type="checkbox">
-            <span class="filter-option-label">Endurance</span>
-          </label>
-          <label class="filter-option">
-            <input type="checkbox">
-            <span class="filter-option-label">Strength</span>
-          </label>
-          <label class="filter-option">
-            <input type="checkbox">
-            <span class="filter-option-label">Recovery</span>
-          </label>
-          <label class="filter-option">
-            <input type="checkbox">
-            <span class="filter-option-label">Focus</span>
-          </label>
-          <label class="filter-option">
-            <input type="checkbox">
-            <span class="filter-option-label">Blood Sugar</span>
-          </label>
-          <label class="filter-option">
-            <input type="checkbox">
-            <span class="filter-option-label">Immunity</span>
-          </label>
-        </div>
-        <div class="filter-section">
-          <p class="filter-label">Price Range</p>
-          <input type="range" min="0" max="100" value="80" style="width:100%;accent-color:var(--red);">
-          <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:11px;color:var(--text-ghost);">
-            <span>$0</span><span>$80</span>
-          </div>
-        </div>
-      </aside>
+      <aside class="catalog-sidebar catalog-sidebar--v2">
+  <div class="filter-section">
+    <p class="filter-label">Category</p>
+    <label class="filter-toggle">
+      <input type="checkbox" checked>
+      <span class="filter-toggle__label">Capsules <span class="filter-toggle__count">11</span></span>
+    </label>
+    <label class="filter-toggle">
+      <input type="checkbox">
+      <span class="filter-toggle__label">Gummies <span class="filter-toggle__count">2</span></span>
+    </label>
+    <label class="filter-toggle">
+      <input type="checkbox">
+      <span class="filter-toggle__label">Liquid <span class="filter-toggle__count">2</span></span>
+    </label>
+    <label class="filter-toggle">
+      <input type="checkbox">
+      <span class="filter-toggle__label">Powder <span class="filter-toggle__count">3</span></span>
+    </label>
+  </div>
+  <div class="filter-rule"></div>
+  <div class="filter-section">
+    <p class="filter-label">Health Goal</p>
+    <label class="filter-toggle"><input type="checkbox"><span class="filter-toggle__label">Endurance</span></label>
+    <label class="filter-toggle"><input type="checkbox"><span class="filter-toggle__label">Strength</span></label>
+    <label class="filter-toggle"><input type="checkbox"><span class="filter-toggle__label">Recovery</span></label>
+    <label class="filter-toggle"><input type="checkbox"><span class="filter-toggle__label">Focus</span></label>
+    <label class="filter-toggle"><input type="checkbox"><span class="filter-toggle__label">Blood Sugar</span></label>
+    <label class="filter-toggle"><input type="checkbox"><span class="filter-toggle__label">Immunity</span></label>
+  </div>
+  <div class="filter-rule"></div>
+  <div class="filter-section">
+    <p class="filter-label">Price Range</p>
+    <input type="range" min="0" max="100" value="80" style="width:100%;accent-color:var(--red);margin:8px 0;">
+    <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-ghost);">
+      <span>$0</span><span>$80</span>
+    </div>
+  </div>
+</aside>
 
       <!-- MAIN -->
       <main>
@@ -126,7 +111,7 @@
 
         <div class="products-grid--3col gsap-stagger">
 
-          <div class="product-card">
+          <div class="product-card product-card--v2 product-card--bestseller">
             <a href="product.html" class="product-card__image-wrap">
               <img src="images/products/blood-sugar.jpg" alt="Blood Sugar Support" loading="lazy">
               <span class="product-card__badge">Best Seller</span>
@@ -139,7 +124,7 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card product-card--v2">
             <a href="product.html" class="product-card__image-wrap">
               <img src="images/products/brain-support.jpg" alt="Brain Support" loading="lazy">
             </a>
@@ -151,7 +136,7 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card product-card--v2">
             <a href="product.html" class="product-card__image-wrap">
               <img src="images/products/cleanse.jpg" alt="Cleanse" loading="lazy">
             </a>
@@ -163,7 +148,7 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card product-card--v2">
             <a href="product.html" class="product-card__image-wrap">
               <img src="images/products/hsn.jpg" alt="Hair Skin &amp; Nails" loading="lazy">
             </a>
@@ -175,7 +160,7 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card product-card--v2">
             <a href="product.html" class="product-card__image-wrap">
               <img src="images/products/hmb-d3.jpg" alt="HMB + D3" loading="lazy">
             </a>
@@ -187,7 +172,7 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card product-card--v2">
             <a href="product.html" class="product-card__image-wrap">
               <img src="images/products/immune-plus.jpg" alt="Immune+" loading="lazy">
             </a>
@@ -199,7 +184,7 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card product-card--v2">
             <a href="product.html" class="product-card__image-wrap">
               <img src="images/products/keto-burn.jpg" alt="Keto Burn" loading="lazy">
             </a>
@@ -211,7 +196,7 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card product-card--v2">
             <a href="product.html" class="product-card__image-wrap">
               <img src="images/products/libido-support.jpg" alt="Libido Support" loading="lazy">
             </a>
@@ -223,7 +208,7 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card product-card--v2">
             <a href="product.html" class="product-card__image-wrap">
               <img src="images/products/natural-burn.jpg" alt="Natural Burn" loading="lazy">
             </a>
@@ -235,7 +220,7 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card product-card--v2">
             <a href="product.html" class="product-card__image-wrap">
               <img src="images/products/testo-boost.jpg" alt="Natural Testo Boost" loading="lazy">
             </a>
@@ -247,7 +232,7 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card product-card--v2 product-card--bestseller">
             <a href="product.html" class="product-card__image-wrap">
               <img src="images/products/no2.jpg" alt="NO2" loading="lazy">
               <span class="product-card__badge">Best Seller</span>
@@ -260,7 +245,9 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="catalog-divider">GUMMIES</div>
+
+          <div class="product-card product-card--v2">
             <a href="product.html" class="product-card__image-wrap">
               <img src="images/products/apple-cider-vinegar.jpg" alt="Apple Cider Vinegar" loading="lazy">
             </a>
@@ -272,7 +259,7 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card product-card--v2 product-card--bestseller">
             <a href="product.html" class="product-card__image-wrap">
               <img src="images/products/creatine-gummies.jpg" alt="Creatine" loading="lazy">
               <span class="product-card__badge">Best Seller</span>
@@ -285,7 +272,9 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="catalog-divider">LIQUID</div>
+
+          <div class="product-card product-card--v2">
             <a href="product.html" class="product-card__image-wrap">
               <img src="images/products/trace-mineral.jpg" alt="Trace Minerals+ Fulvic Acid" loading="lazy">
             </a>
@@ -297,7 +286,7 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card product-card--v2">
             <a href="product.html" class="product-card__image-wrap">
               <img src="images/products/ionic-silver.jpg" alt="Ionic Silver+ Trace Minerals" loading="lazy">
             </a>
@@ -309,7 +298,9 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="catalog-divider">POWDER</div>
+
+          <div class="product-card product-card--v2">
             <a href="product.html" class="product-card__image-wrap">
               <img src="images/products/methylene.jpg" alt="Multi Collagen Peptides" loading="lazy">
             </a>
@@ -321,7 +312,7 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card product-card--v2">
             <a href="product.html" class="product-card__image-wrap">
               <img src="images/products/cbd.jpg" alt="Pre-Workout Sour Apple" loading="lazy">
             </a>
@@ -333,7 +324,7 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card product-card--v2">
             <a href="product.html" class="product-card__image-wrap">
               <img src="images/products/pre-workout.jpg" alt="Pre-Workout Raspberry Lemonade" loading="lazy">
             </a>

@@ -221,3 +221,130 @@ function initMarquee() {
     })();
   });
 }
+
+// Page-specific animations — dispatched by data-page attribute
+document.addEventListener('DOMContentLoaded', () => {
+  const page = document.body.dataset.page;
+  if (page === 'about') initAboutPage();
+  if (page === 'shop') initShopPage();
+  if (page === 'product') initProductPage();
+  if (page === 'join') initJoinPage();
+  if (page === 'contact') initContactPage();
+});
+
+function initAboutPage() {
+  // Stat counters — count up when scrolled into view
+  document.querySelectorAll('.about-stat__num').forEach(el => {
+    const target = parseInt(el.dataset.target, 10);
+    if (isNaN(target)) return;
+    let started = false;
+    const observer = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting && !started) {
+        started = true;
+        const duration = 1400;
+        const start = performance.now();
+        (function tick(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(eased * target).toLocaleString();
+          if (progress < 1) requestAnimationFrame(tick);
+        })(start);
+        observer.disconnect();
+      }
+    }, { threshold: 0.3 });
+    observer.observe(el);
+  });
+
+  // Hero slide-in (GSAP)
+  if (typeof gsap !== 'undefined') {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReduced) {
+      gsap.from('.about-hero__left', { x: -60, opacity: 0, duration: 0.9, ease: 'power3.out', delay: 0.1 });
+      gsap.from('.about-hero__right .about-stat', {
+        x: 60, opacity: 0, duration: 0.8, ease: 'power3.out', stagger: 0.12, delay: 0.2
+      });
+    }
+  }
+}
+function initShopPage() {}
+function initProductPage() {
+  if (typeof gsap === 'undefined') return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  // Pulsing red glow behind product image
+  const glow = document.querySelector('.product-zone__glow');
+  if (glow) {
+    gsap.to(glow, {
+      opacity: 0.5,
+      duration: 2.4,
+      ease: 'sine.inOut',
+      repeat: -1,
+      yoyo: true
+    });
+  }
+
+  // Ingredient data bar stagger on scroll
+  const bar = document.querySelector('.ingredient-data-bar');
+  if (bar) {
+    gsap.from(Array.from(bar.children), {
+      scrollTrigger: { trigger: bar, start: 'top 85%', once: true },
+      opacity: 0,
+      y: 20,
+      duration: 0.5,
+      ease: 'power2.out',
+      stagger: 0.1
+    });
+  }
+}
+function initJoinPage() {
+  // Canvas grain on red hero
+  const section = document.querySelector('.join-hero');
+  const canvas = document.querySelector('.join-hero__grain');
+  if (canvas && section) {
+    const W = section.offsetWidth || window.innerWidth;
+    const H = section.offsetHeight || 600;
+    canvas.width = W;
+    canvas.height = H;
+    const ctx = canvas.getContext('2d');
+    for (let i = 0; i < 6000; i++) {
+      const x = Math.random() * W;
+      const y = Math.random() * H;
+      const r = Math.random() * 1.8 + 0.2;
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(0,0,0,${(Math.random() * 0.5 + 0.1).toFixed(3)})`;
+      ctx.fill();
+    }
+  }
+
+  // $75 scale-in on load
+  if (typeof gsap !== 'undefined') {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReduced) {
+      gsap.from('.join-hero__price', { scale: 0.88, opacity: 0, duration: 0.9, ease: 'power3.out', delay: 0.1 });
+      gsap.from('.join-hero__items', { opacity: 0, y: 20, duration: 0.7, ease: 'power2.out', delay: 0.4 });
+    }
+  }
+}
+function initContactPage() {
+  if (typeof gsap === 'undefined') return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  gsap.from('.contact-split__left', {
+    x: -50,
+    opacity: 0,
+    duration: 0.9,
+    ease: 'power3.out',
+    delay: 0.1
+  });
+  gsap.from('.contact-split__right', {
+    x: 50,
+    opacity: 0,
+    duration: 0.9,
+    ease: 'power3.out',
+    delay: 0.2
+  });
+}
