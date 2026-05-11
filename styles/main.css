@@ -1449,7 +1449,7 @@ p {
   position: absolute;
   inset: 0;
   background-color: #1C1F2A;
-  background-image: url('images/lifestyle-athlete.jpg');
+  background-image: url('../images/lifestyle-athlete.jpg');
   background-size: cover;
   background-position: center 30%;
   filter: grayscale(1);
