@@ -1448,6 +1448,7 @@ p {
 .about-hero__photo {
   position: absolute;
   inset: 0;
+  background-color: #1C1F2A;
   background-image: url('images/about-hero.jpg');
   background-size: cover;
   background-position: center 30%;
