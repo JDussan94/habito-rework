@@ -233,39 +233,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initAboutPage() {
-  // Stat counters — count up when scrolled into view
-  document.querySelectorAll('.about-stat__num').forEach(el => {
-    const target = parseInt(el.dataset.target, 10);
-    if (isNaN(target)) return;
-    let started = false;
-    const observer = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting && !started) {
-        started = true;
-        const duration = 1400;
-        const start = performance.now();
-        (function tick(now) {
-          const elapsed = now - start;
-          const progress = Math.min(elapsed / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          el.textContent = Math.round(eased * target).toLocaleString();
-          if (progress < 1) requestAnimationFrame(tick);
-        })(start);
-        observer.disconnect();
-      }
-    }, { threshold: 0.3 });
-    observer.observe(el);
-  });
-
-  // Hero slide-in (GSAP)
-  if (typeof gsap !== 'undefined') {
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!prefersReduced) {
-      gsap.from('.about-hero__left', { x: -60, opacity: 0, duration: 0.9, ease: 'power3.out', delay: 0.1 });
-      gsap.from('.about-hero__right .about-stat', {
-        x: 60, opacity: 0, duration: 0.8, ease: 'power3.out', stagger: 0.12, delay: 0.2
-      });
-    }
-  }
+  if (typeof gsap === 'undefined') return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+  gsap.from('.about-hero__content', { y: 32, opacity: 0, duration: 1.0, ease: 'power3.out', delay: 0.15 });
 }
 function initShopPage() {}
 function initProductPage() {
